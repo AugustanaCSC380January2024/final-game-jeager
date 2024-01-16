@@ -1,16 +1,16 @@
 [gd_scene load_steps=108 format=3 uid="uid://btpuw4f8qb17n"]
 
-[ext_resource type="Texture2D" uid="uid://cqgn5w16d6jw6" path="res://assets/Skins/Player skins/Miko/Attack_1.png" id="1_4p357"]
-[ext_resource type="Texture2D" uid="uid://prpu2jcojn5o" path="res://assets/Skins/Player skins/Miko/Attack_2.png" id="2_1w1d8"]
-[ext_resource type="Texture2D" uid="uid://da5gcbpebpaa1" path="res://assets/Skins/Player skins/Miko/Attack_3.png" id="3_ij2xq"]
-[ext_resource type="Texture2D" uid="uid://blc4yv15c12yv" path="res://assets/Skins/Player skins/Miko/Dead.png" id="4_vu8m3"]
-[ext_resource type="Texture2D" uid="uid://csceec1u5enye" path="res://assets/Skins/Player skins/Miko/Fire_1.png" id="5_50sw8"]
-[ext_resource type="Texture2D" uid="uid://bh2tpwbeuhia5" path="res://assets/Skins/Player skins/Miko/Fire_2.png" id="6_c53db"]
-[ext_resource type="Texture2D" uid="uid://8hqfn7dcc74b" path="res://assets/Skins/Player skins/Miko/Hurt.png" id="7_oabct"]
-[ext_resource type="Texture2D" uid="uid://dfptrq4gbn5rh" path="res://assets/Skins/Player skins/Miko/Idle.png" id="8_a81dh"]
-[ext_resource type="Texture2D" uid="uid://cei0sbrpc7not" path="res://assets/Skins/Player skins/Miko/Idle_2.png" id="9_34gx7"]
-[ext_resource type="Texture2D" uid="uid://c6t8bmwxxymqu" path="res://assets/Skins/Player skins/Miko/Run.png" id="10_3lolv"]
-[ext_resource type="Texture2D" uid="uid://glhcbgipuqsv" path="res://assets/Skins/Player skins/Miko/Walk.png" id="11_belgi"]
+[ext_resource type="Texture2D" uid="uid://kjb60r3e144w" path="res://assets/Skins/Player skins/Miko/Attack_1.png" id="1_4p357"]
+[ext_resource type="Texture2D" uid="uid://c812pbe8i0ip7" path="res://assets/Skins/Player skins/Miko/Attack_2.png" id="2_1w1d8"]
+[ext_resource type="Texture2D" uid="uid://qq5k12hbgnsi" path="res://assets/Skins/Player skins/Miko/Attack_3.png" id="3_ij2xq"]
+[ext_resource type="Texture2D" uid="uid://ddy0w0hyjd7b8" path="res://assets/Skins/Player skins/Miko/Dead.png" id="4_vu8m3"]
+[ext_resource type="Texture2D" uid="uid://4uoyqegkfuvi" path="res://assets/Skins/Player skins/Miko/Fire_1.png" id="5_50sw8"]
+[ext_resource type="Texture2D" uid="uid://ctqo52y2roc65" path="res://assets/Skins/Player skins/Miko/Fire_2.png" id="6_c53db"]
+[ext_resource type="Texture2D" uid="uid://6uwo4cy2h87w" path="res://assets/Skins/Player skins/Miko/Hurt.png" id="7_oabct"]
+[ext_resource type="Texture2D" uid="uid://dilddbyse46oa" path="res://assets/Skins/Player skins/Miko/Idle.png" id="8_a81dh"]
+[ext_resource type="Texture2D" uid="uid://bmqeksejocbqo" path="res://assets/Skins/Player skins/Miko/Idle_2.png" id="9_34gx7"]
+[ext_resource type="Texture2D" uid="uid://bvauc8w48fiti" path="res://assets/Skins/Player skins/Miko/Run.png" id="10_3lolv"]
+[ext_resource type="Texture2D" uid="uid://brlbcw4enhxbf" path="res://assets/Skins/Player skins/Miko/Walk.png" id="11_belgi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tf6su"]
 atlas = ExtResource("1_4p357")
@@ -733,6 +733,7 @@ radius = 6.0
 height = 48.0
 
 [node name="miko" type="CharacterBody2D"]
+texture_filter = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, -27)

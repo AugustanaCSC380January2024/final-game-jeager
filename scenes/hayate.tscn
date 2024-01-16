@@ -1,14 +1,14 @@
 [gd_scene load_steps=75 format=3 uid="uid://n20hkt6h5ost"]
 
-[ext_resource type="Texture2D" uid="uid://cvfxmvi517qdf" path="res://assets/Skins/Player skins/Hayate/Attack_1.png" id="1_3ib8e"]
-[ext_resource type="Texture2D" uid="uid://w3k7ojrrfr3" path="res://assets/Skins/Player skins/Hayate/Attack_2.png" id="2_ybkqg"]
-[ext_resource type="Texture2D" uid="uid://ch1kbpotiy5oc" path="res://assets/Skins/Player skins/Hayate/Attack_3.png" id="3_o0q2e"]
-[ext_resource type="Texture2D" uid="uid://di5cyb2wyiutu" path="res://assets/Skins/Player skins/Hayate/Dead.png" id="4_uiofj"]
-[ext_resource type="Texture2D" uid="uid://bnn1hkw64ho3w" path="res://assets/Skins/Player skins/Hayate/Hurt.png" id="5_jxw0j"]
-[ext_resource type="Texture2D" uid="uid://dirqfetwnj0r2" path="res://assets/Skins/Player skins/Hayate/Idle.png" id="6_wkbxn"]
-[ext_resource type="Texture2D" uid="uid://b7ostiuwlng20" path="res://assets/Skins/Player skins/Hayate/Run.png" id="7_cv81r"]
-[ext_resource type="Texture2D" uid="uid://bvfrflcasjldu" path="res://assets/Skins/Player skins/Hayate/Shot.png" id="8_cl7id"]
-[ext_resource type="Texture2D" uid="uid://bxl2gvnardbpg" path="res://assets/Skins/Player skins/Hayate/Walk.png" id="9_155am"]
+[ext_resource type="Texture2D" uid="uid://bo3aj88tx5u53" path="res://assets/Skins/Player skins/Hayate/Attack_1.png" id="1_3ib8e"]
+[ext_resource type="Texture2D" uid="uid://pmo4a04dc82m" path="res://assets/Skins/Player skins/Hayate/Attack_2.png" id="2_ybkqg"]
+[ext_resource type="Texture2D" uid="uid://c2owuvs624un1" path="res://assets/Skins/Player skins/Hayate/Attack_3.png" id="3_o0q2e"]
+[ext_resource type="Texture2D" uid="uid://b6mp3obfaamu" path="res://assets/Skins/Player skins/Hayate/Dead.png" id="4_uiofj"]
+[ext_resource type="Texture2D" uid="uid://domdkym2jth5i" path="res://assets/Skins/Player skins/Hayate/Hurt.png" id="5_jxw0j"]
+[ext_resource type="Texture2D" uid="uid://5eqy7b8njqv" path="res://assets/Skins/Player skins/Hayate/Idle.png" id="6_wkbxn"]
+[ext_resource type="Texture2D" uid="uid://b0ocbg1dp7uo7" path="res://assets/Skins/Player skins/Hayate/Run.png" id="7_cv81r"]
+[ext_resource type="Texture2D" uid="uid://d3k8juap7io40" path="res://assets/Skins/Player skins/Hayate/Shot.png" id="8_cl7id"]
+[ext_resource type="Texture2D" uid="uid://clwbrbu2r1q6n" path="res://assets/Skins/Player skins/Hayate/Walk.png" id="9_155am"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7y7a"]
 atlas = ExtResource("1_3ib8e")
@@ -504,6 +504,7 @@ radius = 7.0
 height = 48.0
 
 [node name="hayate" type="CharacterBody2D"]
+texture_filter = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -30)
