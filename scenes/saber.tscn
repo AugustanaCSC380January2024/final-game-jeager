@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://del3lmowdfnd0" path="res://assets/Skins/Player skins/Saber/Run.png" id="6_1r60m"]
 [ext_resource type="Texture2D" uid="uid://b7pxqkfnjyxik" path="res://assets/Skins/Player skins/Saber/Walk.png" id="7_7o21s"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oba1d"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5swqr"]
 atlas = ExtResource("1_5ebev")
 region = Rect2(0, 0, 128, 128)
@@ -354,9 +356,11 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oba1d"]
-
 [node name="Saber" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.08119, 1.87267)
+shape = SubResource("CapsuleShape2D_oba1d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, -31)
@@ -364,8 +368,3 @@ sprite_frames = SubResource("SpriteFrames_egnbv")
 animation = &"attack 1"
 autoplay = "idle"
 frame_progress = 0.594664
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
-position = Vector2(-4, 31)
-scale = Vector2(1.08119, 1.87267)
-shape = SubResource("CapsuleShape2D_oba1d")
