@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://wae2wvwtw2jd"]
+
+[ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="1_03rkq"]
+[ext_resource type="Texture2D" uid="uid://b85h6j4mfgvq0" path="res://icon.svg" id="2_q5ei0"]
+[ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="3_5qfmt"]
+[ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="4_djunk"]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="hayate" parent="." instance=ExtResource("1_03rkq")]
+position = Vector2(455, 242)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(624, 314)
+scale = Vector2(10.7891, 0.492188)
+texture = ExtResource("2_q5ei0")
+
+[node name="Saber" parent="." instance=ExtResource("3_5qfmt")]
+position = Vector2(451, 135)
+
+[node name="miko" parent="." instance=ExtResource("4_djunk")]
+position = Vector2(456, 23)

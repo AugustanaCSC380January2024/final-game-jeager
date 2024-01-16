@@ -1,6 +1,7 @@
-[gd_scene load_steps=108 format=3 uid="uid://btpuw4f8qb17n"]
+[gd_scene load_steps=109 format=3 uid="uid://btpuw4f8qb17n"]
 
 [ext_resource type="Texture2D" uid="uid://kjb60r3e144w" path="res://assets/Skins/Player skins/Miko/Attack_1.png" id="1_4p357"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_j7y10"]
 [ext_resource type="Texture2D" uid="uid://c812pbe8i0ip7" path="res://assets/Skins/Player skins/Miko/Attack_2.png" id="2_1w1d8"]
 [ext_resource type="Texture2D" uid="uid://qq5k12hbgnsi" path="res://assets/Skins/Player skins/Miko/Attack_3.png" id="3_ij2xq"]
 [ext_resource type="Texture2D" uid="uid://ddy0w0hyjd7b8" path="res://assets/Skins/Player skins/Miko/Dead.png" id="4_vu8m3"]
@@ -421,7 +422,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ydbll")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack 1",
 "speed": 11.0
 }, {
@@ -734,13 +735,13 @@ height = 48.0
 
 [node name="miko" type="CharacterBody2D"]
 texture_filter = 1
+script = ExtResource("1_j7y10")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, -27)
 sprite_frames = SubResource("SpriteFrames_lpynq")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
-frame_progress = 0.0299198
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 3)

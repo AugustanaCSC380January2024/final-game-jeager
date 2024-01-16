@@ -1,6 +1,7 @@
-[gd_scene load_steps=54 format=3 uid="uid://8ck7qe1n3awd"]
+[gd_scene load_steps=55 format=3 uid="uid://8ck7qe1n3awd"]
 
 [ext_resource type="Texture2D" uid="uid://wbpamvcyejk2" path="res://assets/Skins/Player skins/Saber/Attack_1.png" id="1_5ebev"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_idhu7"]
 [ext_resource type="Texture2D" uid="uid://282j28gk0ttt" path="res://assets/Skins/Player skins/Saber/Attack_2.png" id="2_pwgys"]
 [ext_resource type="Texture2D" uid="uid://cqb37anlcm5is" path="res://assets/Skins/Player skins/Saber/Dead.png" id="3_o3vbe"]
 [ext_resource type="Texture2D" uid="uid://j8f5gy1xs16i" path="res://assets/Skins/Player skins/Saber/Hurt.png" id="4_c6rfj"]
@@ -9,6 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://b7pxqkfnjyxik" path="res://assets/Skins/Player skins/Saber/Walk.png" id="7_7o21s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oba1d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwsmf"]
+atlas = ExtResource("2_pwgys")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bxir"]
+atlas = ExtResource("2_pwgys")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs1d7"]
+atlas = ExtResource("2_pwgys")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bnm8"]
+atlas = ExtResource("2_pwgys")
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5swqr"]
 atlas = ExtResource("1_5ebev")
@@ -49,22 +66,6 @@ region = Rect2(1024, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycpk5"]
 atlas = ExtResource("1_5ebev")
 region = Rect2(1152, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bwsmf"]
-atlas = ExtResource("2_pwgys")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0bxir"]
-atlas = ExtResource("2_pwgys")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vs1d7"]
-atlas = ExtResource("2_pwgys")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4bnm8"]
-atlas = ExtResource("2_pwgys")
-region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwd4r"]
 atlas = ExtResource("3_o3vbe")
@@ -190,6 +191,23 @@ region = Rect2(768, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_bwsmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bxir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vs1d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bnm8")
+}],
+"loop": false,
+"name": &"attack 1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5swqr")
 }, {
 "duration": 1.0,
@@ -219,26 +237,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ycpk5")
 }],
-"loop": true,
-"name": &"attack 1",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bwsmf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0bxir")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vs1d7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4bnm8")
-}],
-"loop": true,
+"loop": false,
 "name": &"attack 2",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -357,6 +358,8 @@ animations = [{
 }]
 
 [node name="Saber" type="CharacterBody2D"]
+script = ExtResource("1_idhu7")
+speed = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1)
@@ -367,6 +370,5 @@ shape = SubResource("CapsuleShape2D_oba1d")
 texture_filter = 1
 position = Vector2(4, -31)
 sprite_frames = SubResource("SpriteFrames_egnbv")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
-frame_progress = 0.35376
