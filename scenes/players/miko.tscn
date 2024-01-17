@@ -757,6 +757,7 @@ animations = [{
 [node name="miko" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_v7m3s")
+health_points = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -33)
@@ -775,6 +776,7 @@ scale = Vector2(10.2461, 2.82744)
 shape = SubResource("CapsuleShape2D_k3tsx")
 
 [node name="ultimate" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_repeat = 2
 position = Vector2(95, -15)
 scale = Vector2(1.98546, 3.42755)

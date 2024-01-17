@@ -260,7 +260,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vdwtx")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
 "speed": 5.0
 }, {
@@ -274,7 +274,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_id7ui")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 6.0
 }, {
@@ -388,6 +388,7 @@ animations = [{
 
 [node name="Saber" type="CharacterBody2D"]
 script = ExtResource("1_bvcqm")
+health_points = 160
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1)
@@ -398,7 +399,7 @@ shape = SubResource("CapsuleShape2D_oba1d")
 texture_filter = 1
 position = Vector2(4, -32)
 sprite_frames = SubResource("SpriteFrames_egnbv")
-animation = &"hurt"
+animation = &"attack 2"
 autoplay = "idle"
 
 [node name="attack_hitbox" type="CollisionShape2D" parent="."]
@@ -406,6 +407,7 @@ position = Vector2(29, 0)
 shape = SubResource("CapsuleShape2D_7du4r")
 
 [node name="ultimate" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(392, -1101)
 sprite_frames = SubResource("SpriteFrames_cgt8g")
 frame_progress = 1.0

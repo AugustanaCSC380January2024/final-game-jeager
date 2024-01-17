@@ -533,6 +533,7 @@ animations = [{
 [node name="hayate" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_vt4qa")
+health_points = 130
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -30)
@@ -549,5 +550,6 @@ position = Vector2(29, 0)
 shape = SubResource("CapsuleShape2D_qwedl")
 
 [node name="ultimate" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(392, -1101)
 sprite_frames = SubResource("SpriteFrames_h1bwk")
