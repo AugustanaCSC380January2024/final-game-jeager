@@ -759,24 +759,24 @@ texture_filter = 1
 script = ExtResource("1_v7m3s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, -27)
+position = Vector2(2, -33)
 sprite_frames = SubResource("SpriteFrames_lpynq")
-animation = &"ultimate effect"
+animation = &"attack 2"
 autoplay = "idle"
+frame = 12
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 3)
 shape = SubResource("CapsuleShape2D_1ahkc")
 
-[node name="normal attack hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(58, -5)
+[node name="attack_hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(67, -6)
 scale = Vector2(10.2461, 2.82744)
 shape = SubResource("CapsuleShape2D_k3tsx")
 
 [node name="ultimate" type="AnimatedSprite2D" parent="."]
-visible = false
 texture_repeat = 2
-position = Vector2(83, -15)
+position = Vector2(95, -15)
 scale = Vector2(1.98546, 3.42755)
 sprite_frames = SubResource("SpriteFrames_v6wa7")
 animation = &"fire"

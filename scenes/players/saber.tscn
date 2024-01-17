@@ -382,7 +382,7 @@ autoplay = "idle"
 frame = 3
 frame_progress = 1.0
 
-[node name="normal attack hitbox" type="CollisionShape2D" parent="."]
+[node name="attack_hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(29, 0)
 shape = SubResource("CapsuleShape2D_7du4r")
 

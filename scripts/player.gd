@@ -5,6 +5,9 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var ultimate = $ultimate
+@onready var attack_hitbox = $attack_hitbox
+
+var is_right = true
 
 var active = true
 var player_attacking = false
@@ -20,7 +23,22 @@ func _physics_process(delta):
 		var up_down_direction = Input.get_axis("move up", "move down")
 		var animation = 0
 		if left_right_direction != 0:
+			if left_right_direction == 1:
+				if !is_right:
+					flip_sprites(false)
+				is_right = true
+			else:
+				if is_right:
+					flip_sprites(true)
+				is_right = false
+				
+				
 			animated_sprite.flip_h = (left_right_direction == -1)
+			
+			#ultimate.flip_h = left_right_direction == -1
+			
+			
+			
 			animation = abs(left_right_direction)
 		if up_down_direction != 0:
 			animation = abs(up_down_direction)
@@ -50,9 +68,15 @@ func _on_animated_sprite_2d_animation_finished():
 	if player_attacking:
 		player_attacking = false
 		if animated_sprite.animation == "attack 2":
+			player_attacking = true
 			ultimate.visible = true
 			ultimate.play("fire")
 
 func _on_ultimate_animation_finished():
 	ultimate.visible = false
 	player_attacking = false
+
+func flip_sprites(flag : bool):
+	attack_hitbox.position.x = attack_hitbox.position.x * -1
+	ultimate.position.x = ultimate.position.x * -1
+	ultimate.flip_h = flag
