@@ -1,6 +1,5 @@
-[gd_scene load_steps=76 format=3 uid="uid://n20hkt6h5ost"]
+[gd_scene load_steps=78 format=3 uid="uid://n20hkt6h5ost"]
 
-[ext_resource type="Script" path="res://scripts/hayate.gd" id="1_0qemn"]
 [ext_resource type="Texture2D" uid="uid://bo3aj88tx5u53" path="res://assets/Skins/Player skins/Hayate/Attack_1.png" id="1_3ib8e"]
 [ext_resource type="Texture2D" uid="uid://pmo4a04dc82m" path="res://assets/Skins/Player skins/Hayate/Attack_2.png" id="2_ybkqg"]
 [ext_resource type="Texture2D" uid="uid://c2owuvs624un1" path="res://assets/Skins/Player skins/Hayate/Attack_3.png" id="3_o0q2e"]
@@ -10,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://b0ocbg1dp7uo7" path="res://assets/Skins/Player skins/Hayate/Run.png" id="7_cv81r"]
 [ext_resource type="Texture2D" uid="uid://d3k8juap7io40" path="res://assets/Skins/Player skins/Hayate/Shot.png" id="8_cl7id"]
 [ext_resource type="Texture2D" uid="uid://clwbrbu2r1q6n" path="res://assets/Skins/Player skins/Hayate/Walk.png" id="9_155am"]
+
+[sub_resource type="GDScript" id="GDScript_u7yk6"]
+script/source = "extends Player
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7y7a"]
 atlas = ExtResource("1_3ib8e")
@@ -503,9 +506,15 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82ty8"]
 radius = 12.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qwedl"]
+radius = 18.0
+height = 52.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vxehh"]
+
 [node name="hayate" type="CharacterBody2D"]
 texture_filter = 1
-script = ExtResource("1_0qemn")
+script = SubResource("GDScript_u7yk6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -30)
@@ -516,3 +525,10 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 1)
 shape = SubResource("CapsuleShape2D_82ty8")
+
+[node name="normal attack hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(29, 0)
+shape = SubResource("CapsuleShape2D_qwedl")
+
+[node name="ultimate" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vxehh")

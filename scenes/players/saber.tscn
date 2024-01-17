@@ -1,7 +1,7 @@
-[gd_scene load_steps=56 format=3 uid="uid://8ck7qe1n3awd"]
+[gd_scene load_steps=57 format=3 uid="uid://8ck7qe1n3awd"]
 
 [ext_resource type="Texture2D" uid="uid://wbpamvcyejk2" path="res://assets/Skins/Player skins/Saber/Attack_1.png" id="1_5ebev"]
-[ext_resource type="Script" path="res://scripts/saber.gd" id="1_b1n64"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_bvcqm"]
 [ext_resource type="Texture2D" uid="uid://282j28gk0ttt" path="res://assets/Skins/Player skins/Saber/Attack_2.png" id="2_pwgys"]
 [ext_resource type="Texture2D" uid="uid://cqb37anlcm5is" path="res://assets/Skins/Player skins/Saber/Dead.png" id="3_o3vbe"]
 [ext_resource type="Texture2D" uid="uid://j8f5gy1xs16i" path="res://assets/Skins/Player skins/Saber/Hurt.png" id="4_c6rfj"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b7pxqkfnjyxik" path="res://assets/Skins/Player skins/Saber/Walk.png" id="7_7o21s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oba1d"]
-radius = 7.47596
+radius = 7.47595
 height = 14.9519
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwsmf"]
@@ -363,9 +363,10 @@ animations = [{
 radius = 18.0
 height = 52.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_cgt8g"]
+
 [node name="Saber" type="CharacterBody2D"]
-script = ExtResource("1_b1n64")
-speed = 200
+script = ExtResource("1_bvcqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1)
@@ -384,3 +385,6 @@ frame_progress = 1.0
 [node name="normal attack hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(29, 0)
 shape = SubResource("CapsuleShape2D_7du4r")
+
+[node name="ultimate" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cgt8g")

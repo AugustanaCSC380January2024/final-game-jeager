@@ -4,12 +4,14 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var ultimate = $ultimate
 
 var active = true
 var player_attacking = false
 
 func _ready():
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+	ultimate.animation_finished.connect(_on_ultimate_animation_finished)
 	
 func _physics_process(delta):
 	if !player_attacking:
@@ -43,9 +45,14 @@ func update_moving_animation(animation):
 	elif animation == 3:
 		animated_sprite.play("attack 2")
 		player_attacking = true
-	
 
 func _on_animated_sprite_2d_animation_finished():
 	if player_attacking:
 		player_attacking = false
-	
+		if animated_sprite.animation == "attack 2":
+			ultimate.visible = true
+			ultimate.play("fire")
+
+func _on_ultimate_animation_finished():
+	ultimate.visible = false
+	player_attacking = false
