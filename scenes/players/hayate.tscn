@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://n20hkt6h5ost"]
+[gd_scene load_steps=81 format=3 uid="uid://n20hkt6h5ost"]
 
 [ext_resource type="Texture2D" uid="uid://bo3aj88tx5u53" path="res://assets/Skins/Player skins/Hayate/Attack_1.png" id="1_3ib8e"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vt4qa"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ocbg1dp7uo7" path="res://assets/Skins/Player skins/Hayate/Run.png" id="7_cv81r"]
 [ext_resource type="Texture2D" uid="uid://d3k8juap7io40" path="res://assets/Skins/Player skins/Hayate/Shot.png" id="8_cl7id"]
 [ext_resource type="Texture2D" uid="uid://clwbrbu2r1q6n" path="res://assets/Skins/Player skins/Hayate/Walk.png" id="9_155am"]
+[ext_resource type="Texture2D" uid="uid://d0p5t5drcmlmu" path="res://assets/Skins/other/nothing.png" id="11_u1lld"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7y7a"]
 atlas = ExtResource("1_3ib8e")
@@ -507,7 +508,27 @@ radius = 12.0
 radius = 18.0
 height = 52.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_vxehh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g5ld"]
+atlas = ExtResource("11_u1lld")
+region = Rect2(0, 0, 150, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0apq"]
+atlas = ExtResource("11_u1lld")
+region = Rect2(150, 0, 150, 75)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1bwk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g5ld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0apq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 50.0
+}]
 
 [node name="hayate" type="CharacterBody2D"]
 texture_filter = 1
@@ -528,4 +549,5 @@ position = Vector2(29, 0)
 shape = SubResource("CapsuleShape2D_qwedl")
 
 [node name="ultimate" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_vxehh")
+position = Vector2(392, -1101)
+sprite_frames = SubResource("SpriteFrames_h1bwk")

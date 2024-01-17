@@ -31,14 +31,7 @@ func _physics_process(delta):
 				if is_right:
 					flip_sprites(true)
 				is_right = false
-				
-				
 			animated_sprite.flip_h = (left_right_direction == -1)
-			
-			#ultimate.flip_h = left_right_direction == -1
-			
-			
-			
 			animation = abs(left_right_direction)
 		if up_down_direction != 0:
 			animation = abs(up_down_direction)
@@ -67,10 +60,10 @@ func update_moving_animation(animation):
 func _on_animated_sprite_2d_animation_finished():
 	if player_attacking:
 		player_attacking = false
-		if animated_sprite.animation == "attack 2":
+		if (animated_sprite.animation == "attack 2"):
 			player_attacking = true
 			ultimate.visible = true
-			ultimate.play("fire")
+			ultimate.play("default")
 
 func _on_ultimate_animation_finished():
 	ultimate.visible = false

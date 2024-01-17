@@ -750,7 +750,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_3mknu")
 }],
 "loop": false,
-"name": &"fire",
+"name": &"default",
 "speed": 8.0
 }]
 
@@ -779,6 +779,3 @@ texture_repeat = 2
 position = Vector2(95, -15)
 scale = Vector2(1.98546, 3.42755)
 sprite_frames = SubResource("SpriteFrames_v6wa7")
-animation = &"fire"
-frame = 5
-frame_progress = 1.0
