@@ -1,6 +1,7 @@
+class_name Player
 extends CharacterBody2D
-
 @export var speed = 150
+
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -26,7 +27,8 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("normal attack"):
 			animation = 2
-		
+		elif Input.is_action_just_pressed("ultimate"):
+			animation = 3
 		move_and_slide()
 		update_moving_animation(animation)
 
@@ -38,6 +40,10 @@ func update_moving_animation(animation):
 	elif animation == 2:
 		animated_sprite.play("attack 1")
 		player_attacking = true
+	elif animation == 3:
+		animated_sprite.play("attack 2")
+		player_attacking = true
+	
 
 func _on_animated_sprite_2d_animation_finished():
 	if player_attacking:
