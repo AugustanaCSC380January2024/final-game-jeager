@@ -392,7 +392,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6d20g")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
 "speed": 4.0
 }, {
@@ -406,7 +406,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lm0j1")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -532,13 +532,13 @@ animations = [{
 
 [node name="hayate" type="CharacterBody2D"]
 texture_filter = 1
+position = Vector2(0, -1)
 script = ExtResource("1_vt4qa")
-health_points = 130
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_ao3xv")
-animation = &"attack 1"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -553,3 +553,16 @@ shape = SubResource("CapsuleShape2D_qwedl")
 visible = false
 position = Vector2(392, -1101)
 sprite_frames = SubResource("SpriteFrames_h1bwk")
+
+[node name="damage_taken" type="Label" parent="."]
+visible = false
+offset_left = 3.0
+offset_top = -58.0
+offset_right = 43.0
+offset_bottom = -35.0
+text = "10"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

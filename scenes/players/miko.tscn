@@ -757,7 +757,8 @@ animations = [{
 [node name="miko" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_v7m3s")
-health_points = 200
+defence = 70
+attack = 30
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -33)
@@ -781,3 +782,10 @@ texture_repeat = 2
 position = Vector2(95, -15)
 scale = Vector2(1.98546, 3.42755)
 sprite_frames = SubResource("SpriteFrames_v6wa7")
+
+[node name="damage_taken" type="Label" parent="."]
+offset_left = -3.0
+offset_top = -54.0
+offset_right = 37.0
+offset_bottom = -31.0
+text = "10"

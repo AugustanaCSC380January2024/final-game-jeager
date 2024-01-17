@@ -3,10 +3,13 @@ extends CharacterBody2D
 
 @export var speed = 150
 @export var health_points = 100
+@export var defence = 30
+@export var attack = 50
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var ultimate = $ultimate
 @onready var attack_hitbox = $attack_hitbox
+@onready var damage_taken = $damage_taken
 
 var is_right = true
 var alive = true
@@ -75,6 +78,8 @@ func _on_animated_sprite_2d_animation_finished():
 			stop_movement = true
 			ultimate.visible = true
 			ultimate.play("default")
+		if (animated_sprite.animation == "hurt" or animated_sprite.animation == "dead"):
+			damage_taken.visible = false
 
 func _on_ultimate_animation_finished():
 	ultimate.visible = false
@@ -87,9 +92,20 @@ func flip_sprites(flag : bool):
 
 func take_damage(damage):
 	if alive:
-		health_points -= damage
+		var d = damage * (1.2 - defence/150)
+		damage_taken.text = str(d)
+		damage_taken.visible = true
+		health_points -= d
 		stop_movement = true
 		update_moving_animation(4)
 		if health_points <= 0:
 			alive = false
 			update_moving_animation(5)
+
+func heal_health(heal):
+	if alive:
+		health_points += heal
+
+
+func _on_timer_timeout():
+	take_damage(20)
