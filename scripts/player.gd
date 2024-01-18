@@ -107,6 +107,5 @@ func heal_health(heal):
 	if alive:
 		health_points += heal
 
-
 func _on_timer_timeout():
 	take_damage(20)

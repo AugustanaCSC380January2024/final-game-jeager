@@ -538,7 +538,7 @@ script = ExtResource("1_vt4qa")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_ao3xv")
-animation = &"idle"
+animation = &"attack 2"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

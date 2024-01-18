@@ -778,10 +778,13 @@ shape = SubResource("CapsuleShape2D_k3tsx")
 
 [node name="ultimate" type="AnimatedSprite2D" parent="."]
 visible = false
+texture_filter = 1
 texture_repeat = 2
 position = Vector2(95, -15)
 scale = Vector2(1.98546, 3.42755)
 sprite_frames = SubResource("SpriteFrames_v6wa7")
+frame = 5
+frame_progress = 1.0
 
 [node name="damage_taken" type="Label" parent="."]
 offset_left = -3.0
