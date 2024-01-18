@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://cbbnm3cctu4sp"]
+[gd_scene load_steps=82 format=3 uid="uid://cbbnm3cctu4sp"]
 
 [ext_resource type="Texture2D" uid="uid://jdyv0ds16fda" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_fn3bg"]
 [ext_resource type="Texture2D" uid="uid://bqbfxxak8udr8" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Dead.png" id="2_e6igk"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://du6dvnxm17hne" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Idle.png" id="4_ya4i1"]
 [ext_resource type="Texture2D" uid="uid://bbb66o1cog7he" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton React.png" id="5_r6bm8"]
 [ext_resource type="Texture2D" uid="uid://dl8ncruquavvs" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Walk.png" id="6_brtyd"]
+[ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="7_gmfkt"]
+[ext_resource type="Script" path="res://scripts/states/enemyFollow.gd" id="8_ca487"]
+[ext_resource type="Script" path="res://scripts/states/enemyIdle.gd" id="9_djn1r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tunhs"]
 atlas = ExtResource("1_fn3bg")
@@ -526,14 +529,14 @@ height = 22.0
 radius = 9.0
 height = 24.0
 
-[node name="Area2D" type="Area2D"]
+[node name="skeleton" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(4, -6)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_mo775")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -551,3 +554,15 @@ offset_left = -22.0
 offset_top = -66.0
 offset_right = 18.0
 offset_bottom = -43.0
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("7_gmfkt")
+initial_state = NodePath("Follow")
+
+[node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("8_ca487")
+enemy = NodePath("../..")
+
+[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("9_djn1r")
+enemy = NodePath("../..")

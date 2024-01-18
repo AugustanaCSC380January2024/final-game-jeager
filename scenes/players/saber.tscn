@@ -386,7 +386,7 @@ animations = [{
 "speed": 50.0
 }]
 
-[node name="Saber" type="CharacterBody2D"]
+[node name="saber" type="CharacterBody2D"]
 collision_mask = 0
 script = ExtResource("1_bvcqm")
 defence = 50

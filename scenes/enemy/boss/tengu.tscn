@@ -473,7 +473,7 @@ height = 66.1997
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gfhj"]
 height = 31.8816
 
-[node name="tengu" type="Area2D"]
+[node name="tengu" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
