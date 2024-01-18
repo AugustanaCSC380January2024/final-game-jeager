@@ -25,12 +25,16 @@ func _physics_process(delta):
 	var left_right_direction = 0
 	var up_down_direction = 0
 	var animation
+	
 	if !stop_movement and alive:
 	#MOVEMENT
 		left_right_direction = Input.get_axis("move left", "move right")
 		up_down_direction = Input.get_axis("move up", "move down")
 		animation = 0
-			
+		if Input.is_action_just_pressed("normal attack"):
+			animation = 2
+		elif Input.is_action_just_pressed("ultimate"):
+			animation = 3
 	if left_right_direction != 0:
 		animation = 0
 		if left_right_direction == 1:
@@ -48,12 +52,6 @@ func _physics_process(delta):
 	velocity.x = left_right_direction * speed
 	velocity.y = up_down_direction * speed
 	
-	if (alive):
-		if Input.is_action_just_pressed("normal attack"):
-			animation = 2
-		elif Input.is_action_just_pressed("ultimate"):
-			animation = 3
-		
 	move_and_slide()
 	update_moving_animation(animation)
 
@@ -113,6 +111,9 @@ func _on_timer_timeout():
 
 func get_switch_position():
 	return switch_position.global_position
+
+func set_stop_movement(flag):
+	stop_movement = flag
 
 func is_attacking():
 	return stop_movement

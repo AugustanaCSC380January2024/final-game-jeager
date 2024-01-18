@@ -8,19 +8,17 @@ extends Node2D
 @onready var saber = saber_preload.instantiate()
 
 var curr_player: CharacterBody2D
+
 func _ready():
-	hayate.visible = false
 	miko.visible = false
 	saber.visible = false
-	hayate.set_process(false)
-	miko.set_process(false)
-	saber.set_process(false)
+	miko.set_stop_movement(true)
+	saber.set_stop_movement(true)
 	add_child(hayate)
 	add_child(miko)
 	add_child(saber)
 	curr_player = hayate
 	curr_player.position = Vector2(100, 100)
-	curr_player.visible = true
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("character 1 selected"):
@@ -34,7 +32,10 @@ func change_curr_player(new_player):
 	if (curr_player != new_player) and !curr_player.is_attacking():
 		new_player.global_position = curr_player.get_switch_position()
 		curr_player.visible = false
-		curr_player.set_process(false)
+		curr_player.set_stop_movement(true)
 		curr_player = new_player
 		curr_player.visible = true
-		curr_player.set_process(true)
+		curr_player.set_stop_movement(false)
+
+func get_curr_player():
+	return curr_player
