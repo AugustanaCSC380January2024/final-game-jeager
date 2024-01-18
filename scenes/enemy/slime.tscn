@@ -403,3 +403,9 @@ shape = SubResource("CircleShape2D_0sr3a")
 [node name="attack_hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(35, 0)
 shape = SubResource("CircleShape2D_15ics")
+
+[node name="damage_taken" type="Label" parent="."]
+offset_left = -25.0
+offset_top = -47.0
+offset_right = 15.0
+offset_bottom = -24.0
