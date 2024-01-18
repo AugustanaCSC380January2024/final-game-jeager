@@ -46,11 +46,12 @@ func _physics_process(delta):
 		animation = abs(up_down_direction)
 	velocity.x = left_right_direction * speed
 	velocity.y = up_down_direction * speed
-		
-	if Input.is_action_just_pressed("normal attack"):
-		animation = 2
-	elif Input.is_action_just_pressed("ultimate"):
-		animation = 3
+	
+	if (alive):
+		if Input.is_action_just_pressed("normal attack"):
+			animation = 2
+		elif Input.is_action_just_pressed("ultimate"):
+			animation = 3
 		
 	move_and_slide()
 	update_moving_animation(animation)
