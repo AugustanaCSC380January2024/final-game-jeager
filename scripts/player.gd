@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var ultimate = $ultimate
 @onready var attack_hitbox = $attack_hitbox
 @onready var damage_taken = $damage_taken
+@onready var switch_position = $player_switch_position
 
 var is_right = true
 var alive = true
@@ -109,3 +110,9 @@ func heal_health(heal):
 
 func _on_timer_timeout():
 	take_damage(20)
+
+func get_switch_position():
+	return switch_position.global_position
+
+func is_attacking():
+	return stop_movement

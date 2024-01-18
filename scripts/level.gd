@@ -31,9 +31,10 @@ func _physics_process(delta):
 		change_curr_player(hayate)
 
 func change_curr_player(new_player):
-	new_player.global_position = curr_player.global_position
-	curr_player.visible = false
-	curr_player.set_process(false)
-	curr_player = new_player
-	curr_player.visible = true
-	curr_player.set_process(true)
+	if (curr_player != new_player) and !curr_player.is_attacking():
+		new_player.global_position = curr_player.get_switch_position()
+		curr_player.visible = false
+		curr_player.set_process(false)
+		curr_player = new_player
+		curr_player.visible = true
+		curr_player.set_process(true)

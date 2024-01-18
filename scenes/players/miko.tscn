@@ -756,6 +756,7 @@ animations = [{
 
 [node name="miko" type="CharacterBody2D"]
 texture_filter = 1
+collision_mask = 0
 script = ExtResource("1_v7m3s")
 defence = 70
 attack = 30
@@ -791,3 +792,5 @@ offset_left = -3.0
 offset_top = -54.0
 offset_right = 37.0
 offset_bottom = -31.0
+
+[node name="player_switch_position" type="Marker2D" parent="."]

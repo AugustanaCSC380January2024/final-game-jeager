@@ -533,6 +533,7 @@ animations = [{
 [node name="hayate" type="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(0, -1)
+collision_mask = 0
 script = ExtResource("1_vt4qa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -561,5 +562,8 @@ offset_right = 43.0
 offset_bottom = -35.0
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="player_switch_position" type="Marker2D" parent="."]
+position = Vector2(-3, 1)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
