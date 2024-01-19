@@ -1,16 +1,26 @@
 extends CharacterBody2D
 class_name skeleton
 
+@onready var state_machine_follow = $"State Machine/Follow"
+@onready var animated_sprite = $AnimatedSprite2D
+
 func _physics_process(delta):
-	move_and_slide()
-	
 	if velocity.length() > 0:
-		$AnimatedSprite2D.play("walk")
+		animated_sprite.play("walk")
+		move_and_slide()
 	else:
-		$AnimatedSprite2D.play("idle")
+		if state_machine_follow.attack:
+			animated_sprite.play("attack")
+		else:
+			animated_sprite.play("idle")
 	
 	if velocity.x > 0:
-		$AnimatedSprite2D.flip_h = false
+		animated_sprite.flip_h = false
 	else:
-		$AnimatedSprite2D.flip_h = true
+		animated_sprite.flip_h = true
 		
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if animated_sprite.name == "attack":
+		state_machine_follow.attack = false
