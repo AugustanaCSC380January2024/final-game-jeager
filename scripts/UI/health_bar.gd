@@ -1,5 +1,5 @@
 extends ProgressBar
-@export var Player: CharacterBody2D
+@export var Player: CharacterBody2D 
 
 func _ready():
 	Player.connect("health_changed", _on_player_health_changed)

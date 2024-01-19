@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfqoho6fkll44"]
+
+[ext_resource type="Script" path="res://scripts/UI/specific_character_health.gd" id="1_7ochp"]
+[ext_resource type="Texture2D" uid="uid://brocy360o801q" path="res://assets/Skins/Player skins/character icon/miko_icon.png" id="2_w520w"]
+[ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="3_h6st3"]
+
+[node name="specific_character_health" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ochp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(18, 20)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_w520w")
+
+[node name="health_bar" parent="." instance=ExtResource("3_h6st3")]
+layout_mode = 1
+offset_left = 46.0
+offset_top = 15.0
+offset_right = -936.0
+offset_bottom = -695.0
