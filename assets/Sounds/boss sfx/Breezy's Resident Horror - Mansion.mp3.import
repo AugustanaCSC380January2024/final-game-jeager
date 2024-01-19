@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jwme6hpt6t14"
+path="res://.godot/imported/Breezy's Resident Horror - Mansion.mp3-1ca00a4d3ededb864bbda2949d922a51.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/boss sfx/Breezy's Resident Horror - Mansion.mp3"
+dest_files=["res://.godot/imported/Breezy's Resident Horror - Mansion.mp3-1ca00a4d3ededb864bbda2949d922a51.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

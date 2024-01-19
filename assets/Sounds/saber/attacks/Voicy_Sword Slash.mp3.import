@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dh80hsb0ysn7u"
+path="res://.godot/imported/Voicy_Sword Slash.mp3-407504b41150de6ba20a0f26f83b4cb7.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/saber/attacks/Voicy_Sword Slash.mp3"
+dest_files=["res://.godot/imported/Voicy_Sword Slash.mp3-407504b41150de6ba20a0f26f83b4cb7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

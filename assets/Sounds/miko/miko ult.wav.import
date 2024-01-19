@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dinb83ce5a8ih"
+path="res://.godot/imported/miko ult.wav-16b49bd9a6baab8448b2d4ff1d7ba9f2.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/miko/miko ult.wav"
+dest_files=["res://.godot/imported/miko ult.wav-16b49bd9a6baab8448b2d4ff1d7ba9f2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
