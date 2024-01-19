@@ -9,6 +9,9 @@ class_name enemy_follow
 @export var attack = false
 @export var player_detection_range = 300
 
+func _ready():
+	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+	
 func Physics_Update(delta: float):
 	var direction = player.global_position - enemy.global_position
 	if direction.length() < player_detection_range:
@@ -19,4 +22,9 @@ func Physics_Update(delta: float):
 			attack = true
 	else:
 		enemy.velocity = Vector2()
+		attack = false
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if animated_sprite.name == "attack":
 		attack = false
