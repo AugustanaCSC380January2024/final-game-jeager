@@ -1,0 +1,115 @@
+[gd_scene load_steps=17 format=3 uid="uid://1t02ddw5p3vd"]
+
+[ext_resource type="Texture2D" uid="uid://dwlupd564kqh2" path="res://assets/Skins/other/FlyingObelisk_no_lightnings_no_letter.png" id="1_wgra1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tefql"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(0, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh4ki"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(200, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk0g7"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(400, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knljt"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(600, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grl1a"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(800, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghjkw"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(1000, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k03hu"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(1200, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc6vj"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(1400, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw8yc"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(1600, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wer61"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(1800, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwgr6"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(2000, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vitxm"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(2200, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3omk"]
+atlas = ExtResource("1_wgra1")
+region = Rect2(2400, 0, 200, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jwwj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tefql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh4ki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk0g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knljt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grl1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghjkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k03hu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc6vj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw8yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wer61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwgr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vitxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3omk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3r70"]
+radius = 45.0
+height = 336.0
+
+[node name="checkpoint" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6jwwj")
+frame_progress = 0.506573
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_m3r70")

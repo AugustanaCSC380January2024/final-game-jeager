@@ -1,0 +1,144 @@
+[gd_scene load_steps=33 format=3 uid="uid://c72x3noeeni5l"]
+
+[ext_resource type="Texture2D" uid="uid://6bjlsy0e1j4p" path="res://assets/Skins/attack effects/Effect1/1.png" id="1_n2h8i"]
+[ext_resource type="Texture2D" uid="uid://i6tfg7b3b18u" path="res://assets/Skins/attack effects/Effect1/3.png" id="2_rx7s8"]
+[ext_resource type="Texture2D" uid="uid://pxioltjl34i2" path="res://assets/Skins/attack effects/Effect1/5.png" id="3_svhy4"]
+[ext_resource type="Texture2D" uid="uid://b4t8neb6i1l6e" path="res://assets/Skins/attack effects/Effect1/7.png" id="4_u1nql"]
+[ext_resource type="Texture2D" uid="uid://dx4myrunrkx23" path="res://assets/Skins/attack effects/Effect1/9.png" id="5_nfbxn"]
+[ext_resource type="Texture2D" uid="uid://b2d82ap7argjg" path="res://assets/Skins/attack effects/Effect1/11.png" id="6_o85sk"]
+[ext_resource type="Texture2D" uid="uid://bx2odeej5ga8" path="res://assets/Skins/attack effects/Effect1/13.png" id="7_5mjj6"]
+[ext_resource type="Texture2D" uid="uid://cvdim34miap1f" path="res://assets/Skins/attack effects/Effect1/15.png" id="8_7bu6j"]
+[ext_resource type="Texture2D" uid="uid://dr1ik8xpi5ep8" path="res://assets/Skins/attack effects/Effect1/17.png" id="9_sjgns"]
+[ext_resource type="Texture2D" uid="uid://bl8hkhdfttcgw" path="res://assets/Skins/attack effects/Effect1/19.png" id="10_4tt2n"]
+[ext_resource type="Texture2D" uid="uid://yg7spb0u8co3" path="res://assets/Skins/attack effects/Effect1/21.png" id="11_fwn8f"]
+[ext_resource type="Texture2D" uid="uid://c4h7dso4m7fi2" path="res://assets/Skins/attack effects/Effect1/23.png" id="12_sa2f1"]
+[ext_resource type="Texture2D" uid="uid://d34ve4q6v1hjv" path="res://assets/Skins/attack effects/Effect1/25.png" id="13_2tbmj"]
+[ext_resource type="Texture2D" uid="uid://fvo3ow8n05nn" path="res://assets/Skins/attack effects/Effect1/27.png" id="14_l1xog"]
+[ext_resource type="Texture2D" uid="uid://dovdrimfbl7i7" path="res://assets/Skins/attack effects/Effect1/29.png" id="15_a0qbl"]
+[ext_resource type="Texture2D" uid="uid://blk6fd3slxy6m" path="res://assets/Skins/attack effects/Effect1/31.png" id="16_4as1k"]
+[ext_resource type="Texture2D" uid="uid://dgferdaaadhkd" path="res://assets/Skins/attack effects/Effect1/33.png" id="17_wvq68"]
+[ext_resource type="Texture2D" uid="uid://b3wysexa7rnrj" path="res://assets/Skins/attack effects/Effect1/35.png" id="18_0sml7"]
+[ext_resource type="Texture2D" uid="uid://cu8k6o1bqcqmr" path="res://assets/Skins/attack effects/Effect1/37.png" id="19_l3ge4"]
+[ext_resource type="Texture2D" uid="uid://bdkkh47f4t0h5" path="res://assets/Skins/attack effects/Effect1/39.png" id="20_ypdrp"]
+[ext_resource type="Texture2D" uid="uid://dc2hshuuxbsmy" path="res://assets/Skins/attack effects/Effect1/41.png" id="21_ktnnd"]
+[ext_resource type="Texture2D" uid="uid://byvggdhhch3y8" path="res://assets/Skins/attack effects/Effect1/43.png" id="22_u8piu"]
+[ext_resource type="Texture2D" uid="uid://beohifoaa1byy" path="res://assets/Skins/attack effects/Effect1/45.png" id="23_gxo82"]
+[ext_resource type="Texture2D" uid="uid://dg3q7xdhbjtjb" path="res://assets/Skins/attack effects/Effect1/47.png" id="24_mmtcq"]
+[ext_resource type="Texture2D" uid="uid://bn1d1rp4ag6ls" path="res://assets/Skins/attack effects/Effect1/49.png" id="25_aybg6"]
+[ext_resource type="Texture2D" uid="uid://dxbskesr5mhue" path="res://assets/Skins/attack effects/Effect1/51.png" id="26_dq0av"]
+[ext_resource type="Texture2D" uid="uid://c4j32vsqq4ckd" path="res://assets/Skins/attack effects/Effect1/53.png" id="27_gdc44"]
+[ext_resource type="Texture2D" uid="uid://bmqdnayvii7fx" path="res://assets/Skins/attack effects/Effect1/55.png" id="28_s4pd2"]
+[ext_resource type="Texture2D" uid="uid://f3h4kxax25bt" path="res://assets/Skins/attack effects/Effect1/57.png" id="29_3ydek"]
+[ext_resource type="Texture2D" uid="uid://bmtuy5bg5fnbh" path="res://assets/Skins/attack effects/Effect1/59.png" id="30_0lojk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xlu2u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n2h8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rx7s8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_svhy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u1nql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nfbxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o85sk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5mjj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7bu6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sjgns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4tt2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fwn8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_sa2f1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2tbmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_l1xog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_a0qbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4as1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_wvq68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_0sml7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_l3ge4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ypdrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ktnnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_u8piu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_gxo82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_mmtcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_aybg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_dq0av")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_gdc44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_s4pd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_3ydek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_0lojk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b763"]
+radius = 18.0
+
+[node name="fireball" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xlu2u")
+autoplay = "default"
+frame_progress = 0.736561
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8b763")

@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://2ocotamxjmq2"]
+
+[ext_resource type="Texture2D" uid="uid://cj5gbr7et11yx" path="res://assets/Skins/other/Pixel purple gem.png" id="1_kg8gc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4cnl"]
+atlas = ExtResource("1_kg8gc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go2pc"]
+atlas = ExtResource("1_kg8gc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3uga"]
+atlas = ExtResource("1_kg8gc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0iun"]
+atlas = ExtResource("1_kg8gc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y045"]
+atlas = ExtResource("1_kg8gc")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7125g"]
+atlas = ExtResource("1_kg8gc")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e48k8"]
+atlas = ExtResource("1_kg8gc")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l6a5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4cnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go2pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3uga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0iun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y045")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7125g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e48k8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adbrr"]
+radius = 15.0
+
+[node name="gem" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_l6a5m")
+frame_progress = 0.0979787
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_adbrr")
