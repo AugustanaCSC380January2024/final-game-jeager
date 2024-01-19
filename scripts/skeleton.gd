@@ -18,8 +18,6 @@ func _physics_process(delta):
 		animated_sprite.flip_h = false
 	else:
 		animated_sprite.flip_h = true
-		
-
 
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.name == "attack":

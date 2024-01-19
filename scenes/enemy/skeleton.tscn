@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://jdyv0ds16fda" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_fn3bg"]
 [ext_resource type="Texture2D" uid="uid://du6dvnxm17hne" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Idle.png" id="4_ya4i1"]
 [ext_resource type="Texture2D" uid="uid://dl8ncruquavvs" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Walk.png" id="6_brtyd"]
-[ext_resource type="Script" path="res://scripts/states/enemy_follow.gd" id="7_cr6ma"]
+[ext_resource type="Script" path="res://scripts/states/enemy_follow_and_attack.gd" id="6_ntf24"]
 [ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="7_gmfkt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xl22o"]
@@ -353,7 +353,7 @@ script = ExtResource("7_gmfkt")
 initial_state = NodePath("Follow")
 
 [node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy", "animated_sprite")]
-script = ExtResource("7_cr6ma")
+script = ExtResource("6_ntf24")
 enemy = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
 
