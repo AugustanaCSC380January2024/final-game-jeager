@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
 @export var speed = 150
-@export var health_points = 100
+@export var max_health_points = 100
+@export var health_points = max_health_points
 @export var defence = 30
 @export var attack = 50
+
+signal health_changed
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var ultimate = $ultimate
@@ -97,6 +100,7 @@ func take_damage(damage):
 		health_points -= d
 		stop_movement = true
 		update_moving_animation(4)
+		health_changed.emit()
 		if health_points <= 0:
 			alive = false
 			update_moving_animation(5)
@@ -104,6 +108,7 @@ func take_damage(damage):
 func heal_health(heal):
 	if alive:
 		health_points += heal
+		health_changed.emit()
 
 func _on_timer_timeout():
 	take_damage(20)

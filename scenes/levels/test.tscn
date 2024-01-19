@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm56m60wrt8pg"]
+
+[ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="1_5akii"]
+[ext_resource type="Script" path="res://scripts/test.gd" id="1_yaxr7"]
+[ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="2_4o4gc"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_yaxr7")
+
+[node name="hayate" parent="." instance=ExtResource("1_5akii")]
+
+[node name="health_bar" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("2_4o4gc")]
+offset_left = 419.0
+offset_top = 641.0
+offset_right = 745.0
+offset_bottom = 680.0
+Player = NodePath("../hayate")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
