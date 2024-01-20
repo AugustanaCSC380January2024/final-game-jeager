@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cbbnm3cctu4sp"]
+[gd_scene load_steps=68 format=3 uid="uid://cbbnm3cctu4sp"]
 
 [ext_resource type="Texture2D" uid="uid://jdyv0ds16fda" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_fn3bg"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xdgel"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dl8ncruquavvs" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Walk.png" id="6_brtyd"]
 [ext_resource type="Script" path="res://scripts/states/enemy_follow_and_attack.gd" id="6_ntf24"]
 [ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="7_gmfkt"]
+[ext_resource type="PackedScene" uid="uid://7vc7f2i1a2k0" path="res://scenes/enemy/player_detection_area.tscn" id="9_nstoc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xl22o"]
 atlas = ExtResource("1_fn3bg")
@@ -442,7 +443,7 @@ sprite_frames = SubResource("SpriteFrames_l0gp6")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="enemy_hit_box" type="CollisionShape2D" parent="."]
+[node name="collision_box" type="CollisionShape2D" parent="."]
 position = Vector2(-1.19209e-07, 1.42857)
 scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_1u1at")
@@ -465,7 +466,9 @@ animated_sprite = NodePath("../../AnimatedSprite2D")
 [node name="damage_hit_box" type="Area2D" parent="."]
 collision_layer = 2
 
-[node name="attack_hit_box" type="CollisionShape2D" parent="damage_hit_box"]
+[node name="damage_area" type="CollisionShape2D" parent="damage_hit_box"]
 position = Vector2(11.6, 2)
 rotation = 1.309
 shape = SubResource("CircleShape2D_aybog")
+
+[node name="player_detection_area" parent="." instance=ExtResource("9_nstoc")]

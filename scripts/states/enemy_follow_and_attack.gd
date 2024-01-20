@@ -11,8 +11,11 @@ class_name enemy_follow
 @export var level_tolerance = 1
 
 @onready var damage_hit_box = $"../../damage_hit_box"
+@onready var DEFAULT_PLAYER = CharacterBody2D.new()
 
 func _ready():
+	DEFAULT_PLAYER.position = Vector2(-1000, -1000)
+	player = DEFAULT_PLAYER
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 
 func Physics_Update(delta: float):

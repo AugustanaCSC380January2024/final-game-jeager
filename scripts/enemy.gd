@@ -5,7 +5,7 @@ class_name enemy
 @onready var state_machine_follow = $"State Machine/Follow"
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var damage_hit_box = $damage_hit_box
-@onready var hit_box = $hit_box
+@onready var player_detection_area = $player_detection_area
 
 @export var max_health_points = 100
 @export var health_points = max_health_points
@@ -17,6 +17,8 @@ signal enemy_death
 
 func _ready():
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+	player_detection_area.body_entered.connect(_on_player_detection_area_body_entered)
+	player_detection_area.body_exited.connect(_on_player_detection_area_body_exited)
 
 func _physics_process(delta):
 	if !animation_playing:
@@ -61,3 +63,11 @@ func _on_animated_sprite_2d_animation_finished():
 		queue_free()
 	elif animated_sprite.animation == "hurt":
 		animation_playing = false
+
+func _on_player_detection_area_body_entered(body):
+	if body is Player:
+		state_machine_follow.player = body
+
+func _on_player_detection_area_body_exited(body):
+	if body is Player:
+		state_machine_follow.player = state_machine_follow.DEFAULT_PLAYER

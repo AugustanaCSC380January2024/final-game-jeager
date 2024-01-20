@@ -3,7 +3,6 @@ extends Node2D
 @onready var hayate = $Players/hayate
 @onready var miko = $Players/miko
 @onready var saber = $Players/saber
-@onready var state_machine_follow = $"skeleton/State Machine/Follow"
 
 var curr_player: CharacterBody2D
 
@@ -32,7 +31,6 @@ func change_curr_player(new_player):
 		curr_player = new_player
 		curr_player.visible = true
 		curr_player.set_stop_movement(false)
-		state_machine_follow.player = curr_player
 
 func get_curr_player():
 	return curr_player
