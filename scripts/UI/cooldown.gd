@@ -23,7 +23,8 @@ func _on_timer_timeout():
 
 func start_timer():
 	timer.start()
-	await get_tree().create_timer(10).timeout
-	timer.start()
+# checking to see if timer works
+	#await get_tree().create_timer(5).timeout
+	#timer.start()
 	
 	
