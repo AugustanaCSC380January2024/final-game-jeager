@@ -25,6 +25,8 @@ var stop_movement = false
 func _ready():
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 	ultimate.animation_finished.connect(_on_ultimate_animation_finished)
+	damage_hitbox.body_entered.connect(_on_damage_hit_box_body_entered)
+	damage_hitbox.body_exited.connect(_on_damage_hit_box_body_exited)
 
 func _physics_process(delta):
 	var left_right_direction = 0

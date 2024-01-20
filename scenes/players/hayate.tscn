@@ -571,5 +571,3 @@ position = Vector2(38, -7)
 shape = SubResource("CapsuleShape2D_qwedl")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="damage_hit_box" to="." method="_on_damage_hit_box_body_entered"]
-[connection signal="body_exited" from="damage_hit_box" to="." method="_on_damage_hit_box_body_exited"]
