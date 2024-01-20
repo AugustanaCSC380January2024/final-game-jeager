@@ -8,12 +8,14 @@ extends CharacterBody2D
 
 signal health_changed
 
+@onready var DAMAGE_INDICATOR = preload("res://scenes/ui/damage_indicator.tscn")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var ultimate = $ultimate
-@onready var attack_hitbox = $attack_hitbox
+@onready var damage_hitbox = $damage_hit_box
 @onready var damage_taken = $damage_taken
 @onready var switch_position = $player_switch_position
 
+var bodies_in_damage_box = []
 var is_right = true
 var alive = true
 var active = true
@@ -22,7 +24,7 @@ var stop_movement = false
 func _ready():
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 	ultimate.animation_finished.connect(_on_ultimate_animation_finished)
-	
+
 func _physics_process(delta):
 	var left_right_direction = 0
 	var up_down_direction = 0
@@ -49,6 +51,7 @@ func _physics_process(delta):
 			is_right = false
 		animated_sprite.flip_h = (left_right_direction == -1)
 		animation = abs(left_right_direction)
+
 	if up_down_direction != 0:
 		animation = abs(up_down_direction)
 	velocity.x = left_right_direction * speed
@@ -82,21 +85,24 @@ func _on_animated_sprite_2d_animation_finished():
 			ultimate.play("default")
 		if (animated_sprite.animation == "hurt" or animated_sprite.animation == "dead"):
 			damage_taken.visible = false
+		if "attack" in animated_sprite.animation:
+			for body in bodies_in_damage_box:
+				body.take_damage(attack)
+				print("damage done")
 
 func _on_ultimate_animation_finished():
 	ultimate.visible = false
 	stop_movement = false
 
 func flip_sprites(flag : bool):
-	attack_hitbox.position.x = attack_hitbox.position.x * -1
+	damage_hitbox.position.x = damage_hitbox.position.x * -1
 	ultimate.position.x = ultimate.position.x * -1
 	ultimate.flip_h = flag
 
 func take_damage(damage):
 	if alive:
-		var d = damage * (1.2 - defence/150)
-		damage_taken.text = str(d)
-		damage_taken.visible = true
+		var d = damage * (1 - defence/150)
+		spawn_dmgIndicator(d)
 		health_points -= d
 		stop_movement = true
 		update_moving_animation(4)
@@ -104,6 +110,18 @@ func take_damage(damage):
 		if health_points <= 0:
 			alive = false
 			update_moving_animation(5)
+
+func spawn_effect(EFFECT: PackedScene, effect_position):
+	if EFFECT:
+		var effect = EFFECT.instantiate()
+		get_tree().current_scene.add_child(effect)
+		effect.global_position = effect_position
+		return effect
+
+func spawn_dmgIndicator(damage: int):
+	var indicator = spawn_effect(DAMAGE_INDICATOR, global_position + Vector2(20, 10))
+	if indicator:
+		indicator.label.text = str(damage)
 
 func heal_health(heal):
 	if alive:
@@ -121,3 +139,9 @@ func set_stop_movement(flag):
 
 func is_attacking():
 	return stop_movement
+
+func _on_damage_hit_box_body_entered(body):
+	bodies_in_damage_box.append(body)
+
+func _on_damage_hit_box_body_exited(body):
+	bodies_in_damage_box.erase(body)

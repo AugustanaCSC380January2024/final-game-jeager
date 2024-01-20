@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://btpuw4f8qb17n"]
+[gd_scene load_steps=114 format=3 uid="uid://btpuw4f8qb17n"]
 
 [ext_resource type="Texture2D" uid="uid://kjb60r3e144w" path="res://assets/Skins/Player skins/Miko/Attack_1.png" id="1_4p357"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v7m3s"]
@@ -144,6 +144,10 @@ region = Rect2(1024, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_oxyc4"]
 atlas = ExtResource("4_vu8m3")
 region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr67q"]
+atlas = ExtResource("4_vu8m3")
+region = Rect2(640, 0, 320, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkvnj"]
 atlas = ExtResource("5_50sw8")
@@ -484,8 +488,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oxyc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr67q")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
 "speed": 9.0
 }, {
@@ -700,10 +707,6 @@ animations = [{
 radius = 6.0
 height = 32.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k3tsx"]
-radius = 5.56308
-height = 50.2222
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_43j5t"]
 atlas = ExtResource("6_c53db")
 region = Rect2(320, 0, 64, 64)
@@ -754,9 +757,13 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k3tsx"]
+radius = 5.56308
+height = 50.2222
+
 [node name="miko" type="CharacterBody2D"]
 texture_filter = 1
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_v7m3s")
 defence = 70
 attack = 30
@@ -764,18 +771,11 @@ attack = 30
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -33)
 sprite_frames = SubResource("SpriteFrames_lpynq")
-animation = &"attack 2"
+animation = &"dead"
 autoplay = "idle"
-frame = 12
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1ahkc")
-
-[node name="attack_hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(67, -6)
-scale = Vector2(10.2461, 2.82744)
-shape = SubResource("CapsuleShape2D_k3tsx")
 
 [node name="ultimate" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -794,3 +794,14 @@ offset_right = 37.0
 offset_bottom = -31.0
 
 [node name="player_switch_position" type="Marker2D" parent="."]
+
+[node name="damage_hit_box" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="hitbox" type="CollisionShape2D" parent="damage_hit_box"]
+position = Vector2(67, -6)
+scale = Vector2(10.2461, 2.82744)
+shape = SubResource("CapsuleShape2D_k3tsx")
+
+[connection signal="body_entered" from="damage_hit_box" to="." method="_on_damage_hit_box_body_entered"]
+[connection signal="body_exited" from="damage_hit_box" to="." method="_on_damage_hit_box_body_exited"]

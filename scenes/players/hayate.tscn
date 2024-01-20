@@ -504,10 +504,6 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82ty8"]
 radius = 12.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qwedl"]
-radius = 30.0
-height = 80.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_0g5ld"]
 atlas = ExtResource("11_u1lld")
 region = Rect2(0, 0, 150, 75)
@@ -530,10 +526,14 @@ animations = [{
 "speed": 50.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qwedl"]
+radius = 30.0
+height = 80.0
+
 [node name="hayate" type="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(0, -1)
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_vt4qa")
 health_points = 100
 
@@ -547,10 +547,6 @@ frame = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 1)
 shape = SubResource("CapsuleShape2D_82ty8")
-
-[node name="attack_hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(38, -7)
-shape = SubResource("CapsuleShape2D_qwedl")
 
 [node name="ultimate" type="AnimatedSprite2D" parent="."]
 position = Vector2(392, -1101)
@@ -567,4 +563,13 @@ offset_bottom = -35.0
 [node name="player_switch_position" type="Marker2D" parent="."]
 position = Vector2(-3, 1)
 
+[node name="damage_hit_box" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="hitbox" type="CollisionShape2D" parent="damage_hit_box"]
+position = Vector2(38, -7)
+shape = SubResource("CapsuleShape2D_qwedl")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="damage_hit_box" to="." method="_on_damage_hit_box_body_entered"]
+[connection signal="body_exited" from="damage_hit_box" to="." method="_on_damage_hit_box_body_exited"]

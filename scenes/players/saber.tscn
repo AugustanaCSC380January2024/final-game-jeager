@@ -360,10 +360,6 @@ animations = [{
 radius = 7.47595
 height = 14.9519
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7du4r"]
-radius = 18.0
-height = 52.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpgl4"]
 atlas = ExtResource("9_k0c5y")
 region = Rect2(0, 0, 150, 75)
@@ -386,8 +382,12 @@ animations = [{
 "speed": 50.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7du4r"]
+radius = 28.0
+height = 72.0
+
 [node name="saber" type="CharacterBody2D"]
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_bvcqm")
 defence = 50
 attack = 70
@@ -398,15 +398,13 @@ position = Vector2(4, -32)
 sprite_frames = SubResource("SpriteFrames_egnbv")
 animation = &"attack 2"
 autoplay = "idle"
+frame = 9
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1)
 scale = Vector2(1.08119, 1.87267)
 shape = SubResource("CapsuleShape2D_oba1d")
-
-[node name="attack_hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(29, 0)
-shape = SubResource("CapsuleShape2D_7du4r")
 
 [node name="ultimate" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -422,3 +420,13 @@ offset_bottom = -27.0
 
 [node name="player_switch_position" type="Marker2D" parent="."]
 position = Vector2(-1, 0)
+
+[node name="damage_hit_box" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="hitbox" type="CollisionShape2D" parent="damage_hit_box"]
+position = Vector2(46, -4)
+shape = SubResource("CapsuleShape2D_7du4r")
+
+[connection signal="body_entered" from="damage_hit_box" to="." method="_on_damage_hit_box_body_entered"]
+[connection signal="body_exited" from="damage_hit_box" to="." method="_on_damage_hit_box_body_exited"]
