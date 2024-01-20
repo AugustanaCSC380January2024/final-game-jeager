@@ -3,7 +3,7 @@ class_name enemy
 
 @onready var state_machine_follow = $"State Machine/Follow"
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var attack_hit_box = $attack_hit_box
+@onready var damage_hit_box = $damage_hit_box
 @onready var hit_box = $hit_box
 
 @export var max_health_points = 100
@@ -27,3 +27,5 @@ func _physics_process(delta):
 
 func take_damage(damage):
 	health_points -= damage
+
+
