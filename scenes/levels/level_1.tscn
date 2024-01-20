@@ -22,6 +22,7 @@ position = Vector2(349, 307)
 position = Vector2(533, 324)
 
 [node name="Follow" parent="skeleton/State Machine" index="0" node_paths=PackedStringArray("player")]
-player = NodePath("../../../Players/hayate")
+player = NodePath("../../../Players/hayate/player_switch_position")
 
+[editable path="Players/hayate"]
 [editable path="skeleton"]

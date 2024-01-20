@@ -26,7 +26,7 @@ func _physics_process(delta):
 
 func change_curr_player(new_player):
 	if (curr_player != new_player) and !curr_player.is_attacking():
-		new_player.global_position = curr_player.get_switch_position()
+		new_player.global_position = curr_player.global_position
 		curr_player.visible = false
 		curr_player.set_stop_movement(true)
 		curr_player = new_player

@@ -1,7 +1,7 @@
-[gd_scene load_steps=51 format=3 uid="uid://cbbnm3cctu4sp"]
+[gd_scene load_steps=52 format=3 uid="uid://cbbnm3cctu4sp"]
 
-[ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_0gikm"]
 [ext_resource type="Texture2D" uid="uid://jdyv0ds16fda" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_fn3bg"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xdgel"]
 [ext_resource type="Texture2D" uid="uid://du6dvnxm17hne" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Idle.png" id="4_ya4i1"]
 [ext_resource type="Texture2D" uid="uid://dl8ncruquavvs" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Walk.png" id="6_brtyd"]
 [ext_resource type="Script" path="res://scripts/states/enemy_follow_and_attack.gd" id="6_ntf24"]
@@ -323,11 +323,14 @@ animations = [{
 radius = 0.952381
 height = 5.42857
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_aybog"]
+radius = 16.6373
+
 [node name="skeleton" type="CharacterBody2D"]
 scale = Vector2(2.5, 2.5)
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_0gikm")
+script = ExtResource("1_xdgel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -335,8 +338,9 @@ position = Vector2(4.4, -2.8)
 sprite_frames = SubResource("SpriteFrames_l0gp6")
 animation = &"attack"
 autoplay = "idle"
+frame = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="enemy_hit_box" type="CollisionShape2D" parent="."]
 position = Vector2(-1.19209e-07, 1.42857)
 scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_1u1at")
@@ -355,3 +359,11 @@ initial_state = NodePath("Follow")
 script = ExtResource("6_ntf24")
 enemy = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="damage_hit_box" type="Area2D" parent="."]
+
+[node name="attack_hit_box" type="CollisionShape2D" parent="damage_hit_box"]
+position = Vector2(11.6, 2)
+rotation = 1.309
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_aybog")
