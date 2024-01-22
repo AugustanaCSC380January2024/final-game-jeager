@@ -763,7 +763,7 @@ height = 50.2222
 
 [node name="miko" type="CharacterBody2D"]
 texture_filter = 1
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("1_v7m3s")
 defence = 70
 attack = 30

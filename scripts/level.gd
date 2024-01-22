@@ -3,7 +3,7 @@ extends Node2D
 @onready var hayate = $Players/hayate
 @onready var miko = $Players/miko
 @onready var saber = $Players/saber
-
+@onready var camera = Camera2D.new()
 var curr_player: CharacterBody2D
 
 func _ready():
@@ -14,6 +14,8 @@ func _ready():
 	add_child(miko)
 	add_child(saber)
 	curr_player = hayate
+	camera.set_zoom(Vector2(1.5,1.5))
+	curr_player.add_child(camera)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("character 1 selected"):
@@ -28,6 +30,8 @@ func change_curr_player(new_player):
 		new_player.global_position = curr_player.global_position
 		curr_player.visible = false
 		curr_player.set_stop_movement(true)
+		curr_player.remove_child(camera)
+		new_player.add_child(camera)
 		curr_player = new_player
 		curr_player.visible = true
 		curr_player.set_stop_movement(false)
