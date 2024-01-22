@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://wae2wvwtw2jd"]
+[gd_scene load_steps=9 format=3 uid="uid://wae2wvwtw2jd"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_7f6hn"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="4_jpfrt"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="5_8o2p0"]
 [ext_resource type="PackedScene" uid="uid://cvjtbx5vno36k" path="res://scenes/enemy/normal enemy/slime.tscn" id="6_y3iqg"]
+[ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="8_ptpph"]
 
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_7f6hn")
@@ -30,5 +31,14 @@ position = Vector2(533, 324)
 
 [node name="slime" parent="." instance=ExtResource("6_y3iqg")]
 position = Vector2(1202, 234)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="health_bar" parent="CanvasLayer" node_paths=PackedStringArray("Player") instance=ExtResource("8_ptpph")]
+offset_left = 0.0
+offset_top = 667.0
+offset_right = -933.0
+offset_bottom = -26.0
+Player = NodePath("../../Players/hayate")
 
 [editable path="Players/hayate"]

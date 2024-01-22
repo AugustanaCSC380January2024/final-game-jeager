@@ -8,7 +8,6 @@ class_name enemy
 @onready var damage_hit_box_collision_box = $damage_hit_box/damage_area
 @onready var player_detection_area = $player_detection_area
 @onready var collision_box = $collision_box
-@onready var timer = $Timer
 
 @export var max_health_points = 100
 @export var health_points = max_health_points
@@ -16,7 +15,6 @@ class_name enemy
 
 var animation_playing = false
 var player_direction
-var attack_cooldown = false
 
 signal enemy_death
 
@@ -24,7 +22,6 @@ func _ready():
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 	player_detection_area.body_entered.connect(_on_player_detection_area_body_entered)
 	player_detection_area.body_exited.connect(_on_player_detection_area_body_exited)
-	timer.timeout.connect(_on_timer_timeout)
 
 func _physics_process(delta):
 	player_direction = state_machine_follow.player.position - position
@@ -33,7 +30,7 @@ func _physics_process(delta):
 			animated_sprite.play("walk")
 			move_and_slide()
 		else:
-			if state_machine_follow.attack and !attack_cooldown:
+			if state_machine_follow.attack:
 				animated_sprite.play("attack")
 				animation_playing = true
 			else:
@@ -77,8 +74,6 @@ func _on_animated_sprite_2d_animation_finished():
 		animation_playing = false
 	elif animated_sprite.animation == "attack":
 		animation_playing = false
-		attack_cooldown = true
-		timer.start()
 
 func _on_player_detection_area_body_entered(body):
 	if body is Player:
@@ -87,6 +82,4 @@ func _on_player_detection_area_body_entered(body):
 func _on_player_detection_area_body_exited(body):
 	if body is Player:
 		state_machine_follow.player = state_machine_follow.DEFAULT_PLAYER
-		
-func _on_timer_timeout():
-	attack_cooldown = false
+

@@ -526,7 +526,7 @@ initial_state = NodePath("Follow")
 script = ExtResource("6_ntf24")
 enemy = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
-timer = NodePath("../../Timer")
+timer = NodePath("")
 
 [node name="damage_hit_box" type="Area2D" parent="."]
 collision_layer = 2
@@ -537,6 +537,3 @@ rotation = 1.309
 shape = SubResource("CircleShape2D_aybog")
 
 [node name="player_detection_area" parent="." instance=ExtResource("9_nstoc")]
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0

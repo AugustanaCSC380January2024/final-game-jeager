@@ -1,4 +1,5 @@
 extends ProgressBar
+	
 @export var Player: CharacterBody2D 
 
 func _ready():
