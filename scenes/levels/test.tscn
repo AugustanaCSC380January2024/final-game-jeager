@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm56m60wrt8pg"]
+[gd_scene load_steps=7 format=3 uid="uid://cm56m60wrt8pg"]
 
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="1_5akii"]
 [ext_resource type="Script" path="res://scripts/test.gd" id="1_yaxr7"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="2_4o4gc"]
 [ext_resource type="PackedScene" uid="uid://bfqoho6fkll44" path="res://scenes/ui/specific_character_health.tscn" id="4_nwbnp"]
 [ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="5_w5bkf"]
+[ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="6_xpkna"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_yaxr7")
@@ -50,6 +51,9 @@ offset_left = 63.0
 offset_right = 358.0
 offset_bottom = 27.0
 Player = NodePath("../../miko")
+
+[node name="skeleton" parent="." instance=ExtResource("6_xpkna")]
+position = Vector2(486, 446)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
