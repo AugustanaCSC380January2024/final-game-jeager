@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://cbbnm3cctu4sp"]
+[gd_scene load_steps=78 format=3 uid="uid://cbbnm3cctu4sp"]
 
 [ext_resource type="Texture2D" uid="uid://jdyv0ds16fda" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_fn3bg"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xdgel"]
@@ -41,6 +41,46 @@ region = Rect2(258, 0, 43, 37)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrm8g"]
 atlas = ExtResource("1_fn3bg")
 region = Rect2(301, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f38b7"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(344, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fari"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(387, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30t5i"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(430, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqbpm"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(473, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5bmx"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(516, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr1le"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(559, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0sc6"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(602, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_305v6"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(645, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pnjv"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(688, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnho3"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(731, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0n5hr"]
 atlas = ExtResource("3_mon06")
@@ -256,6 +296,36 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mrm8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f38b7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fari")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30t5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqbpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5bmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr1le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0sc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_305v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pnjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnho3")
 }],
 "loop": false,
 "name": &"attack",
@@ -424,7 +494,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1u1at"]
-radius = 0.952381
+radius = 1.06667
 height = 5.42857
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aybog"]
@@ -433,14 +503,14 @@ radius = 16.6373
 [node name="skeleton" type="CharacterBody2D"]
 scale = Vector2(2.5, 2.5)
 collision_layer = 2
-collision_mask = 0
+collision_mask = 3
 script = ExtResource("1_xdgel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(4.4, -2.8)
 sprite_frames = SubResource("SpriteFrames_l0gp6")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="collision_box" type="CollisionShape2D" parent="."]
@@ -448,20 +518,15 @@ position = Vector2(-1.19209e-07, 1.42857)
 scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_1u1at")
 
-[node name="damage_taken" type="Label" parent="."]
-offset_left = -22.0
-offset_top = -66.0
-offset_right = 18.0
-offset_bottom = -43.0
-
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_gmfkt")
 initial_state = NodePath("Follow")
 
-[node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy", "animated_sprite")]
+[node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy", "animated_sprite", "timer")]
 script = ExtResource("6_ntf24")
 enemy = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
+timer = NodePath("../../Timer")
 
 [node name="damage_hit_box" type="Area2D" parent="."]
 collision_layer = 2
@@ -472,3 +537,6 @@ rotation = 1.309
 shape = SubResource("CircleShape2D_aybog")
 
 [node name="player_detection_area" parent="." instance=ExtResource("9_nstoc")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0

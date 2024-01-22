@@ -13,6 +13,7 @@ signal health_changed
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var ultimate = $ultimate
 @onready var damage_hitbox = $damage_hit_box
+@onready var damage_hitbox_collision_box = $damage_hit_box/hitbox
 @onready var damage_taken = $damage_taken
 @onready var switch_position = $player_switch_position
 
@@ -98,7 +99,7 @@ func _on_ultimate_animation_finished():
 	stop_movement = false
 
 func flip_sprites(flag : bool):
-	damage_hitbox.position.x = damage_hitbox.position.x * -1
+	damage_hitbox_collision_box.position.x = damage_hitbox_collision_box.position.x * -1
 	ultimate.position.x = ultimate.position.x * -1
 	ultimate.flip_h = flag
 
