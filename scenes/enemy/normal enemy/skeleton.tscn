@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cbbnm3cctu4sp"]
+[gd_scene load_steps=83 format=3 uid="uid://cbbnm3cctu4sp"]
 
 [ext_resource type="Texture2D" uid="uid://jdyv0ds16fda" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_fn3bg"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xdgel"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cki1qhsbbgkm0" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Hit.png" id="4_qktl0"]
 [ext_resource type="Texture2D" uid="uid://du6dvnxm17hne" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Idle.png" id="4_ya4i1"]
 [ext_resource type="Texture2D" uid="uid://dl8ncruquavvs" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Walk.png" id="6_brtyd"]
+[ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="8_lw8y2"]
 [ext_resource type="PackedScene" uid="uid://7vc7f2i1a2k0" path="res://scenes/enemy/player_detection_area.tscn" id="9_nstoc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xl22o"]
@@ -37,6 +38,70 @@ atlas = ExtResource("1_fn3bg")
 region = Rect2(258, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrm8g"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(301, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0hsa"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(0, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om6k6"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(43, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ru24"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(86, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lafmf"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(129, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s1h4"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(172, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pi8s"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(215, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylsj1"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(258, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3mhc"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(301, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy3hl"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(0, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adbu4"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(43, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oqe2"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(86, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kk4c"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(129, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83ea3"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(172, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kq1a"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(215, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6fjc"]
+atlas = ExtResource("1_fn3bg")
+region = Rect2(258, 0, 43, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rdyb"]
 atlas = ExtResource("1_fn3bg")
 region = Rect2(301, 0, 43, 37)
 
@@ -261,6 +326,64 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_i0hsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om6k6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ru24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lafmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s1h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pi8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylsj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3mhc")
+}],
+"loop": false,
+"name": &"attack 1",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy3hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adbu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oqe2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kk4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83ea3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kq1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6fjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rdyb")
+}],
+"loop": false,
+"name": &"attack 2",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0n5hr")
 }, {
 "duration": 1.0,
@@ -422,37 +545,41 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1u1at"]
-radius = 1.06667
-height = 5.42857
+radius = 2.66667
+height = 16.6667
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aybog"]
-radius = 16.6373
+radius = 32.0156
 
 [node name="skeleton" type="CharacterBody2D"]
-scale = Vector2(2.5, 2.5)
+texture_filter = 1
+position = Vector2(19, -9)
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_xdgel")
+player_detection_range = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(4.4, -2.8)
+position = Vector2(-6, -5.68434e-14)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_l0gp6")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="collision_box" type="CollisionShape2D" parent="."]
-position = Vector2(-1.19209e-07, 1.42857)
+position = Vector2(-16, 5)
 scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_1u1at")
 
 [node name="damage_hit_box" type="Area2D" parent="."]
+position = Vector2(-14, 0)
 collision_layer = 2
 
 [node name="damage_area" type="CollisionShape2D" parent="damage_hit_box"]
-position = Vector2(11.6, 2)
+position = Vector2(13, 9)
 rotation = 1.309
 shape = SubResource("CircleShape2D_aybog")
 
@@ -464,3 +591,11 @@ debug_enabled = true
 [node name="attack_cooldown_timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="health_bar" parent="." node_paths=PackedStringArray("character") instance=ExtResource("8_lw8y2")]
+modulate = Color(1, 0, 0, 1)
+offset_left = -32.0
+offset_top = -28.0
+offset_right = -6.0
+offset_bottom = -24.0
+character = NodePath("..")

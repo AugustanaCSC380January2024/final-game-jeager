@@ -35,6 +35,8 @@ func change_curr_player(new_player):
 		curr_player.remove_child(camera)
 		new_player.add_child(camera)
 		curr_player = new_player
+		health_bar.character = curr_player
+		health_bar.update_health_bar()
 		health_bar.change_player(curr_player)
 		curr_player.visible = true
 		curr_player.set_stop_movement(false)

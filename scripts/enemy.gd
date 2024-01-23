@@ -12,6 +12,7 @@ class_name enemy
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var attack_cooldown_timer = $attack_cooldown_timer
 
+
 @export var level_tolerance = 1
 @export var player: CharacterBody2D
 @export var max_health_points = 100
@@ -23,8 +24,10 @@ class_name enemy
 
 var animation_playing = false
 var player_in_damage_hit_box: CharacterBody2D
+var attacks = ["attack", "attack 1", "attack 2"]
 
 signal enemy_death
+signal health_changed
 
 func _ready():
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
@@ -39,9 +42,9 @@ func _ready():
 func _physics_process(delta):
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
 	if !animation_playing:
-		if player_in_damage_hit_box != null:
+		if player_in_damage_hit_box != null and player != DEFAULT_PLAYER:
 			if (attack_cooldown_timer.is_stopped()):
-				animated_sprite.play("attack")
+				animated_sprite.play(attacks[randi_range(0, 2)])
 				attack_cooldown_timer.start()
 				animation_playing = true
 			else:
@@ -69,6 +72,7 @@ func make_path():
 func take_damage(damage):
 	health_points -= damage
 	spawn_dmgIndicator(damage)
+	health_changed.emit()
 	if (health_points <= 0):
 		animation_playing = true
 		animated_sprite.play("death")
@@ -92,7 +96,7 @@ func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation == "death":
 		enemy_death.emit(global_position)
 		queue_free()
-	elif animated_sprite.animation == "attack":
+	elif "attack" in animated_sprite.animation:
 		if player_in_damage_hit_box != null:
 			player_in_damage_hit_box.take_damage(damage)
 	elif animated_sprite.animation == "death":

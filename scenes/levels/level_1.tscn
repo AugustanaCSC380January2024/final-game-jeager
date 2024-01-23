@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://wae2wvwtw2jd"]
+[gd_scene load_steps=10 format=3 uid="uid://wae2wvwtw2jd"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_7f6hn"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="5_8o2p0"]
 [ext_resource type="PackedScene" uid="uid://cvjtbx5vno36k" path="res://scenes/enemy/normal enemy/slime.tscn" id="6_y3iqg"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="8_ptpph"]
+[ext_resource type="PackedScene" uid="uid://dsyrshve25ask" path="res://scenes/enemy/boss/yassop.tscn" id="9_0hrvm"]
 
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_7f6hn")
@@ -18,27 +19,32 @@ scale = Vector2(2, 2)
 [node name="Players" type="Node" parent="."]
 
 [node name="saber" parent="Players" instance=ExtResource("4_jpfrt")]
-position = Vector2(320, -399)
+position = Vector2(919, -1632)
 
 [node name="hayate" parent="Players" instance=ExtResource("5_8o2p0")]
 position = Vector2(349, 307)
 
 [node name="miko" parent="Players" instance=ExtResource("3_q1siq")]
-position = Vector2(508, -457)
-
-[node name="skeleton" parent="." instance=ExtResource("2_7wrks")]
-position = Vector2(533, 324)
-
-[node name="slime" parent="." instance=ExtResource("6_y3iqg")]
-position = Vector2(136, 299)
+position = Vector2(561, -1651)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="health_bar" parent="CanvasLayer" node_paths=PackedStringArray("Player") instance=ExtResource("8_ptpph")]
+[node name="health_bar" parent="CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("8_ptpph")]
 offset_left = 0.0
 offset_top = 679.0
 offset_right = -984.0
 offset_bottom = -18.0
-Player = NodePath("../../Players/hayate")
+character = NodePath("../../Players/hayate")
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="skeleton" parent="Enemies" instance=ExtResource("2_7wrks")]
+position = Vector2(533, 324)
+
+[node name="slime" parent="Enemies" instance=ExtResource("6_y3iqg")]
+position = Vector2(136, 299)
+
+[node name="Yassop" parent="Enemies" instance=ExtResource("9_0hrvm")]
+position = Vector2(-166, 104)
 
 [editable path="Players/hayate"]
