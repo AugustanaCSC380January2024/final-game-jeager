@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cvjtbx5vno36k"]
+[gd_scene load_steps=61 format=3 uid="uid://cvjtbx5vno36k"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_jo24x"]
 [ext_resource type="Texture2D" uid="uid://cbiegq3wtrpjk" path="res://assets/Skins/Small enemies/Blue_Slime/Attack_1.png" id="1_wbghp"]
@@ -9,8 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://esitlm2vh176" path="res://assets/Skins/Small enemies/Blue_Slime/Run+Attack.png" id="6_pat5d"]
 [ext_resource type="Texture2D" uid="uid://mtj8hxlewv2b" path="res://assets/Skins/Small enemies/Blue_Slime/Run.png" id="7_0lh1y"]
 [ext_resource type="Texture2D" uid="uid://bjj3naocfgve0" path="res://assets/Skins/Small enemies/Blue_Slime/Hurt.png" id="8_64lvo"]
-[ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="9_o100d"]
-[ext_resource type="Script" path="res://scripts/states/enemy_follow_and_attack.gd" id="10_b6y4q"]
 [ext_resource type="PackedScene" uid="uid://7vc7f2i1a2k0" path="res://scenes/enemy/player_detection_area.tscn" id="11_jwrf6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11yxa"]
@@ -395,7 +393,10 @@ radius = 16.6373
 [node name="slime" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 7
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_jo24x")
+player_detection_range = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -403,16 +404,6 @@ position = Vector2(0, -47)
 sprite_frames = SubResource("SpriteFrames_jbspr")
 animation = &"walk"
 autoplay = "idle"
-
-[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("9_o100d")
-initial_state = NodePath("Follow")
-
-[node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy", "animated_sprite", "timer")]
-script = ExtResource("10_b6y4q")
-enemy = NodePath("../..")
-animated_sprite = NodePath("../../AnimatedSprite2D")
-timer = NodePath("")
 
 [node name="collision_box" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 4)
@@ -429,5 +420,7 @@ position = Vector2(11.6, 2)
 rotation = 1.309
 shape = SubResource("CircleShape2D_1h8ny")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
 [node name="player_detection_area" parent="." instance=ExtResource("11_jwrf6")]
-scale = Vector2(4, 4)

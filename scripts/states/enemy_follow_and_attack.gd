@@ -9,20 +9,14 @@ class_name enemy_follow
 @export var attack = false
 @export var player_detection_range = 300
 @export var level_tolerance = 1
-@export var timer: Timer
 
 @onready var damage_hit_box = $"../../damage_hit_box"
 @onready var DEFAULT_PLAYER = CharacterBody2D.new()
-
-
-var attack_timer = Timer.new()
 
 func _ready():
 	DEFAULT_PLAYER.position = Vector2(-1000, -1000)
 	player = DEFAULT_PLAYER
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
-	attack_timer.wait_time = 2
-	attack_timer.autostart = false
 
 func Physics_Update(delta: float):
 	var direction = player.global_position - enemy.global_position
@@ -36,9 +30,6 @@ func Physics_Update(delta: float):
 			if (abs(verticle_difference) > level_tolerance):
 				enemy.velocity = Vector2(0, -sign(verticle_difference)) * move_speed
 				attack = false
-			#
-			#if !timer.is_stopped():
-				#attack = false
 	else:
 		enemy.velocity = Vector2()
 		attack = false
@@ -46,5 +37,6 @@ func Physics_Update(delta: float):
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation == "attack":
 		var direction = player.global_position - enemy.global_position
+		print("hereeeee")
 		if direction.length() < attack_range:
 			player.take_damage(enemy.damage)

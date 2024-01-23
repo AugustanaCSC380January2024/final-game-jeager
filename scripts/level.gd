@@ -4,9 +4,9 @@ extends Node2D
 @onready var miko = $Players/miko
 @onready var saber = $Players/saber
 @onready var camera = Camera2D.new()
+@onready var health_bar = $CanvasLayer/health_bar
 
 var curr_player: CharacterBody2D
-var health_bar
 
 func _ready():
 	miko.visible = false
@@ -35,7 +35,7 @@ func change_curr_player(new_player):
 		curr_player.set_stop_movement(true)
 		curr_player.remove_child(camera)
 		new_player.add_child(camera)
-		health_bar.player = curr_player
+		health_bar.Player = curr_player
 		curr_player = new_player
 		curr_player.visible = true
 		curr_player.set_stop_movement(false)

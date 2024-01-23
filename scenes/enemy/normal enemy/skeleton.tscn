@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://cbbnm3cctu4sp"]
+[gd_scene load_steps=68 format=3 uid="uid://cbbnm3cctu4sp"]
 
 [ext_resource type="Texture2D" uid="uid://jdyv0ds16fda" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_fn3bg"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xdgel"]
@@ -41,46 +41,6 @@ region = Rect2(258, 0, 43, 37)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrm8g"]
 atlas = ExtResource("1_fn3bg")
 region = Rect2(301, 0, 43, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f38b7"]
-atlas = ExtResource("1_fn3bg")
-region = Rect2(344, 0, 43, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6fari"]
-atlas = ExtResource("1_fn3bg")
-region = Rect2(387, 0, 43, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_30t5i"]
-atlas = ExtResource("1_fn3bg")
-region = Rect2(430, 0, 43, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eqbpm"]
-atlas = ExtResource("1_fn3bg")
-region = Rect2(473, 0, 43, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g5bmx"]
-atlas = ExtResource("1_fn3bg")
-region = Rect2(516, 0, 43, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sr1le"]
-atlas = ExtResource("1_fn3bg")
-region = Rect2(559, 0, 43, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n0sc6"]
-atlas = ExtResource("1_fn3bg")
-region = Rect2(602, 0, 43, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_305v6"]
-atlas = ExtResource("1_fn3bg")
-region = Rect2(645, 0, 43, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0pnjv"]
-atlas = ExtResource("1_fn3bg")
-region = Rect2(688, 0, 43, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qnho3"]
-atlas = ExtResource("1_fn3bg")
-region = Rect2(731, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0n5hr"]
 atlas = ExtResource("3_mon06")
@@ -296,36 +256,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mrm8g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f38b7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6fari")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_30t5i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eqbpm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g5bmx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sr1le")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n0sc6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_305v6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0pnjv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qnho3")
 }],
 "loop": false,
 "name": &"attack",
@@ -504,6 +434,8 @@ radius = 16.6373
 scale = Vector2(2.5, 2.5)
 collision_layer = 2
 collision_mask = 7
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_xdgel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -522,11 +454,10 @@ shape = SubResource("CapsuleShape2D_1u1at")
 script = ExtResource("7_gmfkt")
 initial_state = NodePath("Follow")
 
-[node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy", "animated_sprite", "timer")]
+[node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy", "animated_sprite")]
 script = ExtResource("6_ntf24")
 enemy = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
-timer = NodePath("")
 
 [node name="damage_hit_box" type="Area2D" parent="."]
 collision_layer = 2
@@ -535,5 +466,8 @@ collision_layer = 2
 position = Vector2(11.6, 2)
 rotation = 1.309
 shape = SubResource("CircleShape2D_aybog")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [node name="player_detection_area" parent="." instance=ExtResource("9_nstoc")]

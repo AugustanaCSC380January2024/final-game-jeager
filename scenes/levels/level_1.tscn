@@ -30,7 +30,7 @@ position = Vector2(508, -457)
 position = Vector2(533, 324)
 
 [node name="slime" parent="." instance=ExtResource("6_y3iqg")]
-position = Vector2(1202, 234)
+position = Vector2(136, 299)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
