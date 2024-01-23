@@ -21,7 +21,6 @@ func _process(delta):
 func _on_timer_timeout():
 	label.set_text(str(cooldown_time).pad_decimals(2))
 	
-
 func start_timer():
 	timer.start()
 # checking to see if timer works

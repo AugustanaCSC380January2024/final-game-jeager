@@ -36,9 +36,9 @@ position = Vector2(136, 299)
 
 [node name="health_bar" parent="CanvasLayer" node_paths=PackedStringArray("Player") instance=ExtResource("8_ptpph")]
 offset_left = 0.0
-offset_top = 667.0
-offset_right = -933.0
-offset_bottom = -26.0
+offset_top = 679.0
+offset_right = -984.0
+offset_bottom = -18.0
 Player = NodePath("../../Players/hayate")
 
 [editable path="Players/hayate"]

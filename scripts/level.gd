@@ -19,7 +19,6 @@ func _ready():
 	camera.set_zoom(Vector2(1.5,1.5))
 	curr_player.add_child(camera)
 
-
 func _physics_process(delta):
 	if Input.is_action_just_pressed("character 1 selected"):
 		change_curr_player(saber)
@@ -35,10 +34,8 @@ func change_curr_player(new_player):
 		curr_player.set_stop_movement(true)
 		curr_player.remove_child(camera)
 		new_player.add_child(camera)
-		health_bar.Player = curr_player
-
 		curr_player = new_player
-		health_bar.Player = curr_player
+		health_bar.change_player(curr_player)
 		curr_player.visible = true
 		curr_player.set_stop_movement(false)
 

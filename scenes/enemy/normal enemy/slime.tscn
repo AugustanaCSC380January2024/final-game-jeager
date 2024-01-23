@@ -424,3 +424,7 @@ shape = SubResource("CircleShape2D_1h8ny")
 debug_enabled = true
 
 [node name="player_detection_area" parent="." instance=ExtResource("11_jwrf6")]
+
+[node name="attack_cooldown_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

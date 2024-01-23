@@ -1,9 +1,10 @@
 extends ProgressBar
-	
+class_name HealthBar
+
 @export var Player: CharacterBody2D 
 
 func _ready():
-	Player.connect("health_changed", _on_player_health_changed)
+	Player.connect("health_changed", update_health_bar)
 	update_health_bar()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,6 +17,7 @@ func update_health_bar():
 		# Set the progress bar value based on the ratio
 		value = health_ratio*100
 
-# Signal handler for player health change
-func _on_player_health_changed():
+func change_player(new_player):
+	Player = new_player
+	Player.connect("health_changed", update_health_bar)
 	update_health_bar()

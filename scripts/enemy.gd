@@ -10,6 +10,7 @@ class_name enemy
 @onready var collision_box = $collision_box
 @onready var DEFAULT_PLAYER = CharacterBody2D.new()
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
+@onready var attack_cooldown_timer = $attack_cooldown_timer
 
 @export var level_tolerance = 1
 @export var player: CharacterBody2D
@@ -39,8 +40,12 @@ func _physics_process(delta):
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
 	if !animation_playing:
 		if player_in_damage_hit_box != null:
-			animated_sprite.play("attack")
-			animation_playing = true
+			if (attack_cooldown_timer.is_stopped()):
+				animated_sprite.play("attack")
+				attack_cooldown_timer.start()
+				animation_playing = true
+			else:
+				animated_sprite.play("idle")
 		elif (player != DEFAULT_PLAYER):
 			make_path()
 			var distance = player.global_position - position

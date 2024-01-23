@@ -531,9 +531,10 @@ radius = 30.0
 height = 80.0
 
 [node name="hayate" type="CharacterBody2D"]
+y_sort_enabled = true
 texture_filter = 1
 position = Vector2(0, -1)
-collision_mask = 7
+collision_mask = 6
 script = ExtResource("1_vt4qa")
 health_points = 100
 
