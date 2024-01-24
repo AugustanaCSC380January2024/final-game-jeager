@@ -35,6 +35,13 @@ offset_right = -982.0
 offset_bottom = -18.0
 character = NodePath("../../hayate")
 
+[node name="press_shoot_label" type="Label" parent="CanvasLayer"]
+offset_left = 526.0
+offset_top = 693.0
+offset_right = 689.0
+offset_bottom = 716.0
+text = "Press Space To Shoot"
+
 [node name="hayate" parent="." instance=ExtResource("3_a7lok")]
 position = Vector2(899, 515)
 collision_mask = 7
@@ -48,3 +55,4 @@ position = Vector2(-76, -267)
 collision_mask = 7
 
 [editable path="TileMap"]
+[editable path="hayate"]
