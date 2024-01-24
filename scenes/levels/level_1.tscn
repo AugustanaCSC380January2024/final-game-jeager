@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="3_q1siq"]
 [ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="4_jpfrt"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="5_8o2p0"]
-[ext_resource type="PackedScene" uid="uid://cvjtbx5vno36k" path="res://scenes/levels/slime.tscn" id="6_y3iqg"]
+[ext_resource type="PackedScene" uid="uid://cvjtbx5vno36k" path="res://scenes/enemy/normal enemy/slime.tscn" id="6_y3iqg"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="8_ptpph"]
 [ext_resource type="PackedScene" uid="uid://dsyrshve25ask" path="res://scenes/enemy/boss/yassop.tscn" id="9_0hrvm"]
 

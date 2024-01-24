@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ogo63q6fdc44"]
+[gd_scene load_steps=7 format=3 uid="uid://cox6efsegd0u1"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_1xb3k"]
 [ext_resource type="PackedScene" uid="uid://cqlyq21dufm6" path="res://scenes/levels/catacomb.tscn" id="1_5w3yu"]

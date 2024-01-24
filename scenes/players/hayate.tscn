@@ -531,7 +531,6 @@ radius = 13.0
 height = 32.0
 
 [node name="hayate" type="CharacterBody2D"]
-y_sort_enabled = true
 texture_filter = 1
 position = Vector2(0, -1)
 collision_mask = 6
@@ -539,6 +538,7 @@ script = ExtResource("1_vt4qa")
 health_points = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_ao3xv")
 animation = &"attack 1"

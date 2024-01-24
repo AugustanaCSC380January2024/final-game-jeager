@@ -15,3 +15,4 @@ func _on_timer_timeout():
 func _on_body_entered(body):
 	if body.get_class() == "CharacterBody2D":
 		body.take_damage(50)
+	queue_free()
