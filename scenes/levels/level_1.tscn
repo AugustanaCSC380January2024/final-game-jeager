@@ -22,7 +22,7 @@ scale = Vector2(2, 2)
 position = Vector2(919, -1632)
 
 [node name="hayate" parent="Players" instance=ExtResource("5_8o2p0")]
-position = Vector2(349, 307)
+position = Vector2(-1656, 96)
 
 [node name="miko" parent="Players" instance=ExtResource("3_q1siq")]
 position = Vector2(561, -1651)
@@ -30,9 +30,9 @@ position = Vector2(561, -1651)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="health_bar" parent="CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("8_ptpph")]
-offset_left = 0.0
+offset_left = 2.0
 offset_top = 679.0
-offset_right = -984.0
+offset_right = -982.0
 offset_bottom = -18.0
 character = NodePath("../../Players/hayate")
 
