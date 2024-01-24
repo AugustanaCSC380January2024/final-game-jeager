@@ -51,14 +51,14 @@ func _physics_process(delta):
 			if !is_right:
 				flip_sprites(false)
 				if name == "hayate":
-					$arrow_spawn_position.position *= -1
+					$arrow_spawn_position.position.x *= -1
 					arrow_direction = 1
 			is_right = true
 		else:
 			if is_right:
 				flip_sprites(true)
 				if name == "hayate":
-					$arrow_spawn_position.position *= -1
+					$arrow_spawn_position.position.x *= -1
 					arrow_direction = -1
 			is_right = false
 		animated_sprite.flip_h = (left_right_direction == -1)
@@ -98,7 +98,7 @@ func _on_animated_sprite_2d_animation_finished():
 		if (animated_sprite.animation == "hurt" or animated_sprite.animation == "dead"):
 			damage_taken.visible = false
 		if "attack" in animated_sprite.animation:
-			if get_name() == "hayate":
+			if get_name() == "hayate" and animated_sprite.animation == "attack 1":
 				shoot_arrow.emit(arrow_direction)
 			else:
 				for body in bodies_in_damage_box:
@@ -114,6 +114,9 @@ func flip_sprites(flag : bool):
 	damage_hitbox_collision_box.position.x = damage_hitbox_collision_box.position.x * -1
 	ultimate.position.x = ultimate.position.x * -1
 	ultimate.flip_h = flag
+	if name == "hayate":
+		$RayCast2D.position.x *= -1
+		$RayCast2D.target_position *= -1
 
 func take_damage(damage):
 	if alive:

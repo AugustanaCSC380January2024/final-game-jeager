@@ -12,6 +12,7 @@ func _ready():
 func _physics_process(delta):
 	position.x += delta * arrow_speed
 
+
 func _on_timer_timeout():
 	queue_free()
 
@@ -25,6 +26,8 @@ func change_arrow_direction(val):
 	if val < 0:
 		arrow_speed = -arrow_speed
 		sprite.flip_h = true
+		$CollisionShape2D.position *= -1
 	else:
 		arrow_speed = abs(arrow_speed)
 		sprite.flip_h = false
+	

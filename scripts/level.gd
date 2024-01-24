@@ -55,7 +55,6 @@ func _on_shoot_arrow(arrow_direction):
 	new_arrow.change_arrow_direction(arrow_direction)
 	new_arrow.global_position = arrow_spawn_location.global_position
 
-
 func _on_ray_cast_2d_enemy_detected():
 	$CanvasLayer/press_shoot_label.visible = true
 
