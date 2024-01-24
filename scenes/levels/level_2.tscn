@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ogo63q6fdc44"]
+[gd_scene load_steps=9 format=3 uid="uid://cox6efsegd0u1"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_1xb3k"]
 [ext_resource type="PackedScene" uid="uid://cqlyq21dufm6" path="res://scenes/levels/catacomb.tscn" id="1_5w3yu"]
 [ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="2_5tl7t"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="3_a7lok"]
+[ext_resource type="PackedScene" uid="uid://ddwbitdru0pmb" path="res://scenes/other/fire_column.tscn" id="3_fhvlv"]
 [ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="4_tvhkt"]
+[ext_resource type="PackedScene" uid="uid://bf8bhot6qwca1" path="res://scenes/other/moon_tower.tscn" id="4_yxx5g"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="5_qyae3"]
 
 [node name="level 2" type="Node2D"]
@@ -14,6 +16,15 @@ script = ExtResource("1_1xb3k")
 [node name="TileMap" parent="." instance=ExtResource("1_5w3yu")]
 position = Vector2(-62, 62)
 scale = Vector2(2, 2)
+
+[node name="fire column" parent="TileMap" instance=ExtResource("3_fhvlv")]
+position = Vector2(-335.5, -14)
+
+[node name="fire column2" parent="TileMap" instance=ExtResource("3_fhvlv")]
+position = Vector2(-335.5, 79)
+
+[node name="MoonTower" parent="TileMap" instance=ExtResource("4_yxx5g")]
+position = Vector2(863.5, -1.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
