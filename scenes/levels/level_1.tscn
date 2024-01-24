@@ -22,7 +22,8 @@ scale = Vector2(2, 2)
 position = Vector2(919, -1632)
 
 [node name="hayate" parent="Players" instance=ExtResource("5_8o2p0")]
-position = Vector2(-1656, 96)
+position = Vector2(-1473, 64)
+collision_mask = 7
 
 [node name="miko" parent="Players" instance=ExtResource("3_q1siq")]
 position = Vector2(561, -1651)
