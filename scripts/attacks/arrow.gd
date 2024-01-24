@@ -1,7 +1,9 @@
 extends Area2D
 
 @onready var arrow_timer = $Timer
-var arrow_speed = 620
+@onready var sprite = $Sprite2D
+
+@export var arrow_speed = 620
 
 func _ready():
 	arrow_timer.start()
@@ -18,3 +20,10 @@ func _on_body_entered(body):
 	elif body.get_class() == "TileMap":
 		queue_free()
 
+func change_arrow_direction(val):
+	if val < 0:
+		arrow_speed = -arrow_speed
+		sprite.flip_h = true
+	else:
+		arrow_speed = abs(arrow_speed)
+		sprite.flip_h = false

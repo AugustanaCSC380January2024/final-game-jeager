@@ -23,6 +23,7 @@ var is_right = true
 var alive = true
 var active = true
 var stop_movement = false
+var arrow_direction = 1
 
 func _ready():
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
@@ -49,10 +50,16 @@ func _physics_process(delta):
 		if left_right_direction == 1:
 			if !is_right:
 				flip_sprites(false)
+				if name == "hayate":
+					$arrow_spawn_position.position *= -1
+					arrow_direction = 1
 			is_right = true
 		else:
 			if is_right:
 				flip_sprites(true)
+				if name == "hayate":
+					$arrow_spawn_position.position *= -1
+					arrow_direction = -1
 			is_right = false
 		animated_sprite.flip_h = (left_right_direction == -1)
 		animation = abs(left_right_direction)
@@ -92,7 +99,7 @@ func _on_animated_sprite_2d_animation_finished():
 			damage_taken.visible = false
 		if "attack" in animated_sprite.animation:
 			if get_name() == "hayate":
-				shoot_arrow.emit()
+				shoot_arrow.emit(arrow_direction)
 			else:
 				for body in bodies_in_damage_box:
 					body.take_damage(attack)

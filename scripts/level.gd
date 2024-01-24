@@ -36,6 +36,7 @@ func change_curr_player(new_player):
 		curr_player.set_stop_movement(true)
 		curr_player.remove_child(camera)
 		new_player.add_child(camera)
+		curr_player.global_position = Vector2(-10000, -10000)
 		curr_player = new_player
 		health_bar.character = curr_player
 		health_bar.update_health_bar()
@@ -46,7 +47,8 @@ func change_curr_player(new_player):
 func get_curr_player():
 	return curr_player
 
-func _on_shoot_arrow():
+func _on_shoot_arrow(arrow_direction):
 	var new_arrow = arrow.instantiate()
 	add_child(new_arrow)
-	new_arrow.position = arrow_spawn_location.global_position
+	new_arrow.change_arrow_direction(arrow_direction)
+	new_arrow.global_position = arrow_spawn_location.global_position
