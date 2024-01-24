@@ -1,18 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg4dicwhqwuht"]
+[gd_scene load_steps=7 format=3 uid="uid://cox6efsegd0u1"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_1xb3k"]
-[ext_resource type="PackedScene" uid="uid://balxxj4bj500x" path="res://scenes/levels/catacomb.tscn" id="1_5w3yu"]
+[ext_resource type="PackedScene" uid="uid://cqlyq21dufm6" path="res://scenes/levels/catacomb.tscn" id="1_5w3yu"]
 [ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="2_5tl7t"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="3_a7lok"]
 [ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="4_tvhkt"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="5_qyae3"]
 
 [node name="level 2" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_1xb3k")
-
-[node name="TileMap" parent="." instance=ExtResource("1_5w3yu")]
-position = Vector2(-40, 6)
-scale = Vector2(2, 2)
 
 [node name="Players" type="Node" parent="."]
 
@@ -20,7 +17,7 @@ scale = Vector2(2, 2)
 position = Vector2(773, -1149)
 
 [node name="hayate" parent="Players" instance=ExtResource("3_a7lok")]
-position = Vector2(-515, 49)
+position = Vector2(1029, 611)
 collision_mask = 7
 
 [node name="miko" parent="Players" instance=ExtResource("4_tvhkt")]
@@ -34,5 +31,8 @@ offset_top = 679.0
 offset_right = -982.0
 offset_bottom = -18.0
 character = NodePath("../../Players/hayate")
+
+[node name="catacombs" parent="." instance=ExtResource("1_5w3yu")]
+scale = Vector2(2, 2)
 
 [editable path="Players/hayate"]

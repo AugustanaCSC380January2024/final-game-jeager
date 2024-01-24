@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bf8bhot6qwca1"]
+[gd_scene load_steps=17 format=3 uid="uid://bf8bhot6qwca1"]
 
 [ext_resource type="Texture2D" uid="uid://cqn8w4kn8t5sg" path="res://assets/Skins/other/RedMoonTower_free_idle_animation..png" id="1_3we4b"]
 
@@ -89,10 +89,20 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7cex4"]
 
+[sub_resource type="Gradient" id="Gradient_a2gvl"]
+offsets = PackedFloat32Array(0, 0.75)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0jfci"]
+gradient = SubResource("Gradient_a2gvl")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="MoonTower" type="Area2D"]
 y_sort_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_m6btu")
 animation = &"idle"
@@ -104,3 +114,10 @@ position = Vector2(1, 45)
 rotation = 1.62095
 scale = Vector2(1.74554, 1.74554)
 shape = SubResource("CapsuleShape2D_7cex4")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1, -15)
+scale = Vector2(1.84118, 1.84118)
+color = Color(1, 0, 0, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_0jfci")

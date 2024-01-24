@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddwbitdru0pmb"]
+[gd_scene load_steps=19 format=3 uid="uid://ddwbitdru0pmb"]
 
 [ext_resource type="Texture2D" uid="uid://ur8xr00tfjph" path="res://assets/Skins/other/fire_column_medium/fire_column_medium_1.png" id="1_65t10"]
 [ext_resource type="Texture2D" uid="uid://euiswi6ljrq7" path="res://assets/Skins/other/fire_column_medium/fire_column_medium_2.png" id="2_jc0em"]
@@ -84,6 +84,16 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bg5vx"]
 height = 48.0
 
+[sub_resource type="Gradient" id="Gradient_2vq0u"]
+offsets = PackedFloat32Array(0, 0.83)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_urxof"]
+gradient = SubResource("Gradient_2vq0u")
+fill = 1
+fill_from = Vector2(0.5, 0.518293)
+fill_to = Vector2(0.0487805, 0.121951)
+
 [node name="fire column" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -94,3 +104,9 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
 shape = SubResource("CapsuleShape2D_bg5vx")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 19)
+color = Color(0.937255, 0.494118, 0.294118, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_urxof")
