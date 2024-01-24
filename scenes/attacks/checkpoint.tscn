@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://1t02ddw5p3vd"]
+[gd_scene load_steps=18 format=3 uid="uid://1t02ddw5p3vd"]
 
 [ext_resource type="Texture2D" uid="uid://dwlupd564kqh2" path="res://assets/Skins/other/FlyingObelisk_no_lightnings_no_letter.png" id="1_wgra1"]
 
@@ -105,7 +105,11 @@ animations = [{
 radius = 45.0
 height = 336.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ncnoi"]
+radius = 101.0
+
 [node name="checkpoint" type="Area2D"]
+y_sort_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6jwwj")
@@ -114,3 +118,9 @@ frame_progress = 0.975515
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_m3r70")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 183)
+shape = SubResource("CircleShape2D_ncnoi")
