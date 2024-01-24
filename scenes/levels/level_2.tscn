@@ -11,17 +11,9 @@
 y_sort_enabled = true
 script = ExtResource("1_1xb3k")
 
-[node name="Players" type="Node" parent="."]
-
-[node name="saber" parent="Players" instance=ExtResource("2_5tl7t")]
-position = Vector2(773, -1149)
-
-[node name="hayate" parent="Players" instance=ExtResource("3_a7lok")]
-position = Vector2(1029, 611)
-collision_mask = 7
-
-[node name="miko" parent="Players" instance=ExtResource("4_tvhkt")]
-position = Vector2(561, -1651)
+[node name="TileMap" parent="." instance=ExtResource("1_5w3yu")]
+position = Vector2(-62, 62)
+scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -30,9 +22,18 @@ offset_left = 2.0
 offset_top = 679.0
 offset_right = -982.0
 offset_bottom = -18.0
-character = NodePath("../../Players/hayate")
+character = NodePath("../../hayate")
 
-[node name="catacombs" parent="." instance=ExtResource("1_5w3yu")]
-scale = Vector2(2, 2)
+[node name="hayate" parent="." instance=ExtResource("3_a7lok")]
+position = Vector2(899, 515)
+collision_mask = 7
 
-[editable path="Players/hayate"]
+[node name="miko" parent="." instance=ExtResource("4_tvhkt")]
+position = Vector2(159, -298)
+collision_mask = 7
+
+[node name="saber" parent="." instance=ExtResource("2_5tl7t")]
+position = Vector2(-76, -267)
+collision_mask = 7
+
+[editable path="TileMap"]

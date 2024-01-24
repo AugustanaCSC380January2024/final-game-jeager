@@ -1,8 +1,8 @@
 extends Node2D
 
-@onready var hayate = $Players/hayate
-@onready var miko = $Players/miko
-@onready var saber = $Players/saber
+@onready var hayate = $hayate
+@onready var miko = $miko
+@onready var saber = $saber
 @onready var camera = Camera2D.new()
 @onready var health_bar = $CanvasLayer/health_bar
 
