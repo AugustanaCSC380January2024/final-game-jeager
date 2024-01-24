@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://bf8bhot6qwca1"]
+
+[ext_resource type="Texture2D" uid="uid://cqn8w4kn8t5sg" path="res://assets/Skins/other/RedMoonTower_free_idle_animation..png" id="1_3we4b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku1h0"]
+atlas = ExtResource("1_3we4b")
+region = Rect2(0, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ctum"]
+atlas = ExtResource("1_3we4b")
+region = Rect2(100, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa1ej"]
+atlas = ExtResource("1_3we4b")
+region = Rect2(200, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmjax"]
+atlas = ExtResource("1_3we4b")
+region = Rect2(300, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcmdx"]
+atlas = ExtResource("1_3we4b")
+region = Rect2(400, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ysg5"]
+atlas = ExtResource("1_3we4b")
+region = Rect2(500, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr1fx"]
+atlas = ExtResource("1_3we4b")
+region = Rect2(600, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h82x"]
+atlas = ExtResource("1_3we4b")
+region = Rect2(700, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x03f8"]
+atlas = ExtResource("1_3we4b")
+region = Rect2(800, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ihp0"]
+atlas = ExtResource("1_3we4b")
+region = Rect2(900, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_667r5"]
+atlas = ExtResource("1_3we4b")
+region = Rect2(1000, 0, 100, 140)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6btu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku1h0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ctum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa1ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmjax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcmdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ysg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr1fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h82x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x03f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ihp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_667r5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7cex4"]
+
+[node name="MoonTower" type="Area2D"]
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_m6btu")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.000938098
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 45)
+rotation = 1.62095
+scale = Vector2(1.74554, 1.74554)
+shape = SubResource("CapsuleShape2D_7cex4")
