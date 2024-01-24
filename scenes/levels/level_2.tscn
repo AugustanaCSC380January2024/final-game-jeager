@@ -18,13 +18,15 @@ scale = Vector2(2, 2)
 
 [node name="saber" parent="Players" instance=ExtResource("2_5tl7t")]
 position = Vector2(773, -1149)
+collision_mask = 3
 
 [node name="hayate" parent="Players" instance=ExtResource("3_a7lok")]
 position = Vector2(-515, 49)
-collision_mask = 7
+collision_mask = 3
 
 [node name="miko" parent="Players" instance=ExtResource("4_tvhkt")]
 position = Vector2(561, -1651)
+collision_mask = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

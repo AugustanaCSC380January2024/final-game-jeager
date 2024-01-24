@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://d32c8kqoc35k5"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b4qosryy2sp42"]
 
 [ext_resource type="Texture2D" uid="uid://3tsuuh3gwcv4" path="res://assets/Map tileset/RF_Catacombs_v1.0/decorative.png" id="1_w8oqi"]
 [ext_resource type="Texture2D" uid="uid://b1johwq0g8xjn" path="res://assets/Map tileset/RF_Catacombs_v1.0/mainlevbuild.png" id="2_d1gnv"]

@@ -1,11 +1,12 @@
 extends Node2D
 
-@onready var hayate = $Players/hayate
-@onready var miko = $Players/miko
-@onready var saber = $Players/saber
+@onready var hayate = $hayate
+@onready var miko = $miko
+@onready var saber = $saber
 @onready var camera = Camera2D.new()
 @onready var health_bar = $CanvasLayer/health_bar
-
+@onready var arrow = preload("res://scenes/attacks/arrow.tscn")
+@onready var arrow_spawn_location = $hayate/arrow_spawn_position
 var curr_player: CharacterBody2D
 
 func _ready():
@@ -18,6 +19,7 @@ func _ready():
 	curr_player = hayate
 	camera.set_zoom(Vector2(1.5,1.5))
 	curr_player.add_child(camera)
+	hayate.shoot_arrow.connect(_on_shoot_arrow)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("character 1 selected"):
@@ -43,3 +45,8 @@ func change_curr_player(new_player):
 
 func get_curr_player():
 	return curr_player
+
+func _on_shoot_arrow():
+	var new_arrow = arrow.instantiate()
+	add_child(new_arrow)
+	new_arrow.position = arrow_spawn_location.global_position

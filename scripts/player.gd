@@ -8,6 +8,7 @@ class_name Player
 @export var attack = 50
 
 signal health_changed
+signal shoot_arrow
 
 @onready var DAMAGE_INDICATOR = preload("res://scenes/ui/damage_indicator.tscn")
 @onready var animated_sprite = $AnimatedSprite2D
@@ -90,9 +91,13 @@ func _on_animated_sprite_2d_animation_finished():
 		if (animated_sprite.animation == "hurt" or animated_sprite.animation == "dead"):
 			damage_taken.visible = false
 		if "attack" in animated_sprite.animation:
-			for body in bodies_in_damage_box:
-				body.take_damage(attack)
-				print("damage done")
+			if get_name() == "hayate":
+				shoot_arrow.emit()
+			else:
+				for body in bodies_in_damage_box:
+					body.take_damage(attack)
+					if get_name() != "miko":
+						break
 
 func _on_ultimate_animation_finished():
 	ultimate.visible = false
@@ -131,9 +136,6 @@ func heal_health(heal):
 	if alive:
 		health_points += heal
 		health_changed.emit()
-
-func _on_timer_timeout():
-	take_damage(20)
 
 func get_switch_position():
 	return switch_position.global_position

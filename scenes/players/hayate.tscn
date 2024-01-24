@@ -526,9 +526,9 @@ animations = [{
 "speed": 50.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qwedl"]
-radius = 30.0
-height = 80.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwq7n"]
+radius = 13.0
+height = 32.0
 
 [node name="hayate" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -541,9 +541,9 @@ health_points = 100
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_ao3xv")
-animation = &"attack 2"
+animation = &"attack 1"
 autoplay = "idle"
-frame = 3
+frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 1)
@@ -559,8 +559,6 @@ offset_top = -58.0
 offset_right = 43.0
 offset_bottom = -35.0
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="player_switch_position" type="Marker2D" parent="."]
 position = Vector2(-3, 1)
 
@@ -568,7 +566,9 @@ position = Vector2(-3, 1)
 collision_mask = 2
 
 [node name="hitbox" type="CollisionShape2D" parent="damage_hit_box"]
-position = Vector2(38, -7)
-shape = SubResource("CapsuleShape2D_qwedl")
+position = Vector2(36, -19)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_xwq7n")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="arrow_spawn_position" type="Marker2D" parent="."]
+position = Vector2(39, -18)
