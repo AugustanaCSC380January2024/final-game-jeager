@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cox6efsegd0u1"]
+[gd_scene load_steps=10 format=3 uid="uid://ogo63q6fdc44"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_1xb3k"]
 [ext_resource type="PackedScene" uid="uid://cqlyq21dufm6" path="res://scenes/levels/catacomb.tscn" id="1_5w3yu"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="4_tvhkt"]
 [ext_resource type="PackedScene" uid="uid://bf8bhot6qwca1" path="res://scenes/other/moon_tower.tscn" id="4_yxx5g"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="5_qyae3"]
+[ext_resource type="Script" path="res://scripts/RayCast.gd" id="7_uktjt"]
 
 [node name="level 2" type="Node2D"]
 y_sort_enabled = true
@@ -38,6 +39,12 @@ character = NodePath("../../hayate")
 [node name="hayate" parent="." instance=ExtResource("3_a7lok")]
 position = Vector2(899, 515)
 collision_mask = 7
+
+[node name="RayCast2D" type="RayCast2D" parent="hayate"]
+position = Vector2(39, -18)
+target_position = Vector2(290, -1)
+collision_mask = 2
+script = ExtResource("7_uktjt")
 
 [node name="miko" parent="." instance=ExtResource("4_tvhkt")]
 position = Vector2(159, -298)

@@ -20,6 +20,8 @@ func _ready():
 	camera.set_zoom(Vector2(1.5,1.5))
 	curr_player.add_child(camera)
 	hayate.shoot_arrow.connect(_on_shoot_arrow)
+	$hayate/RayCast2D.enemy_detected.connect(_on_ray_cast_2d_enemy_detected)
+	$hayate/RayCast2D.enemy_not_detected.connect(_on_ray_cast_2d_enemy_not_detected)	
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("character 1 selected"):
@@ -52,3 +54,11 @@ func _on_shoot_arrow(arrow_direction):
 	add_child(new_arrow)
 	new_arrow.change_arrow_direction(arrow_direction)
 	new_arrow.global_position = arrow_spawn_location.global_position
+
+
+func _on_ray_cast_2d_enemy_detected():
+	$CanvasLayer/press_shoot_label.visible = true
+
+func _on_ray_cast_2d_enemy_not_detected():
+	$CanvasLayer/press_shoot_label.visible = false
+	
