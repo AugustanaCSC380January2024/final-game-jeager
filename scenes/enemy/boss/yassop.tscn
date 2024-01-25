@@ -1,6 +1,6 @@
 [gd_scene load_steps=76 format=3 uid="uid://dsyrshve25ask"]
 
-[ext_resource type="Script" path="res://scripts/boss.gd" id="1_djvvx"]
+[ext_resource type="Script" path="res://scripts/yassop.gd" id="1_djvvx"]
 [ext_resource type="Texture2D" uid="uid://dkvpiitojftyl" path="res://assets/Skins/Boss skins/Yassop/Attack_1.png" id="1_vxqcn"]
 [ext_resource type="Texture2D" uid="uid://dfmuuxtwl6tqm" path="res://assets/Skins/Boss skins/Yassop/Attack_2.png" id="2_yq2f7"]
 [ext_resource type="Texture2D" uid="uid://71sr2rkpeqrn" path="res://assets/Skins/Boss skins/Yassop/Dart.png" id="3_ojxwh"]
@@ -519,7 +519,7 @@ autoplay = "idle"
 frame = 2
 
 [node name="collision_box" type="CollisionShape2D" parent="."]
-position = Vector2(11, -10)
+position = Vector2(12, 10)
 shape = SubResource("CapsuleShape2D_kichj")
 
 [node name="damage_hit_box" type="Area2D" parent="."]
@@ -532,7 +532,7 @@ shape = SubResource("CapsuleShape2D_30ld4")
 [node name="player_detection_area" parent="." instance=ExtResource("11_ies3u")]
 
 [node name="attack_cooldown_timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 2.0
 one_shot = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
