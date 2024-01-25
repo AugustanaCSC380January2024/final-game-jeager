@@ -1,6 +1,6 @@
 [gd_scene load_steps=76 format=3 uid="uid://dsyrshve25ask"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_qxagm"]
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_djvvx"]
 [ext_resource type="Texture2D" uid="uid://dkvpiitojftyl" path="res://assets/Skins/Boss skins/Yassop/Attack_1.png" id="1_vxqcn"]
 [ext_resource type="Texture2D" uid="uid://dfmuuxtwl6tqm" path="res://assets/Skins/Boss skins/Yassop/Attack_2.png" id="2_yq2f7"]
 [ext_resource type="Texture2D" uid="uid://71sr2rkpeqrn" path="res://assets/Skins/Boss skins/Yassop/Dart.png" id="3_ojxwh"]
@@ -273,7 +273,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -296,7 +296,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack 1",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -313,7 +313,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack 2",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -338,7 +338,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -358,7 +358,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"disguise",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -378,7 +378,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"disguise_back",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -389,7 +389,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 2.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -412,7 +412,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -441,7 +441,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -487,7 +487,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"walk",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kichj"]
@@ -495,26 +495,28 @@ radius = 24.0
 height = 118.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30ld4"]
-radius = 65.0
-height = 130.0
+radius = 22.0
+height = 112.0
 
 [node name="Yassop" type="CharacterBody2D"]
 texture_filter = 1
 collision_layer = 2
 collision_mask = 7
-script = ExtResource("1_qxagm")
-max_health_points = 150
-health_points = 150
-damage = 40
+script = ExtResource("1_djvvx")
+max_health_points = 1000
+health_points = 1000
+damage = 60
 player_detection_range = 5
+move_speed = 50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(11, -34)
 scale = Vector2(2.04167, 2.04167)
 sprite_frames = SubResource("SpriteFrames_kuamb")
-animation = &"idle"
+animation = &"shoot"
 autoplay = "idle"
+frame = 2
 
 [node name="collision_box" type="CollisionShape2D" parent="."]
 position = Vector2(11, -10)
@@ -523,13 +525,14 @@ shape = SubResource("CapsuleShape2D_kichj")
 [node name="damage_hit_box" type="Area2D" parent="."]
 
 [node name="damage_area" type="CollisionShape2D" parent="damage_hit_box"]
-position = Vector2(73, -5)
+position = Vector2(66, -10)
+rotation = -1.57079
 shape = SubResource("CapsuleShape2D_30ld4")
 
 [node name="player_detection_area" parent="." instance=ExtResource("11_ies3u")]
 
 [node name="attack_cooldown_timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 one_shot = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -541,3 +544,6 @@ offset_top = -86.0
 offset_right = 44.0
 offset_bottom = -82.0
 character = NodePath("..")
+
+[node name="dart_spawn_location" type="Marker2D" parent="."]
+position = Vector2(37, 13)

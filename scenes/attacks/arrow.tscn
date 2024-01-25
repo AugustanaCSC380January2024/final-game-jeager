@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://diluk215sbteu"]
 
 [ext_resource type="Texture2D" uid="uid://c85dore82lgso" path="res://assets/Skins/Player skins/Hayate/Arrow.png" id="1_cxbav"]
-[ext_resource type="Script" path="res://scripts/attacks/arrow.gd" id="1_g01br"]
+[ext_resource type="Script" path="res://scripts/attacks/projectiles.gd" id="1_okcvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkgjv"]
 size = Vector2(17.5, 13)
@@ -32,7 +32,7 @@ color_ramp = SubResource("GradientTexture1D_b4fav")
 
 [node name="arrow" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_g01br")
+script = ExtResource("1_okcvq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(19.75, 0)
@@ -49,6 +49,3 @@ one_shot = true
 position = Vector2(-20, 0)
 amount = 150
 process_material = SubResource("ParticleProcessMaterial_moj23")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

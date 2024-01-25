@@ -6,6 +6,7 @@ extends Node2D
 @onready var camera = Camera2D.new()
 @onready var health_bar = $CanvasLayer/health_bar
 @onready var arrow = preload("res://scenes/attacks/arrow.tscn")
+@onready var dart = preload("res://scenes/attacks/dart.tscn")
 @onready var arrow_spawn_location = $hayate/arrow_spawn_position
 var curr_player: CharacterBody2D
 
@@ -22,6 +23,7 @@ func _ready():
 	hayate.shoot_arrow.connect(_on_shoot_arrow)
 	$hayate/RayCast2D.enemy_detected.connect(_on_ray_cast_2d_enemy_detected)
 	$hayate/RayCast2D.enemy_not_detected.connect(_on_ray_cast_2d_enemy_not_detected)	
+	$Enemies/Yassop.shoot_dart.connect(_on_shoot_dart)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("character 1 selected"):
@@ -52,8 +54,14 @@ func get_curr_player():
 func _on_shoot_arrow(arrow_direction):
 	var new_arrow = arrow.instantiate()
 	add_child(new_arrow)
-	new_arrow.change_arrow_direction(arrow_direction)
+	new_arrow.change_projectile_direction(arrow_direction)
 	new_arrow.global_position = arrow_spawn_location.global_position
+
+func _on_shoot_dart(dart_direction):
+	var new_dart = dart.instantiate()
+	add_child(new_dart)
+	new_dart.change_projectile_direction(dart_direction)
+	new_dart.global_position = $Enemies/Yassop/dart_spawn_location.global_position
 
 func _on_ray_cast_2d_enemy_detected():
 	$CanvasLayer/press_shoot_label.visible = true
