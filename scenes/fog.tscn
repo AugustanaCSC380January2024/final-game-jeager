@@ -25,6 +25,7 @@ scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2(720, 480)
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
 material = SubResource("ShaderMaterial_b36y0")
