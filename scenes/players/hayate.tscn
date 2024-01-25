@@ -503,8 +503,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82ty8"]
-radius = 9.0
-height = 37.9695
+radius = 22.1025
+height = 44.205
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0g5ld"]
 atlas = ExtResource("11_u1lld")
@@ -548,7 +548,7 @@ autoplay = "idle"
 frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 18)
+position = Vector2(-3, 12)
 rotation = 1.53074
 shape = SubResource("CapsuleShape2D_82ty8")
 
