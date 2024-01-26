@@ -110,9 +110,7 @@ func _on_animated_sprite_2d_animation_finished():
 	elif "attack" in animated_sprite.animation:
 		if player_in_damage_hit_box != null:
 			player_in_damage_hit_box.take_damage(damage)
-	elif animated_sprite.animation == "death":
-		enemy_death.emit(global_position)
-		queue_free()
+
 	if animated_sprite.animation != "disguise" and animated_sprite.animation != "shoot":
 		animation_playing = false
 

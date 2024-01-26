@@ -23,7 +23,7 @@ extends CharacterBody2D
 
 var animation_playing = false
 var player_in_damage_hit_box: CharacterBody2D
-var attacks = ["attack", "attack 1", "attack 2"]
+var attacks = ["attack 3", "attack 1", "attack 2"]
 
 signal enemy_death
 signal health_changed
@@ -52,14 +52,14 @@ func _physics_process(delta):
 			make_path()
 			var distance = player.global_position - position
 			velocity = dir * move_speed
-			if dir.x > 0:
+			if dir.x < 0:
 				animated_sprite.flip_h = false
 				collision_box.position.x = -abs(collision_box.position.x)
-				damage_hit_box_collision_box.position.x = abs(damage_hit_box_collision_box.position.x)
-			elif dir.x < 0:
+				damage_hit_box_collision_box.position.x = -abs(damage_hit_box_collision_box.position.x)
+			elif dir.x > 0:
 				animated_sprite.flip_h = true
 				collision_box.position.x = abs(collision_box.position.x)
-				damage_hit_box_collision_box.position.x = -abs(damage_hit_box_collision_box.position.x)
+				damage_hit_box_collision_box.position.x = abs(damage_hit_box_collision_box.position.x)
 			animated_sprite.play("walk")
 			move_and_slide()
 		else:
@@ -114,3 +114,4 @@ func _on_damage_hit_box_body_entered(body):
 
 func _on_damage_hit_box_body_exited(body):
 	player_in_damage_hit_box = null
+
