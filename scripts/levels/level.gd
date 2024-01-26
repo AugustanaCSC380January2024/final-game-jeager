@@ -22,7 +22,12 @@ func _ready():
 	curr_player.add_child(camera)
 	hayate.shoot_arrow.connect(_on_shoot_arrow)
 	$hayate/RayCast2D.enemy_detected.connect(_on_ray_cast_2d_enemy_detected)
-	$hayate/RayCast2D.enemy_not_detected.connect(_on_ray_cast_2d_enemy_not_detected)	
+	$hayate/RayCast2D.enemy_not_detected.connect(_on_ray_cast_2d_enemy_not_detected)
+	$map_props/column1.Strucked.connect(_on_pillar_strucked)
+	$map_props/column2.Strucked.connect(_on_pillar_strucked)
+	$map_props/column3.Strucked.connect(_on_pillar_strucked)
+	$map_props/column4.Strucked.connect(_on_pillar_strucked)
+	
 	#$Enemies/Yassop.shoot_dart.connect(_on_shoot_dart)
 
 func _physics_process(delta):
@@ -63,3 +68,5 @@ func _on_ray_cast_2d_enemy_detected():
 func _on_ray_cast_2d_enemy_not_detected():
 	$CanvasLayer/press_shoot_label.visible = false
 	
+func _on_pillar_strucked():
+	$map_props/portal.column_hit()

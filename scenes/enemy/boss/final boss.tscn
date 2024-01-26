@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://bl34vmti1nxj3"]
+[gd_scene load_steps=114 format=3 uid="uid://dy6pk518wgdmh"]
 
 [ext_resource type="Texture2D" uid="uid://whl1upbe1yrd" path="res://assets/Skins/Boss skins/Final Boss/spritesheets/demon_slime_v1.0-SpriteSheet_288x160.png" id="1_chcvd"]
 [ext_resource type="Script" path="res://scripts/player and enemy common scenes/final boss.gd" id="1_p8178"]

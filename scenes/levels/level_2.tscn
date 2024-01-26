@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ogo63q6fdc44"]
+[gd_scene load_steps=14 format=3 uid="uid://ogo63q6fdc44"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_1xb3k"]
 [ext_resource type="PackedScene" uid="uid://cqlyq21dufm6" path="res://scenes/levels/catacomb.tscn" id="1_5w3yu"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://ddwbitdru0pmb" path="res://scenes/other/fire_column.tscn" id="3_fhvlv"]
 [ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="4_tvhkt"]
 [ext_resource type="PackedScene" uid="uid://bf8bhot6qwca1" path="res://scenes/other/moon_tower.tscn" id="4_yxx5g"]
+[ext_resource type="PackedScene" uid="uid://dtqrqk0yreyfx" path="res://scenes/other/columns.tscn" id="5_d7wek"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="5_qyae3"]
 [ext_resource type="Texture2D" uid="uid://dnrfemhit7nga" path="res://assets/Skins/Player skins/character icon/saber_icon.png" id="6_6ekkf"]
+[ext_resource type="PackedScene" uid="uid://b4wa74x5q2a75" path="res://scenes/other/portal.tscn" id="6_iqb0h"]
 [ext_resource type="Texture2D" uid="uid://brocy360o801q" path="res://assets/Skins/Player skins/character icon/miko_icon.png" id="7_13v0c"]
 [ext_resource type="Texture2D" uid="uid://cxcbeao47io3c" path="res://assets/Skins/Player skins/character icon/hayate_icon.png" id="8_1tv4t"]
 
@@ -20,14 +22,35 @@ script = ExtResource("1_1xb3k")
 position = Vector2(-62, 62)
 scale = Vector2(2, 2)
 
-[node name="fire column" parent="TileMap" instance=ExtResource("3_fhvlv")]
-position = Vector2(-335.5, -14)
+[node name="map_props" type="Node" parent="."]
 
-[node name="fire column2" parent="TileMap" instance=ExtResource("3_fhvlv")]
-position = Vector2(-335.5, 79)
+[node name="fire column" parent="map_props" instance=ExtResource("3_fhvlv")]
+position = Vector2(-733, 34)
+scale = Vector2(2, 2)
 
-[node name="MoonTower" parent="TileMap" instance=ExtResource("4_yxx5g")]
-position = Vector2(863.5, -1.5)
+[node name="fire column2" parent="map_props" instance=ExtResource("3_fhvlv")]
+position = Vector2(-733, 220)
+scale = Vector2(2, 2)
+
+[node name="MoonTower" parent="map_props" instance=ExtResource("4_yxx5g")]
+position = Vector2(1665, 59)
+scale = Vector2(2, 2)
+
+[node name="column1" parent="map_props" instance=ExtResource("5_d7wek")]
+z_index = 8
+position = Vector2(1137, 969)
+
+[node name="column2" parent="map_props" instance=ExtResource("5_d7wek")]
+position = Vector2(2493, 814)
+
+[node name="column3" parent="map_props" instance=ExtResource("5_d7wek")]
+position = Vector2(3687, 599)
+
+[node name="column4" parent="map_props" instance=ExtResource("5_d7wek")]
+position = Vector2(2862, -615)
+
+[node name="portal" parent="map_props" instance=ExtResource("6_iqb0h")]
+position = Vector2(2191, -530)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -87,16 +110,17 @@ scale = Vector2(0.600808, 0.618664)
 texture = ExtResource("8_1tv4t")
 
 [node name="hayate" parent="." instance=ExtResource("3_a7lok")]
-position = Vector2(899, 515)
-collision_mask = 7
+z_index = 9
+position = Vector2(1043, 1032)
+collision_mask = 15
 
 [node name="miko" parent="." instance=ExtResource("4_tvhkt")]
 position = Vector2(159, -298)
-collision_mask = 7
+collision_mask = 15
 
 [node name="saber" parent="." instance=ExtResource("2_5tl7t")]
 position = Vector2(-76, -267)
-collision_mask = 7
+collision_mask = 15
 
 [editable path="TileMap"]
 [editable path="hayate"]

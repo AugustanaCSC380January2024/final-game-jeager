@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://wae2wvwtw2jd"]
+[gd_scene load_steps=17 format=3 uid="uid://wae2wvwtw2jd"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_5bloe"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="3_q1siq"]
 [ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="4_jpfrt"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="5_8o2p0"]
+[ext_resource type="PackedScene" uid="uid://b4wa74x5q2a75" path="res://scenes/other/portal.tscn" id="6_k71fd"]
 [ext_resource type="PackedScene" uid="uid://cvjtbx5vno36k" path="res://scenes/enemy/normal enemy/slime.tscn" id="6_y3iqg"]
 [ext_resource type="Texture2D" uid="uid://dnrfemhit7nga" path="res://assets/Skins/Player skins/character icon/saber_icon.png" id="7_3vlem"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="8_ptpph"]
@@ -48,13 +49,16 @@ position = Vector2(2317, 639)
 [node name="column4" parent="map_props" instance=ExtResource("15_yf8tj")]
 position = Vector2(-398, 49)
 
+[node name="portal" parent="map_props" instance=ExtResource("6_k71fd")]
+position = Vector2(2063, 1007)
+
 [node name="saber" parent="." instance=ExtResource("4_jpfrt")]
 z_index = 12
 position = Vector2(919, -1632)
 
 [node name="hayate" parent="." instance=ExtResource("5_8o2p0")]
 z_index = 12
-position = Vector2(412, 255)
+position = Vector2(402, -50)
 
 [node name="miko" parent="." instance=ExtResource("3_q1siq")]
 z_index = 12

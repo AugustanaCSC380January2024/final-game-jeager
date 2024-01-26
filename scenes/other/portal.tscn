@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://b4wa74x5q2a75"]
+
+[ext_resource type="Script" path="res://scripts/map_props/portal.gd" id="1_gdccl"]
+[ext_resource type="Texture2D" uid="uid://dlr56mmwr0403" path="res://assets/Skins/Map props skin/teleport platform/default.png" id="1_ts12i"]
+[ext_resource type="Texture2D" uid="uid://bhw7m8cgd6l44" path="res://assets/Skins/Map props skin/teleport platform/1.png" id="2_ec3cf"]
+[ext_resource type="Texture2D" uid="uid://emhvooumepb6" path="res://assets/Skins/Map props skin/teleport platform/2.png" id="3_dxuwx"]
+[ext_resource type="Texture2D" uid="uid://co4qg3k3x8udq" path="res://assets/Skins/Map props skin/teleport platform/3.png" id="4_yyqut"]
+[ext_resource type="Texture2D" uid="uid://c2fwrs3gvt4bj" path="res://assets/Skins/Map props skin/teleport platform/4.png" id="5_mp08y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tfvdb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ts12i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ec3cf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dxuwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yyqut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mp08y")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_026qa"]
+radius = 16.5
+height = 50.0
+
+[node name="portal" type="Area2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_gdccl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tfvdb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, -0.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_026qa")

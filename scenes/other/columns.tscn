@@ -72,7 +72,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb7j"]
-size = Vector2(25, 46)
+size = Vector2(35, 64.6667)
 
 [node name="columns" type="CharacterBody2D"]
 scale = Vector2(3, 3)
@@ -86,9 +86,7 @@ position = Vector2(11, 0)
 sprite_frames = SubResource("SpriteFrames_lpao8")
 animation = &"pillar_strucked"
 autoplay = "default"
-frame = 12
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 9)
+position = Vector2(-0.5, -0.333334)
 shape = SubResource("RectangleShape2D_uqb7j")
