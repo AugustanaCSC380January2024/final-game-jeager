@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://8ck7qe1n3awd"]
+[gd_scene load_steps=61 format=3 uid="uid://8ck7qe1n3awd"]
 
 [ext_resource type="Texture2D" uid="uid://wbpamvcyejk2" path="res://assets/Skins/Player skins/Saber/Attack_1.png" id="1_5ebev"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_bvcqm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://del3lmowdfnd0" path="res://assets/Skins/Player skins/Saber/Run.png" id="6_1r60m"]
 [ext_resource type="Texture2D" uid="uid://b7pxqkfnjyxik" path="res://assets/Skins/Player skins/Saber/Walk.png" id="7_7o21s"]
 [ext_resource type="Texture2D" uid="uid://d0p5t5drcmlmu" path="res://assets/Skins/other/nothing.png" id="9_k0c5y"]
+[ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="10_slc1a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwsmf"]
 atlas = ExtResource("2_pwgys")
@@ -426,3 +427,10 @@ collision_mask = 2
 [node name="hitbox" type="CollisionShape2D" parent="damage_hit_box"]
 position = Vector2(46, -4)
 shape = SubResource("CapsuleShape2D_7du4r")
+
+[node name="health_bar" parent="." node_paths=PackedStringArray("character") instance=ExtResource("10_slc1a")]
+offset_left = -45.0
+offset_top = -37.0
+offset_right = 26.0
+offset_bottom = -33.0
+character = NodePath("..")

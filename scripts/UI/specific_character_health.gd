@@ -1,14 +1,13 @@
 extends Control
-@export var player : CharacterBody2D
-@onready var icon = $Sprite2D
-@onready var healthBar = $health_bar
 
+@onready var icon = $Sprite2D
+
+@export var healthBar: HealthBar
+@export var player: Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(healthBar.Player)
-	healthBar.Player = player
-	print(healthBar.Player)
+	print(player.name)
 	if player:
 		if player.name == "hayate":
 			icon.texture = preload("res://assets/Skins/Player skins/character icon/hayate_icon.png")

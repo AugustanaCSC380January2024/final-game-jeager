@@ -394,8 +394,16 @@ animations = [{
 script = ExtResource("1_l02b3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+<<<<<<< HEAD:scenes/players/companion.tscn
 position = Vector2(3, -72)
 sprite_frames = SubResource("SpriteFrames_8qqsh")
 animation = &"walk"
+=======
+texture_filter = 1
+position = Vector2(3, -70)
+sprite_frames = SubResource("SpriteFrames_rgyyd")
+animation = &"demon_walk"
+frame_progress = 0.758555
+>>>>>>> 64998f40fb7fd46149b600bcea465ce7f2120f95:scenes/enemy/boss/companion.tscn
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
