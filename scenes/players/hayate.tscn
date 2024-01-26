@@ -504,8 +504,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82ty8"]
-radius = 22.1025
-height = 44.205
+radius = 12.9495
+height = 44.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0g5ld"]
 atlas = ExtResource("11_u1lld")
@@ -536,7 +536,7 @@ height = 32.0
 [node name="hayate" type="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(0, -1)
-collision_mask = 6
+collision_mask = 14
 script = ExtResource("1_vt4qa")
 health_points = 100
 
@@ -549,8 +549,8 @@ autoplay = "idle"
 frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 12)
-rotation = 1.53074
+position = Vector2(-6, 15)
+rotation = 3.14159
 shape = SubResource("CapsuleShape2D_82ty8")
 
 [node name="ultimate" type="AnimatedSprite2D" parent="."]
@@ -568,7 +568,7 @@ position = Vector2(-3, 1)
 
 [node name="damage_hit_box" type="Area2D" parent="."]
 position = Vector2(4, 0)
-collision_mask = 2
+collision_mask = 10
 
 [node name="hitbox" type="CollisionShape2D" parent="damage_hit_box"]
 position = Vector2(36, -19)
@@ -585,6 +585,7 @@ collision_mask = 2
 script = ExtResource("12_apc13")
 
 [node name="health_bar" parent="." node_paths=PackedStringArray("character") instance=ExtResource("13_u6n3t")]
+visible = false
 offset_left = -41.0
 offset_top = -47.0
 offset_right = 30.0

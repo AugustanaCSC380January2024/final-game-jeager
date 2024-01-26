@@ -765,7 +765,7 @@ height = 50.2222
 [node name="miko" type="CharacterBody2D"]
 y_sort_enabled = true
 texture_filter = 1
-collision_mask = 6
+collision_mask = 14
 script = ExtResource("1_v7m3s")
 defence = 70
 attack = 30
@@ -798,7 +798,7 @@ offset_bottom = -31.0
 [node name="player_switch_position" type="Marker2D" parent="."]
 
 [node name="damage_hit_box" type="Area2D" parent="."]
-collision_mask = 2
+collision_mask = 10
 
 [node name="hitbox" type="CollisionShape2D" parent="damage_hit_box"]
 position = Vector2(67, -6)
@@ -806,6 +806,7 @@ scale = Vector2(10.2461, 2.82744)
 shape = SubResource("CapsuleShape2D_k3tsx")
 
 [node name="health_bar" parent="." node_paths=PackedStringArray("character") instance=ExtResource("13_yyu5r")]
+visible = false
 offset_left = -46.0
 offset_top = -49.0
 offset_right = 25.0

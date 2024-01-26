@@ -102,6 +102,7 @@ func _on_animated_sprite_2d_animation_finished():
 			if get_name() == "hayate" and animated_sprite.animation == "attack 1":
 				shoot_arrow.emit(arrow_direction)
 			else:
+				print(bodies_in_damage_box)
 				for body in bodies_in_damage_box:
 					body.take_damage(attack)
 					if get_name() != "miko":

@@ -1,0 +1,94 @@
+[gd_scene load_steps=18 format=3 uid="uid://dtqrqk0yreyfx"]
+
+[ext_resource type="Texture2D" uid="uid://1g1he7ot83l1" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/default.png" id="1_4tuei"]
+[ext_resource type="Script" path="res://scripts/map_props/columns.gd" id="1_vsalh"]
+[ext_resource type="Texture2D" uid="uid://bbbx5qqd2ajsj" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/puzzle_pillar_with_text.png" id="2_qq6en"]
+[ext_resource type="Texture2D" uid="uid://jelh83ocrtw1" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/1.png" id="3_4746w"]
+[ext_resource type="Texture2D" uid="uid://btn65yy6b5r0a" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/2.png" id="4_fbjxy"]
+[ext_resource type="Texture2D" uid="uid://dufx1rqpf4vnh" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/3.png" id="5_0g1ak"]
+[ext_resource type="Texture2D" uid="uid://b61l7ocpe1wwk" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/4.png" id="6_qxnyh"]
+[ext_resource type="Texture2D" uid="uid://bifjvonc7ldub" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/5.png" id="7_8ybfh"]
+[ext_resource type="Texture2D" uid="uid://c6v1rmubpjgn4" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/6.png" id="8_00qsj"]
+[ext_resource type="Texture2D" uid="uid://bbtxpu7vveyhf" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/7.png" id="9_81j6q"]
+[ext_resource type="Texture2D" uid="uid://j4ljh861xi7f" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/8.png" id="10_mkier"]
+[ext_resource type="Texture2D" uid="uid://vbtkw4q86qds" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/9.png" id="11_r20ib"]
+[ext_resource type="Texture2D" uid="uid://fct0t1jvvpl0" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/10.png" id="12_1bg6m"]
+[ext_resource type="Texture2D" uid="uid://ydshi4wsc3bv" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/11.png" id="13_qhmvk"]
+[ext_resource type="Texture2D" uid="uid://dlp33tjih6x6u" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/12.png" id="14_kp5ep"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lpao8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4tuei")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qq6en")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4746w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fbjxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0g1ak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qxnyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8ybfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_00qsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_81j6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mkier")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_r20ib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1bg6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qhmvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kp5ep")
+}],
+"loop": false,
+"name": &"pillar_strucked",
+"speed": 14.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb7j"]
+size = Vector2(25, 46)
+
+[node name="columns" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_vsalh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(11, 0)
+sprite_frames = SubResource("SpriteFrames_lpao8")
+animation = &"pillar_strucked"
+autoplay = "default"
+frame = 12
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 9)
+shape = SubResource("RectangleShape2D_uqb7j")
