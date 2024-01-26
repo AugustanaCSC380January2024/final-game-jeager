@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://wae2wvwtw2jd"]
+[gd_scene load_steps=12 format=3 uid="uid://wae2wvwtw2jd"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_7f6hn"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="8_ptpph"]
 [ext_resource type="PackedScene" uid="uid://dsyrshve25ask" path="res://scenes/enemy/boss/yassop.tscn" id="9_0hrvm"]
 [ext_resource type="PackedScene" uid="uid://ddwbitdru0pmb" path="res://scenes/other/fire_column.tscn" id="10_fqyvy"]
+[ext_resource type="PackedScene" uid="uid://bl34vmti1nxj3" path="res://scenes/enemy/boss/final boss.tscn" id="11_dprdx"]
 
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_7f6hn")
@@ -19,9 +20,12 @@ scale = Vector2(2, 2)
 
 [node name="saber" parent="." instance=ExtResource("4_jpfrt")]
 position = Vector2(919, -1632)
+speed = 200
+max_health_points = 200
+health_points = 100
 
 [node name="hayate" parent="." instance=ExtResource("5_8o2p0")]
-position = Vector2(-438, 125)
+position = Vector2(308, 878)
 
 [node name="miko" parent="." instance=ExtResource("3_q1siq")]
 position = Vector2(561, -1651)
@@ -52,6 +56,12 @@ position = Vector2(136, 299)
 
 [node name="Yassop" parent="Enemies" instance=ExtResource("9_0hrvm")]
 position = Vector2(-166, 104)
+
+[node name="final boss" parent="Enemies" instance=ExtResource("11_dprdx")]
+position = Vector2(658, 855)
+max_health_points = 500
+health_points = 500
+player_detection_range = 4
 
 [node name="fire column" parent="." instance=ExtResource("10_fqyvy")]
 scale = Vector2(4.35455, 3.80449)

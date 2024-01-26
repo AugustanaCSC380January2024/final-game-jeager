@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdhp5mknvrw7a"]
+
+[ext_resource type="Texture2D" uid="uid://bvaxebwwrlnue" path="res://assets/Skins/other/Large Tonic - TURQUOISE - Spritesheet.png" id="1_vwfl6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph4f8"]
+atlas = ExtResource("1_vwfl6")
+region = Rect2(0, 0, 19, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grm16"]
+atlas = ExtResource("1_vwfl6")
+region = Rect2(19, 0, 19, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpowv"]
+atlas = ExtResource("1_vwfl6")
+region = Rect2(38, 0, 19, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouomc"]
+atlas = ExtResource("1_vwfl6")
+region = Rect2(57, 0, 19, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp1yi"]
+atlas = ExtResource("1_vwfl6")
+region = Rect2(76, 0, 19, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4uwb"]
+atlas = ExtResource("1_vwfl6")
+region = Rect2(95, 0, 19, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x0c5"]
+atlas = ExtResource("1_vwfl6")
+region = Rect2(114, 0, 19, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw06k"]
+atlas = ExtResource("1_vwfl6")
+region = Rect2(133, 0, 19, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7siws"]
+atlas = ExtResource("1_vwfl6")
+region = Rect2(152, 0, 19, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73f1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph4f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grm16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpowv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouomc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp1yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4uwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x0c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw06k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7siws")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="health potion" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_73f1p")
+frame_progress = 0.280917

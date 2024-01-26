@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7kyetok8ugoi"]
+
+[ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="1_vkf10"]
+[ext_resource type="PackedScene" uid="uid://bfqoho6fkll44" path="res://scenes/ui/specific_character_health.tscn" id="2_2h58j"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00196, 1)
+
+[node name="health_bar" parent="." instance=ExtResource("1_vkf10")]
+layout_mode = 1
+offset_left = 418.0
+offset_top = 636.0
+offset_right = 418.0
+offset_bottom = 636.0
+scale = Vector2(0.350802, 0.0333895)
+
+[node name="specific_character_health" parent="." instance=ExtResource("2_2h58j")]
+layout_mode = 1
+offset_left = 1003.04
+offset_top = 121.0
+offset_right = 1003.04
+offset_bottom = 121.0
+scale = Vector2(0.702026, 0.662635)
+
+[node name="specific_character_health2" parent="." instance=ExtResource("2_2h58j")]
+layout_mode = 1
+offset_left = 1005.03
+offset_top = 173.0
+offset_right = 1005.03
+offset_bottom = 173.0
+scale = Vector2(0.702026, 0.662635)
+
+[node name="specific_character_health3" parent="." instance=ExtResource("2_2h58j")]
+layout_mode = 1
+offset_left = 1006.03
+offset_top = 225.0
+offset_right = 1006.03
+offset_bottom = 225.0
+scale = Vector2(0.702026, 0.662635)

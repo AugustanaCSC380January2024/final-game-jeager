@@ -1,5 +1,4 @@
 extends CharacterBody2D
-class_name boss
 
 @onready var DAMAGE_INDICATOR = preload("res://scenes/ui/damage_indicator.tscn")
 @onready var animated_sprite = $AnimatedSprite2D
@@ -12,6 +11,8 @@ class_name boss
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var attack_cooldown_timer = $attack_cooldown_timer
 
+
+@export var level_tolerance = 1
 @export var player: CharacterBody2D
 @export var max_health_points = 100
 @export var health_points = max_health_points
@@ -22,12 +23,10 @@ class_name boss
 
 var animation_playing = false
 var player_in_damage_hit_box: CharacterBody2D
-var attacks = ["attack", "attack 1", "attack 2"]
-var invincible = false
+var attacks = ["attack 3", "attack 1", "attack 2"]
 
 signal enemy_death
 signal health_changed
-signal shoot_dart
 
 func _ready():
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
@@ -53,43 +52,32 @@ func _physics_process(delta):
 			make_path()
 			var distance = player.global_position - position
 			velocity = dir * move_speed
-			flip_enemy(velocity)
+			if dir.x < 0:
+				animated_sprite.flip_h = false
+				collision_box.position.x = -abs(collision_box.position.x)
+				damage_hit_box_collision_box.position.x = -abs(damage_hit_box_collision_box.position.x)
+			elif dir.x > 0:
+				animated_sprite.flip_h = true
+				collision_box.position.x = abs(collision_box.position.x)
+				damage_hit_box_collision_box.position.x = abs(damage_hit_box_collision_box.position.x)
 			animated_sprite.play("walk")
 			move_and_slide()
 		else:
 			animated_sprite.play("idle")
-	elif invincible:
-		if (attack_cooldown_timer.is_stopped()):
-			flip_enemy(player.position - position)
-			animated_sprite.play("shoot")
-			invincible = false
-			attack_cooldown_timer.start()
-			shoot_dart.emit((player.position - position).x)
 
-func flip_enemy(dir):
-	if dir.x > 0:
-		animated_sprite.flip_h = false
-		collision_box.position.x = -abs(collision_box.position.x)
-		damage_hit_box_collision_box.position.x = abs(damage_hit_box_collision_box.position.x)
-		$dart_spawn_location.position.x = abs($dart_spawn_location.position.x)
-	elif dir.x < 0:
-		animated_sprite.flip_h = true
-		collision_box.position.x = abs(collision_box.position.x)
-		damage_hit_box_collision_box.position.x = -abs(damage_hit_box_collision_box.position.x)
-		$dart_spawn_location.position.x = -abs($dart_spawn_location.position.x)
 func make_path():
 	nav_agent.target_position = player.global_position
 
 func take_damage(damage):
-	if !invincible:
-		health_points -= damage
-		spawn_dmgIndicator(damage)
-		if name == "Yassop" and (float(health_points) / max_health_points < 0.5):
-			disguise()
-		health_changed.emit()
-		if (health_points <= 0):
-			animation_playing = true
-			animated_sprite.play("death")
+	health_points -= damage
+	spawn_dmgIndicator(damage)
+	health_changed.emit()
+	if (health_points <= 0):
+		animation_playing = true
+		animated_sprite.play("death")
+	else:
+		animation_playing = true
+		animated_sprite.play("hurt")
 
 func spawn_effect(EFFECT: PackedScene, effect_position):
 	if EFFECT:
@@ -110,20 +98,13 @@ func _on_animated_sprite_2d_animation_finished():
 	elif "attack" in animated_sprite.animation:
 		if player_in_damage_hit_box != null:
 			player_in_damage_hit_box.take_damage(damage)
-
-	if animated_sprite.animation != "disguise" and animated_sprite.animation != "shoot":
-		animation_playing = false
+	animation_playing = false
 
 func _on_player_detection_area_body_entered(body):
 	if body is Player:
+		#state_machine_follow.player = body
 		player = body
-		if !invincible:
-			if name == "Yassop" and (float(health_points) / max_health_points < 0.5):
-				disguise()
-func disguise():
-	animated_sprite.play("disguise")
-	animation_playing = true
-	invincible = true
+
 func _on_player_detection_area_body_exited(body):
 	if body is Player:
 		player = DEFAULT_PLAYER
@@ -133,3 +114,4 @@ func _on_damage_hit_box_body_entered(body):
 
 func _on_damage_hit_box_body_exited(body):
 	player_in_damage_hit_box = null
+
