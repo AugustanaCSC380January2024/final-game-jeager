@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://btpuw4f8qb17n"]
+[gd_scene load_steps=115 format=3 uid="uid://btpuw4f8qb17n"]
 
 [ext_resource type="Texture2D" uid="uid://kjb60r3e144w" path="res://assets/Skins/Player skins/Miko/Attack_1.png" id="1_4p357"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v7m3s"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bmqeksejocbqo" path="res://assets/Skins/Player skins/Miko/Idle_2.png" id="9_34gx7"]
 [ext_resource type="Texture2D" uid="uid://bvauc8w48fiti" path="res://assets/Skins/Player skins/Miko/Run.png" id="10_3lolv"]
 [ext_resource type="Texture2D" uid="uid://brlbcw4enhxbf" path="res://assets/Skins/Player skins/Miko/Walk.png" id="11_belgi"]
+[ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="13_yyu5r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tf6su"]
 atlas = ExtResource("1_4p357")
@@ -803,3 +804,10 @@ collision_mask = 2
 position = Vector2(67, -6)
 scale = Vector2(10.2461, 2.82744)
 shape = SubResource("CapsuleShape2D_k3tsx")
+
+[node name="health_bar" parent="." node_paths=PackedStringArray("character") instance=ExtResource("13_yyu5r")]
+offset_left = -46.0
+offset_top = -49.0
+offset_right = 25.0
+offset_bottom = -45.0
+character = NodePath("..")

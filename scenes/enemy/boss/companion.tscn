@@ -532,6 +532,6 @@ texture_filter = 1
 position = Vector2(3, -70)
 sprite_frames = SubResource("SpriteFrames_rgyyd")
 animation = &"demon_walk"
-frame_progress = 0.747297
+frame_progress = 0.758555
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

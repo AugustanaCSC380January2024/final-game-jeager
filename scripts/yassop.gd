@@ -13,8 +13,8 @@ class_name boss
 @onready var attack_cooldown_timer = $attack_cooldown_timer
 
 @export var player: CharacterBody2D
-@export var max_health_points = 100
-@export var health_points = max_health_points
+@export var max_health_points = 500
+var health_points = max_health_points
 @export var damage = 20
 @export var attack_range = 10
 @export var player_detection_range = 1

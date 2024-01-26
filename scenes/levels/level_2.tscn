@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ogo63q6fdc44"]
+[gd_scene load_steps=12 format=3 uid="uid://ogo63q6fdc44"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_1xb3k"]
+[ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_1xb3k"]
 [ext_resource type="PackedScene" uid="uid://cqlyq21dufm6" path="res://scenes/levels/catacomb.tscn" id="1_5w3yu"]
 [ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="2_5tl7t"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="3_a7lok"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="4_tvhkt"]
 [ext_resource type="PackedScene" uid="uid://bf8bhot6qwca1" path="res://scenes/other/moon_tower.tscn" id="4_yxx5g"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="5_qyae3"]
+[ext_resource type="Texture2D" uid="uid://dnrfemhit7nga" path="res://assets/Skins/Player skins/character icon/saber_icon.png" id="6_6ekkf"]
+[ext_resource type="Texture2D" uid="uid://brocy360o801q" path="res://assets/Skins/Player skins/character icon/miko_icon.png" id="7_13v0c"]
+[ext_resource type="Texture2D" uid="uid://cxcbeao47io3c" path="res://assets/Skins/Player skins/character icon/hayate_icon.png" id="8_1tv4t"]
 
 [node name="level 2" type="Node2D"]
 y_sort_enabled = true
@@ -41,6 +44,47 @@ offset_top = 693.0
 offset_right = 689.0
 offset_bottom = 716.0
 text = "Press Space To Shoot"
+
+[node name="party_health_bars" type="Node" parent="CanvasLayer"]
+
+[node name="saber_mini_health_bar" parent="CanvasLayer/party_health_bars" node_paths=PackedStringArray("character") instance=ExtResource("5_qyae3")]
+offset_left = 960.0
+offset_top = 109.0
+offset_right = -13.0
+offset_bottom = -601.0
+character = NodePath("../../../saber")
+
+[node name="miko_mini_health_bar" parent="CanvasLayer/party_health_bars" node_paths=PackedStringArray("character") instance=ExtResource("5_qyae3")]
+offset_left = 960.0
+offset_top = 62.0
+offset_right = -13.0
+offset_bottom = -648.0
+character = NodePath("../../../miko")
+
+[node name="hayate_mini_health_bar" parent="CanvasLayer/party_health_bars" node_paths=PackedStringArray("character") instance=ExtResource("5_qyae3")]
+offset_left = 960.0
+offset_top = 18.0
+offset_right = -13.0
+offset_bottom = -692.0
+character = NodePath("../../../hayate")
+
+[node name="saber_icon" type="Sprite2D" parent="CanvasLayer/party_health_bars"]
+texture_filter = 1
+position = Vector2(945, 117)
+scale = Vector2(0.701612, 0.618664)
+texture = ExtResource("6_6ekkf")
+
+[node name="miko_icon" type="Sprite2D" parent="CanvasLayer/party_health_bars"]
+texture_filter = 1
+position = Vector2(940, 67)
+scale = Vector2(0.630805, 0.556228)
+texture = ExtResource("7_13v0c")
+
+[node name="hayate_icon" type="Sprite2D" parent="CanvasLayer/party_health_bars"]
+texture_filter = 1
+position = Vector2(942, 26)
+scale = Vector2(0.600808, 0.618664)
+texture = ExtResource("8_1tv4t")
 
 [node name="hayate" parent="." instance=ExtResource("3_a7lok")]
 position = Vector2(899, 515)

@@ -110,6 +110,8 @@ radius = 101.0
 
 [node name="checkpoint" type="Area2D"]
 y_sort_enabled = true
+collision_layer = 4
+collision_mask = 7
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6jwwj")
@@ -120,6 +122,8 @@ frame_progress = 0.975515
 shape = SubResource("CapsuleShape2D_m3r70")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2, 183)

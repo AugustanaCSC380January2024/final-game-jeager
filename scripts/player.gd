@@ -17,6 +17,7 @@ signal shoot_arrow
 @onready var damage_hitbox_collision_box = $damage_hit_box/hitbox
 @onready var damage_taken = $damage_taken
 @onready var switch_position = $player_switch_position
+@onready var health_bar = $health_bar
 
 var bodies_in_damage_box = []
 var is_right = true
@@ -130,6 +131,8 @@ func take_damage(damage):
 			alive = false
 			update_moving_animation(5)
 
+func get_health_bar():
+	return health_bar
 func spawn_effect(EFFECT: PackedScene, effect_position):
 	if EFFECT:
 		var effect = EFFECT.instantiate()
@@ -161,3 +164,6 @@ func _on_damage_hit_box_body_entered(body):
 
 func _on_damage_hit_box_body_exited(body):
 	bodies_in_damage_box.erase(body)
+
+func is_alive():
+	return alive
