@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var player: Player
-@export var speed = 60
+@export var speed = 90
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape_2d = $CollisionShape2D
@@ -23,3 +23,8 @@ func _physics_process(delta):
 	else:
 		animated_sprite.play("idle")
 
+func take_damage():
+	animated_sprite.play("hurt")
+
+func absorb_enemy(death_position):
+	pass
