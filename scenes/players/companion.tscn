@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cmrdhph8qippw"]
+[gd_scene load_steps=69 format=3 uid="uid://cmrdhph8qippw"]
 
 [ext_resource type="Texture2D" uid="uid://whl1upbe1yrd" path="res://assets/Skins/Boss skins/Final Boss/spritesheets/demon_slime_v1.0-SpriteSheet_288x160.png" id="1_cpr3n"]
 [ext_resource type="Script" path="res://scripts/companion.gd" id="1_l02b3"]
@@ -50,6 +50,54 @@ region = Rect2(1152, 0, 288, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_if4ev"]
 atlas = ExtResource("1_cpr3n")
 region = Rect2(1440, 0, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm5up"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(3168, 480, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoui1"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(2880, 480, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf76h"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(2592, 480, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofjpm"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(2304, 480, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy5j7"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(2016, 480, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdhyl"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(1728, 480, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7w8p"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(1440, 480, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujnxa"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(1152, 480, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf7mp"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(864, 480, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khmd0"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(576, 480, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgcu4"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(288, 480, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32ror"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(0, 480, 288, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ccse6"]
 atlas = ExtResource("1_cpr3n")
@@ -261,6 +309,47 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_bm5up")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoui1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf76h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofjpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy5j7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdhyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7w8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujnxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf7mp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khmd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgcu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32ror")
+}],
+"loop": false,
+"name": &"teleport",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ccse6")
 }, {
 "duration": 1.0,
@@ -403,7 +492,7 @@ script = ExtResource("1_l02b3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -72)
 sprite_frames = SubResource("SpriteFrames_8qqsh")
-animation = &"idle"
+animation = &"teleport"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -29,7 +29,7 @@ func _ready():
 	$map_props/column2.Strucked.connect(_on_pillar_strucked)
 	$map_props/column3.Strucked.connect(_on_pillar_strucked)
 	$map_props/column4.Strucked.connect(_on_pillar_strucked)
-	$map_props/absorb_particles.set_target_position(curr_player.global_position)
+
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("character 1 selected"):
