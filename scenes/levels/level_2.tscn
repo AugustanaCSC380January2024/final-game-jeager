@@ -45,7 +45,7 @@ z_index = 8
 position = Vector2(1137, 969)
 
 [node name="column2" parent="map_props" instance=ExtResource("5_d7wek")]
-position = Vector2(2493, 814)
+position = Vector2(2498, 874)
 
 [node name="column3" parent="map_props" instance=ExtResource("5_d7wek")]
 position = Vector2(3687, 599)
@@ -126,7 +126,7 @@ scale = Vector2(0.600808, 0.618664)
 texture = ExtResource("8_1tv4t")
 
 [node name="hayate" parent="." instance=ExtResource("3_a7lok")]
-z_index = 9
+y_sort_enabled = true
 position = Vector2(890, 156)
 
 [node name="miko" parent="." instance=ExtResource("4_tvhkt")]
@@ -134,6 +134,7 @@ position = Vector2(159, -298)
 collision_mask = 15
 
 [node name="saber" parent="." instance=ExtResource("2_5tl7t")]
+y_sort_enabled = true
 position = Vector2(-76, -267)
 collision_mask = 15
 

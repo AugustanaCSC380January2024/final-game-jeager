@@ -72,22 +72,24 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb7j"]
-size = Vector2(35, 50)
+size = Vector2(24, 21.3333)
 
 [node name="columns" type="CharacterBody2D"]
+y_sort_enabled = true
 scale = Vector2(3, 3)
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_vsalh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 texture_filter = 1
-position = Vector2(11, 0)
+position = Vector2(11.6667, -16.6667)
 sprite_frames = SubResource("SpriteFrames_lpao8")
 animation = &"pillar_strucked"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-0.5, 7.00001)
+position = Vector2(0.666667, 4.66667)
 shape = SubResource("RectangleShape2D_uqb7j")
