@@ -1,7 +1,31 @@
-[gd_scene load_steps=57 format=3 uid="uid://cmrdhph8qippw"]
+[gd_scene load_steps=63 format=3 uid="uid://cmrdhph8qippw"]
 
 [ext_resource type="Texture2D" uid="uid://whl1upbe1yrd" path="res://assets/Skins/Boss skins/Final Boss/spritesheets/demon_slime_v1.0-SpriteSheet_288x160.png" id="1_cpr3n"]
 [ext_resource type="Script" path="res://scripts/companion.gd" id="1_l02b3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an5ug"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(0, 0, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0thny"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(288, 0, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6e2t"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(576, 0, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiuwr"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(864, 0, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvjg0"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(1152, 0, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkki6"]
+atlas = ExtResource("1_cpr3n")
+region = Rect2(1440, 0, 288, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlms7"]
 atlas = ExtResource("1_cpr3n")
@@ -215,6 +239,29 @@ region = Rect2(2016, 160, 288, 160)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_an5ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0thny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6e2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiuwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvjg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkki6")
+}],
+"loop": false,
+"name": &"drop_coin",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tlms7")
 }, {
 "duration": 1.0,
@@ -234,7 +281,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 8.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -403,8 +450,10 @@ script = ExtResource("1_l02b3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -72)
 sprite_frames = SubResource("SpriteFrames_8qqsh")
-animation = &"idle"
+animation = &"drop_coin"
 autoplay = "idle"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -1)
