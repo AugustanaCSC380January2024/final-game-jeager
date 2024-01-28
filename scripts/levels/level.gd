@@ -8,6 +8,8 @@ class_name Level
 @onready var health_bar = $CanvasLayer/health_bar
 @onready var arrow = preload("res://scenes/attacks/arrow.tscn")
 @onready var arrow_spawn_location = $hayate/arrow_spawn_position
+@onready var companion = $companion
+
 var curr_player: CharacterBody2D
 
 func _ready():
@@ -45,6 +47,7 @@ func change_curr_player(new_player):
 		new_player.add_child(camera)
 		curr_player.global_position = Vector2(-10000, -10000)
 		curr_player = new_player
+		companion.player = curr_player
 		health_bar.character = curr_player
 		health_bar.update_health_bar()
 		health_bar.change_player(curr_player)

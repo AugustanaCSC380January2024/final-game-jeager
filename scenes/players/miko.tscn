@@ -812,3 +812,6 @@ offset_top = -49.0
 offset_right = 25.0
 offset_bottom = -45.0
 character = NodePath("..")
+
+[node name="companion_marker" type="Marker2D" parent="."]
+position = Vector2(-67, 14)
