@@ -53,8 +53,8 @@ func _physics_process(delta):
 			make_path()
 			var distance = player.global_position - position
 			velocity = dir * move_speed
-			flip_enemy(velocity)
 			animated_sprite.play("walk")
+			flip_enemy(velocity)
 			move_and_slide()
 		else:
 			animated_sprite.play("idle")

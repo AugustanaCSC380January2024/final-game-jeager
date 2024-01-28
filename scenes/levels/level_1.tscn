@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://wae2wvwtw2jd"]
+[gd_scene load_steps=19 format=3 uid="uid://wae2wvwtw2jd"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_5bloe"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dsyrshve25ask" path="res://scenes/enemy/boss/yassop.tscn" id="9_0hrvm"]
 [ext_resource type="Texture2D" uid="uid://cxcbeao47io3c" path="res://assets/Skins/Player skins/character icon/hayate_icon.png" id="9_hais5"]
 [ext_resource type="PackedScene" uid="uid://ddwbitdru0pmb" path="res://scenes/other/fire_column.tscn" id="10_fqyvy"]
+[ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="11_02811"]
 [ext_resource type="PackedScene" uid="uid://1t02ddw5p3vd" path="res://scenes/attacks/checkpoint.tscn" id="14_lfr2r"]
 [ext_resource type="PackedScene" uid="uid://dtqrqk0yreyfx" path="res://scenes/other/columns.tscn" id="15_yf8tj"]
 
@@ -60,11 +61,14 @@ position = Vector2(919, -1632)
 
 [node name="hayate" parent="." instance=ExtResource("5_8o2p0")]
 z_index = 12
-position = Vector2(-551, 126)
+position = Vector2(-1375, 114)
 
 [node name="miko" parent="." instance=ExtResource("3_q1siq")]
 z_index = 12
 position = Vector2(561, -1651)
+
+[node name="companion" parent="." instance=ExtResource("11_02811")]
+position = Vector2(-1439, 137)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

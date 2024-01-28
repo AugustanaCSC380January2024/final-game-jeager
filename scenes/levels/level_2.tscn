@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ogo63q6fdc44"]
+[gd_scene load_steps=18 format=3 uid="uid://ogo63q6fdc44"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_1xb3k"]
 [ext_resource type="PackedScene" uid="uid://cqlyq21dufm6" path="res://scenes/levels/catacomb.tscn" id="1_5w3yu"]
@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://b4wa74x5q2a75" path="res://scenes/other/portal.tscn" id="6_iqb0h"]
 [ext_resource type="Texture2D" uid="uid://brocy360o801q" path="res://assets/Skins/Player skins/character icon/miko_icon.png" id="7_13v0c"]
 [ext_resource type="Texture2D" uid="uid://cxcbeao47io3c" path="res://assets/Skins/Player skins/character icon/hayate_icon.png" id="8_1tv4t"]
+[ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="14_4imw8"]
+[ext_resource type="PackedScene" uid="uid://dy6pk518wgdmh" path="res://scenes/enemy/boss/final boss.tscn" id="14_05xn2"]
+[ext_resource type="PackedScene" uid="uid://cvjtbx5vno36k" path="res://scenes/enemy/normal enemy/slime.tscn" id="15_kodex"]
+[ext_resource type="PackedScene" uid="uid://dsyrshve25ask" path="res://scenes/enemy/boss/yassop.tscn" id="16_cpfxi"]
 
 [node name="level 2" type="Node2D"]
 y_sort_enabled = true
@@ -111,8 +115,7 @@ texture = ExtResource("8_1tv4t")
 
 [node name="hayate" parent="." instance=ExtResource("3_a7lok")]
 z_index = 9
-position = Vector2(1043, 1032)
-collision_mask = 15
+position = Vector2(890, 156)
 
 [node name="miko" parent="." instance=ExtResource("4_tvhkt")]
 position = Vector2(159, -298)
@@ -121,6 +124,32 @@ collision_mask = 15
 [node name="saber" parent="." instance=ExtResource("2_5tl7t")]
 position = Vector2(-76, -267)
 collision_mask = 15
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="skeleton" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(877, 708)
+
+[node name="skeleton2" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(994, 639)
+
+[node name="slime" parent="enemies" instance=ExtResource("15_kodex")]
+position = Vector2(1481, 814)
+
+[node name="slime2" parent="enemies" instance=ExtResource("15_kodex")]
+position = Vector2(1513, 851)
+
+[node name="slime3" parent="enemies" instance=ExtResource("15_kodex")]
+position = Vector2(1471, 915)
+
+[node name="slime4" parent="enemies" instance=ExtResource("15_kodex")]
+position = Vector2(1416, 852)
+
+[node name="Yassop" parent="enemies" instance=ExtResource("16_cpfxi")]
+position = Vector2(436, 168)
+
+[node name="final boss" parent="enemies" instance=ExtResource("14_05xn2")]
+position = Vector2(1097, 536)
 
 [editable path="TileMap"]
 [editable path="hayate"]
