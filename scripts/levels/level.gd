@@ -9,6 +9,9 @@ class_name Level
 @onready var arrow = preload("res://scenes/attacks/arrow.tscn")
 @onready var arrow_spawn_location = $hayate/arrow_spawn_position
 @onready var companion = $companion
+@onready var enemies = $enemies.get_children()
+@onready var absorb_particles = preload("res://scenes/absorb_particles.tscn")
+@onready var coin = preload("res://scenes/other/coin.tscn")
 
 var curr_player: CharacterBody2D
 
@@ -29,7 +32,15 @@ func _ready():
 	$map_props/column2.Strucked.connect(_on_pillar_strucked)
 	$map_props/column3.Strucked.connect(_on_pillar_strucked)
 	$map_props/column4.Strucked.connect(_on_pillar_strucked)
+	for enemy in enemies:
+		enemy.connect("enemy_death", _enemy_killed)
 
+func _enemy_killed(pos):
+	var new_particle = absorb_particles.instantiate()
+	add_child(new_particle)
+	new_particle.set_global_pos(pos)
+	new_particle.set_target(companion)
+	companion.set_stop_movement(true)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("character 1 selected"):

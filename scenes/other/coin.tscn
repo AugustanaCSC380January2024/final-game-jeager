@@ -62,7 +62,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_adbrr"]
 radius = 15.0
 
-[node name="gem" type="Area2D"]
+[node name="coin" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

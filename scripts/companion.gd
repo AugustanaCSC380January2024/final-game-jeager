@@ -6,11 +6,15 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var nav_agent = $NavigationAgent2D
+@onready var coin = preload("res://scenes/other/coin.tscn")
+
+var stop_movement = false
 
 var teleport_in_progress = false
 
 func _ready():
 	animated_sprite.animation_finished.connect(animation_finished)
+	
 func _physics_process(delta):
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
 	nav_agent.target_position = player.get_companion_maker_position()
@@ -37,11 +41,12 @@ func _physics_process(delta):
 			animated_sprite.play("idle")
 
 func take_damage():
-	animated_sprite.play("hurt")
-
-func absorb_enemy(death_position):
-	pass
+	animated_sprite.play("idle")
 
 func animation_finished():
 	if animated_sprite.animation == "teleport":
 		teleport_in_progress = false
+
+func set_stop_movement(flag):
+	stop_movement = flag
+
