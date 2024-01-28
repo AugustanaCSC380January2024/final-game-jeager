@@ -38,6 +38,7 @@ func _ready():
 func _enemy_killed(pos):
 	var new_particle = absorb_particles.instantiate()
 	add_child(new_particle)
+	new_particle.absorbed_by_slime.connect(spawn_coin)
 	new_particle.set_global_pos(pos)
 	new_particle.set_target(companion)
 	companion.set_stop_movement(true)
@@ -83,3 +84,8 @@ func _on_ray_cast_2d_enemy_not_detected():
 
 func _on_pillar_strucked():
 	$map_props/portal.column_hit()
+
+func spawn_coin():
+	var new_coin = coin.instantiate()
+	add_child(new_coin)
+	new_coin.position = companion.global_position

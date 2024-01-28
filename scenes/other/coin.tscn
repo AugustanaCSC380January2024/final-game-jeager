@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://2ocotamxjmq2"]
+[gd_scene load_steps=12 format=3 uid="uid://2ocotamxjmq2"]
 
+[ext_resource type="Script" path="res://scripts/map_props/coin.gd" id="1_842i8"]
 [ext_resource type="Texture2D" uid="uid://cj5gbr7et11yx" path="res://assets/Skins/other/Pixel purple gem.png" id="1_kg8gc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4cnl"]
@@ -62,12 +63,22 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_adbrr"]
 radius = 15.0
 
-[node name="coin" type="Area2D"]
+[node name="coin" type="CharacterBody2D"]
+collision_layer = 32
+script = ExtResource("1_842i8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_l6a5m")
 frame_progress = 0.0979787
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_adbrr")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_adbrr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
