@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dtqrqk0yreyfx" path="res://scenes/other/columns.tscn" id="5_d7wek"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="5_qyae3"]
 [ext_resource type="Texture2D" uid="uid://dnrfemhit7nga" path="res://assets/Skins/Player skins/character icon/saber_icon.png" id="6_6ekkf"]
-[ext_resource type="PackedScene" uid="uid://b4wa74x5q2a75" path="res://scenes/other/portal.tscn" id="6_iqb0h"]
+[ext_resource type="PackedScene" path="res://scenes/other/portal.tscn" id="6_iqb0h"]
 [ext_resource type="Texture2D" uid="uid://brocy360o801q" path="res://assets/Skins/Player skins/character icon/miko_icon.png" id="7_13v0c"]
 [ext_resource type="Texture2D" uid="uid://cxcbeao47io3c" path="res://assets/Skins/Player skins/character icon/hayate_icon.png" id="8_1tv4t"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="14_4imw8"]
