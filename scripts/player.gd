@@ -18,6 +18,7 @@ signal shoot_arrow
 @onready var damage_taken = $damage_taken
 @onready var switch_position = $player_switch_position
 @onready var health_bar = $health_bar
+@onready var companion_marker = $companion_marker
 
 var bodies_in_damage_box = []
 var is_right = true
@@ -116,9 +117,13 @@ func flip_sprites(flag : bool):
 	damage_hitbox_collision_box.position.x = damage_hitbox_collision_box.position.x * -1
 	ultimate.position.x = ultimate.position.x * -1
 	ultimate.flip_h = flag
+	companion_marker.position *= -1
 	if name == "hayate":
 		$RayCast2D.position.x *= -1
 		$RayCast2D.target_position *= -1
+
+func get_companion_maker_position():
+	return companion_marker.global_position
 
 func take_damage(damage):
 	if alive:
