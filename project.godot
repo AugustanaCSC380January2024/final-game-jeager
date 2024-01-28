@@ -21,6 +21,10 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/drish/OneDrive/Documents/Git/final-game-jeager/clip.avi"
+
 [input]
 
 "move up"={

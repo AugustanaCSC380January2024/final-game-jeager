@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name boss
 
+
+
 @onready var DAMAGE_INDICATOR = preload("res://scenes/ui/damage_indicator.tscn")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var damage_hit_box = $damage_hit_box

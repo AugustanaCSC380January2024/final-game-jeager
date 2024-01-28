@@ -74,7 +74,7 @@ func take_damage(damage):
 	health_changed.emit()
 	if (health_points <= 0):
 		animation_playing = true
-		animated_sprite.play("death")
+		animated_sprite.play("death") 
 	else:
 		animation_playing = true
 		animated_sprite.play("hurt")
