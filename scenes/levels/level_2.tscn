@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://ogo63q6fdc44"]
+[gd_scene load_steps=20 format=3 uid="uid://ogo63q6fdc44"]
 
-[ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_1xb3k"]
 [ext_resource type="PackedScene" uid="uid://cqlyq21dufm6" path="res://scenes/levels/catacomb.tscn" id="1_5w3yu"]
+[ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="1_cqx5v"]
 [ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="2_5tl7t"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="3_a7lok"]
 [ext_resource type="PackedScene" uid="uid://ddwbitdru0pmb" path="res://scenes/other/fire_column.tscn" id="3_fhvlv"]
@@ -19,9 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="14_ufn4g"]
 [ext_resource type="PackedScene" uid="uid://cvjtbx5vno36k" path="res://scenes/enemy/normal enemy/slime.tscn" id="15_kodex"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlqwq"]
+size = Vector2(401, 330.5)
+
 [node name="level 2" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_1xb3k")
+script = ExtResource("1_cqx5v")
 
 [node name="TileMap" parent="." instance=ExtResource("1_5w3yu")]
 position = Vector2(-62, 62)
@@ -146,6 +149,8 @@ y_sort_enabled = true
 position = Vector2(-124, -215)
 scale = Vector2(1.17248, 1.17248)
 collision_mask = 15
+speed = 600
+attack = 150
 
 [node name="companion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_ufn4g")]
 position = Vector2(719, 162)
@@ -185,6 +190,21 @@ position = Vector2(2862, -615)
 [node name="portal" parent="map_props" instance=ExtResource("6_iqb0h")]
 modulate = Color(0.396078, 0.396078, 0.396078, 1)
 position = Vector2(2191, -530)
+
+[node name="moonTowerTutorial" type="Area2D" parent="map_props"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map_props/moonTowerTutorial"]
+position = Vector2(1732.5, 173.75)
+shape = SubResource("RectangleShape2D_xlqwq")
+
+[node name="Label" type="Label" parent="map_props/moonTowerTutorial"]
+offset_left = 1811.0
+offset_top = 141.0
+offset_right = 2084.0
+offset_bottom = 291.0
+
+[connection signal="body_entered" from="map_props/moonTowerTutorial" to="." method="_on_moon_tower_tutorial_body_entered"]
+[connection signal="body_exited" from="map_props/moonTowerTutorial" to="." method="_on_moon_tower_tutorial_body_exited"]
 
 [editable path="TileMap"]
 [editable path="CanvasLayer/party_health_bars/saber_mini_health_bar"]

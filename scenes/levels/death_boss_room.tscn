@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cuwmo8ls6djsf" path="res://scenes/fog.tscn" id="2_jn61h"]
 
 [node name="Death boss room" type="Node2D"]
+y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
