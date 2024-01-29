@@ -23,7 +23,7 @@ func _ready():
 	add_child(miko)
 	add_child(saber)
 	curr_player = hayate
-	camera.set_zoom(Vector2(1.5,1.5))
+	camera.set_zoom(Vector2(1.2,1.2))
 	curr_player.add_child(camera)
 	hayate.shoot_arrow.connect(_on_shoot_arrow)
 	$hayate/RayCast2D.enemy_detected.connect(_on_ray_cast_2d_enemy_detected)
