@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://8ck7qe1n3awd"]
+[gd_scene load_steps=62 format=3 uid="uid://8ck7qe1n3awd"]
 
 [ext_resource type="Texture2D" uid="uid://wbpamvcyejk2" path="res://assets/Skins/Player skins/Saber/Attack_1.png" id="1_5ebev"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_bvcqm"]
@@ -387,6 +387,10 @@ animations = [{
 radius = 28.0
 height = 72.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pwerg"]
+radius = 5.98442
+height = 23.9675
+
 [node name="saber" type="CharacterBody2D"]
 collision_mask = 44
 script = ExtResource("1_bvcqm")
@@ -438,3 +442,8 @@ character = NodePath("..")
 
 [node name="companion_marker" type="Marker2D" parent="."]
 position = Vector2(-67, 14)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 26)
+rotation = 1.58571
+shape = SubResource("CapsuleShape2D_pwerg")

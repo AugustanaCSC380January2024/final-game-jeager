@@ -6,8 +6,6 @@ extends CharacterBody2D
 
 
 
-	
-	
 func _physics_process(delta):
 	animated_sprite.play("idle")
 

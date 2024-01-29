@@ -59,7 +59,7 @@ radius = 8.24621
 [node name="companionTutorial" type="CharacterBody2D"]
 y_sort_enabled = true
 texture_filter = 1
-scale = Vector2(2, 2)
+scale = Vector2(1.45505, 1.45505)
 collision_layer = 16
 collision_mask = 6
 script = ExtResource("1_jfadc")

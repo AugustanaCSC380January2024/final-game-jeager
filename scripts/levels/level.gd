@@ -49,7 +49,7 @@ func _enemy_killed(pos):
 	new_particle.absorbed_by_slime.connect(spawn_coin)
 	new_particle.set_global_pos(pos)
 	new_particle.set_target(companion)
-	companion.set_stop_movement(true)
+	#companion.set_stop_movement(true)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("character 1 selected"):

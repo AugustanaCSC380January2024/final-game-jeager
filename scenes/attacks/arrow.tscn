@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/attacks/projectiles.gd" id="1_okcvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkgjv"]
-size = Vector2(17.5, 13)
+size = Vector2(24, 19.5)
 
 [sub_resource type="Gradient" id="Gradient_amx1i"]
 offsets = PackedFloat32Array(0, 0.52459, 1)
@@ -35,7 +35,7 @@ collision_mask = 10
 script = ExtResource("1_okcvq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(19.75, 0)
+position = Vector2(23, 1)
 shape = SubResource("RectangleShape2D_hkgjv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
