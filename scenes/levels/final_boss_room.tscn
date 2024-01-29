@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://58jcgsnr8n1"]
+[gd_scene load_steps=23 format=3 uid="uid://58jcgsnr8n1"]
 
 [ext_resource type="Texture2D" uid="uid://3tsuuh3gwcv4" path="res://assets/Map tileset/RF_Catacombs_v1.0/decorative.png" id="1_r5q6w"]
 [ext_resource type="Texture2D" uid="uid://b1johwq0g8xjn" path="res://assets/Map tileset/RF_Catacombs_v1.0/mainlevbuild.png" id="2_lbu24"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cwblw7bbfkr4v" path="res://assets/Map tileset/Texture/TX Struct.png" id="4_7b3md"]
 [ext_resource type="PackedScene" uid="uid://cuwmo8ls6djsf" path="res://scenes/fog.tscn" id="5_vsi5o"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="6_swj16"]
+[ext_resource type="AudioStream" uid="uid://dfcg00v0jtqm6" path="res://assets/Sounds/boss sfx/Piano Pack - Track 05.wav" id="10_am8fl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1u1i0"]
 texture = ExtResource("1_r5q6w")
@@ -6428,20 +6429,20 @@ self_modulate = Color(2.949, 0.03, 0.637, 1)
 light_mask = 5
 z_index = 1
 texture_filter = 5
-position = Vector2(339, -814)
-scale = Vector2(0.16833, 0.17877)
+position = Vector2(340, -963)
+scale = Vector2(0.246246, 0.261519)
 texture = ExtResource("4_4rx3y")
 
 [node name="fire column3" parent="." instance=ExtResource("2_w52ip")]
 z_index = 1
-position = Vector2(388, -840)
+position = Vector2(436, -973)
 scale = Vector2(1.16951, 1.66573)
 collision_layer = 7
 collision_mask = 7
 
 [node name="fire column4" parent="." instance=ExtResource("2_w52ip")]
 z_index = 1
-position = Vector2(283, -839)
+position = Vector2(247, -980)
 scale = Vector2(1.16951, 1.66573)
 collision_layer = 7
 collision_mask = 7
@@ -6459,7 +6460,13 @@ offset_bottom = 270.909
 color = Color(0.862745, 0, 0, 1)
 
 [node name="hayate" parent="." instance=ExtResource("6_swj16")]
+position = Vector2(66, 59)
 
 [node name="Camera2D" type="Camera2D" parent="hayate"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_am8fl")
+volume_db = -11.0
+autoplay = true
 
 [editable path="ParallaxBackground"]
