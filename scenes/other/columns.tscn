@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dtqrqk0yreyfx"]
+[gd_scene load_steps=21 format=3 uid="uid://dtqrqk0yreyfx"]
 
 [ext_resource type="Texture2D" uid="uid://1g1he7ot83l1" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/default.png" id="1_4tuei"]
 [ext_resource type="Script" path="res://scripts/map_props/columns.gd" id="1_vsalh"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://fct0t1jvvpl0" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/10.png" id="12_1bg6m"]
 [ext_resource type="Texture2D" uid="uid://ydshi4wsc3bv" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/11.png" id="13_qhmvk"]
 [ext_resource type="Texture2D" uid="uid://dlp33tjih6x6u" path="res://assets/Skins/Map props skin/puzzle_pillar_animation/12.png" id="14_kp5ep"]
+[ext_resource type="AudioStream" uid="uid://by5kyo13hc1uu" path="res://assets/Sounds/other/magical-glowing-37417.mp3" id="16_4uo6y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lpao8"]
 animations = [{
@@ -110,3 +111,7 @@ position = Vector2(0.666667, -8.83333)
 scale = Vector2(0.96875, 0.786458)
 color = Color(0, 1, 0.984314, 1)
 texture = SubResource("GradientTexture2D_kmh8p")
+
+[node name="audio_player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_4uo6y")
+volume_db = 10.0

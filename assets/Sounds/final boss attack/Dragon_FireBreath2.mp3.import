@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dh4rgy6wb2a3i"
+path="res://.godot/imported/Dragon_FireBreath2.mp3-35c5230f815ea4f41237e7af561563ab.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/final boss attack/Dragon_FireBreath2.mp3"
+dest_files=["res://.godot/imported/Dragon_FireBreath2.mp3-35c5230f815ea4f41237e7af561563ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

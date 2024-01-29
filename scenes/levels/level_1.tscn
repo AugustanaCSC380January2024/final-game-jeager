@@ -293,6 +293,7 @@ position = Vector2(3656.73, 951.904)
 
 [node name="skeleton2" parent="map_props" instance=ExtResource("2_7wrks")]
 position = Vector2(544.442, 262.834)
+metadata/_edit_lock_ = true
 
 [node name="checkpoint" parent="map_props" instance=ExtResource("14_lfr2r")]
 position = Vector2(1585.35, 691.156)
