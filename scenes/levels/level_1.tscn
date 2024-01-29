@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="3_q1siq"]
 [ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="4_jpfrt"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="5_8o2p0"]
-[ext_resource type="PackedScene" path="res://scenes/other/portal.tscn" id="6_k71fd"]
+[ext_resource type="PackedScene" uid="uid://bhy48tqiojmqd" path="res://scenes/other/portal.tscn" id="6_k71fd"]
 [ext_resource type="PackedScene" uid="uid://cvjtbx5vno36k" path="res://scenes/enemy/normal enemy/slime.tscn" id="6_y3iqg"]
 [ext_resource type="Texture2D" uid="uid://dnrfemhit7nga" path="res://assets/Skins/Player skins/character icon/saber_icon.png" id="7_3vlem"]
 [ext_resource type="PackedScene" uid="uid://ogo63q6fdc44" path="res://scenes/levels/level_2.tscn" id="7_ekxtv"]
@@ -54,47 +54,12 @@ script = ExtResource("1_5bloe")
 position = Vector2(2157.61, 362.962)
 scale = Vector2(1.20714, 1.20714)
 
-[node name="map_props" type="Node" parent="."]
-
-[node name="checkpoint" parent="map_props" instance=ExtResource("14_lfr2r")]
-position = Vector2(2045, 816)
-
-[node name="column1" parent="map_props" instance=ExtResource("15_yf8tj")]
-z_index = 11
-position = Vector2(1924, 144)
-
-[node name="column2" parent="map_props" instance=ExtResource("15_yf8tj")]
-position = Vector2(4658, 1197)
-
-[node name="column3" parent="map_props" instance=ExtResource("15_yf8tj")]
-position = Vector2(3762, -28)
-
-[node name="column4" parent="map_props" instance=ExtResource("15_yf8tj")]
-position = Vector2(5848, 979)
-
-[node name="portal" parent="map_props" instance=ExtResource("6_k71fd")]
-position = Vector2(5394, 1202)
-next_scene = ExtResource("7_ekxtv")
-
-[node name="saber" parent="." instance=ExtResource("4_jpfrt")]
-position = Vector2(880.285, -465.87)
-speed = 300
-
-[node name="hayate" parent="." instance=ExtResource("5_8o2p0")]
-y_sort_enabled = true
-position = Vector2(236.412, 257.272)
-
-[node name="miko" parent="." instance=ExtResource("3_q1siq")]
-position = Vector2(561, -1651)
-
 [node name="companionTutorial" parent="." instance=ExtResource("12_44knw")]
 position = Vector2(2051.22, 256.577)
 scale = Vector2(2.41427, 2.41427)
 
-[node name="enemies" type="Node" parent="."]
-
-[node name="skeleton" parent="enemies" instance=ExtResource("2_7wrks")]
-position = Vector2(4941, 1205)
+[node name="enemies" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="slime6" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
 position = Vector2(1391, 240)
@@ -105,21 +70,25 @@ position = Vector2(824, 203)
 player = NodePath("../../companionTutorial")
 
 [node name="slime" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
-position = Vector2(1392, 168)
+position = Vector2(1406.65, 308.726)
 player = NodePath("../../companionTutorial")
 
-[node name="tutorial slimes" type="Node" parent="enemies"]
+[node name="tutorial slimes" type="Node2D" parent="enemies"]
+position = Vector2(-661.257, 69.5328)
 
 [node name="slime4" parent="enemies/tutorial slimes" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
 position = Vector2(2760, 230)
+scale = Vector2(1.31836, 1.31836)
 player = NodePath("../../../companionTutorial")
 
 [node name="slime3" parent="enemies/tutorial slimes" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
 position = Vector2(2694, 231)
+scale = Vector2(1.4353, 1.4353)
 player = NodePath("../../../companionTutorial")
 
 [node name="slime2" parent="enemies/tutorial slimes" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
 position = Vector2(2665, 161)
+scale = Vector2(1.35057, 1.35057)
 player = NodePath("../../../companionTutorial")
 
 [node name="slime5" parent="enemies/tutorial slimes" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
@@ -303,6 +272,48 @@ position = Vector2(1197, 652)
 [node name="companion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_p08qv")]
 position = Vector2(722.446, -410.939)
 player = NodePath("../hayate")
+
+[node name="saber" parent="." instance=ExtResource("4_jpfrt")]
+position = Vector2(880.285, -465.87)
+speed = 300
+attack = 600
+
+[node name="hayate" parent="." instance=ExtResource("5_8o2p0")]
+position = Vector2(232.24, 271.873)
+
+[node name="miko" parent="." instance=ExtResource("3_q1siq")]
+position = Vector2(2045.66, -1036.73)
+
+[node name="map_props" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="skeleton" parent="map_props" instance=ExtResource("2_7wrks")]
+position = Vector2(3656.73, 951.904)
+
+[node name="checkpoint" parent="map_props" instance=ExtResource("14_lfr2r")]
+position = Vector2(1585.35, 691.156)
+scale = Vector2(0.695328, 0.695328)
+
+[node name="column1" parent="map_props" instance=ExtResource("15_yf8tj")]
+position = Vector2(1501.21, 223.896)
+scale = Vector2(2.08598, 2.08598)
+
+[node name="column2" parent="map_props" instance=ExtResource("15_yf8tj")]
+position = Vector2(3720.7, 949.123)
+scale = Vector2(2.08598, 2.08598)
+
+[node name="column3" parent="map_props" instance=ExtResource("15_yf8tj")]
+position = Vector2(2779.23, 104.299)
+scale = Vector2(2.08598, 2.08598)
+
+[node name="column4" parent="map_props" instance=ExtResource("15_yf8tj")]
+position = Vector2(4247.06, 804.495)
+scale = Vector2(2.08598, 2.08598)
+
+[node name="portal" parent="map_props" instance=ExtResource("6_k71fd")]
+position = Vector2(3396.68, 962.334)
+scale = Vector2(1.39066, 1.39066)
+next_scene = ExtResource("7_ekxtv")
 
 [connection signal="body_entered" from="tutorial/movement" to="." method="_on_movement_body_entered"]
 [connection signal="body_exited" from="tutorial/movement" to="." method="_on_movement_body_exited"]

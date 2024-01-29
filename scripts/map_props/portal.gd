@@ -3,17 +3,20 @@ extends Area2D
 @export var next_scene: PackedScene
 @onready var sprite = $AnimatedSprite2D
 @onready var label = $Label
+@onready var point_light_2d = $PointLight2D
 
 var portal_unlocked = false
 
 func _ready():
 	body_entered.connect(_on_body_entered)
 	label.visible = false
+	point_light_2d.visible = false
 	
 func column_hit():
 	sprite.frame += 1
 	if sprite.frame == 4:
 		portal_unlocked = true
+		point_light_2d.visible = true
 		sprite.frame += 1
 
 func _on_body_entered(body):

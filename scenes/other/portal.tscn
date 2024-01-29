@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4wa74x5q2a75"]
+[gd_scene load_steps=12 format=3 uid="uid://bhy48tqiojmqd"]
 
 [ext_resource type="Script" path="res://scripts/map_props/portal.gd" id="1_gdccl"]
 [ext_resource type="Texture2D" uid="uid://dlr56mmwr0403" path="res://assets/Skins/Map props skin/teleport platform/default.png" id="1_ts12i"]
@@ -38,7 +38,18 @@ animations = [{
 radius = 16.5
 height = 50.0
 
+[sub_resource type="Gradient" id="Gradient_i7x1i"]
+offsets = PackedFloat32Array(0.308642, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_emooh"]
+gradient = SubResource("Gradient_i7x1i")
+fill = 1
+fill_from = Vector2(0.482906, 0.542735)
+fill_to = Vector2(0.75641, 0.769231)
+
 [node name="portal" type="Area2D"]
+z_index = -1
 texture_filter = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_gdccl")
@@ -59,3 +70,10 @@ offset_top = -56.5
 offset_right = 102.5
 offset_bottom = -33.5
 text = "Strike Pillars To Enter"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(12.5, -1)
+scale = Vector2(1.51172, 1.51172)
+color = Color(0, 1, 0.983333, 1)
+energy = 1.59
+texture = SubResource("GradientTexture2D_emooh")

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dtqrqk0yreyfx" path="res://scenes/other/columns.tscn" id="5_d7wek"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="5_qyae3"]
 [ext_resource type="Texture2D" uid="uid://dnrfemhit7nga" path="res://assets/Skins/Player skins/character icon/saber_icon.png" id="6_6ekkf"]
-[ext_resource type="PackedScene" path="res://scenes/other/portal.tscn" id="6_iqb0h"]
+[ext_resource type="PackedScene" uid="uid://bhy48tqiojmqd" path="res://scenes/other/portal.tscn" id="6_iqb0h"]
 [ext_resource type="Texture2D" uid="uid://brocy360o801q" path="res://assets/Skins/Player skins/character icon/miko_icon.png" id="7_13v0c"]
 [ext_resource type="Texture2D" uid="uid://cxcbeao47io3c" path="res://assets/Skins/Player skins/character icon/hayate_icon.png" id="8_1tv4t"]
 [ext_resource type="PackedScene" uid="uid://bf33gkctekuso" path="res://scenes/ui/exp_bar.tscn" id="8_ydnfj"]
@@ -26,36 +26,6 @@ script = ExtResource("1_1xb3k")
 [node name="TileMap" parent="." instance=ExtResource("1_5w3yu")]
 position = Vector2(-62, 62)
 scale = Vector2(2, 2)
-
-[node name="map_props" type="Node" parent="."]
-
-[node name="fire column" parent="map_props" instance=ExtResource("3_fhvlv")]
-position = Vector2(-733, 34)
-scale = Vector2(2, 2)
-
-[node name="fire column2" parent="map_props" instance=ExtResource("3_fhvlv")]
-position = Vector2(-733, 220)
-scale = Vector2(2, 2)
-
-[node name="MoonTower" parent="map_props" instance=ExtResource("4_yxx5g")]
-position = Vector2(1665, 59)
-scale = Vector2(2, 2)
-
-[node name="column1" parent="map_props" instance=ExtResource("5_d7wek")]
-z_index = 8
-position = Vector2(1137, 969)
-
-[node name="column2" parent="map_props" instance=ExtResource("5_d7wek")]
-position = Vector2(2498, 874)
-
-[node name="column3" parent="map_props" instance=ExtResource("5_d7wek")]
-position = Vector2(3687, 599)
-
-[node name="column4" parent="map_props" instance=ExtResource("5_d7wek")]
-position = Vector2(2862, -615)
-
-[node name="portal" parent="map_props" instance=ExtResource("6_iqb0h")]
-position = Vector2(2191, -530)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -129,24 +99,8 @@ texture = ExtResource("8_1tv4t")
 [node name="cooldown" parent="CanvasLayer" instance=ExtResource("12_qe0jd")]
 position = Vector2(1197, 652)
 
-[node name="hayate" parent="." instance=ExtResource("3_a7lok")]
+[node name="enemies" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(890, 156)
-
-[node name="miko" parent="." instance=ExtResource("4_tvhkt")]
-position = Vector2(159, -298)
-collision_mask = 15
-
-[node name="saber" parent="." instance=ExtResource("2_5tl7t")]
-y_sort_enabled = true
-position = Vector2(-76, -267)
-collision_mask = 15
-
-[node name="companion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_ufn4g")]
-position = Vector2(719, 162)
-player = NodePath("../hayate")
-
-[node name="enemies" type="Node" parent="."]
 
 [node name="skeleton" parent="enemies" instance=ExtResource("14_4imw8")]
 position = Vector2(877, 708)
@@ -177,6 +131,60 @@ position = Vector2(-359, 164)
 
 [node name="slime5" parent="enemies" instance=ExtResource("15_kodex")]
 position = Vector2(449, 206)
+
+[node name="hayate" parent="." instance=ExtResource("3_a7lok")]
+position = Vector2(842, 208)
+scale = Vector2(1.15845, 1.15845)
+
+[node name="miko" parent="." instance=ExtResource("4_tvhkt")]
+position = Vector2(111, -246)
+scale = Vector2(1.09656, 1.09656)
+collision_mask = 15
+
+[node name="saber" parent="." instance=ExtResource("2_5tl7t")]
+y_sort_enabled = true
+position = Vector2(-124, -215)
+scale = Vector2(1.17248, 1.17248)
+collision_mask = 15
+
+[node name="companion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_ufn4g")]
+position = Vector2(719, 162)
+player = NodePath("../hayate")
+
+[node name="map_props" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="fire column" parent="map_props" instance=ExtResource("3_fhvlv")]
+position = Vector2(-733, 34)
+scale = Vector2(2, 2)
+
+[node name="fire column2" parent="map_props" instance=ExtResource("3_fhvlv")]
+position = Vector2(-733, 220)
+scale = Vector2(2, 2)
+
+[node name="MoonTower" parent="map_props" instance=ExtResource("4_yxx5g")]
+position = Vector2(1665, 59)
+scale = Vector2(2, 2)
+
+[node name="column1" parent="map_props" instance=ExtResource("5_d7wek")]
+modulate = Color(0.415686, 0.415686, 0.415686, 1)
+position = Vector2(1137, 969)
+
+[node name="column2" parent="map_props" instance=ExtResource("5_d7wek")]
+modulate = Color(0.486275, 0.486275, 0.486275, 1)
+position = Vector2(2498, 874)
+
+[node name="column3" parent="map_props" instance=ExtResource("5_d7wek")]
+modulate = Color(0.403922, 0.403922, 0.403922, 1)
+position = Vector2(3687, 599)
+
+[node name="column4" parent="map_props" instance=ExtResource("5_d7wek")]
+modulate = Color(0.4, 0.4, 0.4, 1)
+position = Vector2(2862, -615)
+
+[node name="portal" parent="map_props" instance=ExtResource("6_iqb0h")]
+modulate = Color(0.396078, 0.396078, 0.396078, 1)
+position = Vector2(2191, -530)
 
 [editable path="TileMap"]
 [editable path="CanvasLayer/party_health_bars/saber_mini_health_bar"]
