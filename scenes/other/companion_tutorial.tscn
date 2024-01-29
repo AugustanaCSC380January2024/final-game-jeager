@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://dm2og5e58y57a"]
+
+[ext_resource type="Script" path="res://scenes/other/companion_tutorial.gd" id="1_jfadc"]
+[ext_resource type="Texture2D" uid="uid://whl1upbe1yrd" path="res://assets/Skins/Boss skins/Final Boss/spritesheets/demon_slime_v1.0-SpriteSheet_288x160.png" id="1_nsfwr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlms7"]
+atlas = ExtResource("1_nsfwr")
+region = Rect2(0, 320, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k0hi"]
+atlas = ExtResource("1_nsfwr")
+region = Rect2(288, 320, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr02w"]
+atlas = ExtResource("1_nsfwr")
+region = Rect2(576, 320, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siemv"]
+atlas = ExtResource("1_nsfwr")
+region = Rect2(864, 320, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gbye"]
+atlas = ExtResource("1_nsfwr")
+region = Rect2(1152, 320, 288, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igpbh"]
+atlas = ExtResource("1_nsfwr")
+region = Rect2(1440, 320, 288, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6pbt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlms7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k0hi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr02w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siemv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gbye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igpbh")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tousd"]
+radius = 8.24621
+
+[node name="companionTutorial" type="CharacterBody2D"]
+y_sort_enabled = true
+texture_filter = 1
+scale = Vector2(2, 2)
+collision_layer = 16
+collision_mask = 6
+script = ExtResource("1_jfadc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -72)
+sprite_frames = SubResource("SpriteFrames_h6pbt")
+animation = &"hurt"
+autoplay = "hurt"
+frame_progress = 0.16928
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_tousd")

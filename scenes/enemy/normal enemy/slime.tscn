@@ -400,6 +400,7 @@ script = ExtResource("1_jo24x")
 player_detection_range = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(8.36471, 0.921569, 0.85098, 1)
 texture_filter = 1
 position = Vector2(0, -47)
 sprite_frames = SubResource("SpriteFrames_jbspr")

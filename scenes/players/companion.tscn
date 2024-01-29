@@ -523,6 +523,7 @@ animations = [{
 radius = 8.24621
 
 [node name="companion" type="CharacterBody2D"]
+y_sort_enabled = true
 texture_filter = 1
 scale = Vector2(2, 2)
 collision_layer = 16
@@ -530,6 +531,7 @@ collision_mask = 6
 script = ExtResource("1_l02b3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(3, -72)
 sprite_frames = SubResource("SpriteFrames_8qqsh")
 animation = &"teleport"

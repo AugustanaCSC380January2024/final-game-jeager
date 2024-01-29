@@ -1,0 +1,207 @@
+[gd_scene load_steps=23 format=3 uid="uid://wae2wvwtw2jd"]
+
+[ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_5bloe"]
+[ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
+[ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="3_q1siq"]
+[ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="4_jpfrt"]
+[ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="5_8o2p0"]
+[ext_resource type="PackedScene" path="res://scenes/other/portal.tscn" id="6_k71fd"]
+[ext_resource type="PackedScene" uid="uid://cvjtbx5vno36k" path="res://scenes/enemy/normal enemy/slime.tscn" id="6_y3iqg"]
+[ext_resource type="Texture2D" uid="uid://dnrfemhit7nga" path="res://assets/Skins/Player skins/character icon/saber_icon.png" id="7_3vlem"]
+[ext_resource type="PackedScene" uid="uid://ogo63q6fdc44" path="res://scenes/levels/level_2.tscn" id="7_ekxtv"]
+[ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="8_ptpph"]
+[ext_resource type="Texture2D" uid="uid://brocy360o801q" path="res://assets/Skins/Player skins/character icon/miko_icon.png" id="8_wggrs"]
+[ext_resource type="Texture2D" uid="uid://cxcbeao47io3c" path="res://assets/Skins/Player skins/character icon/hayate_icon.png" id="9_hais5"]
+[ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="11_02811"]
+[ext_resource type="PackedScene" uid="uid://dm2og5e58y57a" path="res://scenes/other/companion_tutorial.tscn" id="12_44knw"]
+[ext_resource type="PackedScene" uid="uid://1t02ddw5p3vd" path="res://scenes/attacks/checkpoint.tscn" id="14_lfr2r"]
+[ext_resource type="PackedScene" uid="uid://dtqrqk0yreyfx" path="res://scenes/other/columns.tscn" id="15_yf8tj"]
+[ext_resource type="PackedScene" uid="uid://gjxslxk6tv02" path="res://scenes/levels/final level_1.tscn" id="17_8057i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugshl"]
+size = Vector2(280.913, 237.588)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbb86"]
+size = Vector2(143.238, 237.588)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aeaso"]
+size = Vector2(178.7, 237.588)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03wnq"]
+size = Vector2(369.22, 237.588)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqqhl"]
+size = Vector2(332.367, 237.588)
+
+[node name="Level 1" type="Node2D"]
+position = Vector2(-235, -178)
+scale = Vector2(1.43817, 1.43817)
+script = ExtResource("1_5bloe")
+
+[node name="level 1" parent="." instance=ExtResource("17_8057i")]
+position = Vector2(2157.61, 362.962)
+scale = Vector2(1.20714, 1.20714)
+
+[node name="map_props" type="Node" parent="."]
+
+[node name="checkpoint" parent="map_props" instance=ExtResource("14_lfr2r")]
+position = Vector2(2045, 816)
+
+[node name="column1" parent="map_props" instance=ExtResource("15_yf8tj")]
+z_index = 11
+position = Vector2(1924, 144)
+
+[node name="column2" parent="map_props" instance=ExtResource("15_yf8tj")]
+position = Vector2(4658, 1197)
+
+[node name="column3" parent="map_props" instance=ExtResource("15_yf8tj")]
+position = Vector2(3762, -28)
+
+[node name="column4" parent="map_props" instance=ExtResource("15_yf8tj")]
+position = Vector2(5848, 979)
+
+[node name="portal" parent="map_props" instance=ExtResource("6_k71fd")]
+position = Vector2(5394, 1202)
+next_scene = ExtResource("7_ekxtv")
+
+[node name="saber" parent="." instance=ExtResource("4_jpfrt")]
+z_index = 12
+y_sort_enabled = true
+position = Vector2(919, -1632)
+
+[node name="hayate" parent="." instance=ExtResource("5_8o2p0")]
+z_index = 12
+y_sort_enabled = true
+position = Vector2(236.412, 257.272)
+
+[node name="miko" parent="." instance=ExtResource("3_q1siq")]
+z_index = 12
+position = Vector2(561, -1651)
+
+[node name="companion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_02811")]
+position = Vector2(2508.75, 431.8)
+player = NodePath("../hayate")
+
+[node name="companionTutorial" parent="." instance=ExtResource("12_44knw")]
+position = Vector2(2051.22, 256.577)
+scale = Vector2(2.41427, 2.41427)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="press_shoot_label" type="Label" parent="CanvasLayer"]
+offset_left = 526.0
+offset_top = 693.0
+offset_right = 689.0
+offset_bottom = 716.0
+text = "Press Space To Shoot"
+
+[node name="health_bar" parent="CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("8_ptpph")]
+offset_left = 2.0
+offset_top = 679.0
+offset_right = -982.0
+offset_bottom = -18.0
+character = NodePath("../../hayate")
+
+[node name="party_health_bars" type="Node" parent="CanvasLayer"]
+
+[node name="saber_mini_health_bar" parent="CanvasLayer/party_health_bars" node_paths=PackedStringArray("character") instance=ExtResource("8_ptpph")]
+offset_left = 960.0
+offset_top = 109.0
+offset_right = -13.0
+offset_bottom = -601.0
+character = NodePath("../../../saber")
+
+[node name="miko_mini_health_bar" parent="CanvasLayer/party_health_bars" node_paths=PackedStringArray("character") instance=ExtResource("8_ptpph")]
+offset_left = 960.0
+offset_top = 62.0
+offset_right = -13.0
+offset_bottom = -648.0
+character = NodePath("../../../miko")
+
+[node name="hayate_mini_health_bar" parent="CanvasLayer/party_health_bars" node_paths=PackedStringArray("character") instance=ExtResource("8_ptpph")]
+offset_left = 960.0
+offset_top = 18.0
+offset_right = -13.0
+offset_bottom = -692.0
+character = NodePath("../../../hayate")
+
+[node name="saber_icon" type="Sprite2D" parent="CanvasLayer/party_health_bars"]
+texture_filter = 1
+position = Vector2(945, 117)
+scale = Vector2(0.701612, 0.618664)
+texture = ExtResource("7_3vlem")
+
+[node name="miko_icon" type="Sprite2D" parent="CanvasLayer/party_health_bars"]
+texture_filter = 1
+position = Vector2(940, 67)
+scale = Vector2(0.630805, 0.556228)
+texture = ExtResource("8_wggrs")
+
+[node name="hayate_icon" type="Sprite2D" parent="CanvasLayer/party_health_bars"]
+texture_filter = 1
+position = Vector2(942, 26)
+scale = Vector2(0.600808, 0.618664)
+texture = ExtResource("9_hais5")
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="skeleton" parent="enemies" instance=ExtResource("2_7wrks")]
+position = Vector2(4941, 1205)
+
+[node name="slime" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(1229, 207)
+player = NodePath("../../companionTutorial")
+
+[node name="slime2" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(2665, 161)
+player = NodePath("../../companionTutorial")
+
+[node name="slime3" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(2694, 231)
+player = NodePath("../../companionTutorial")
+
+[node name="slime4" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(2760, 230)
+player = NodePath("../../companionTutorial")
+
+[node name="slime5" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(2767, 133)
+player = NodePath("../../companionTutorial")
+
+[node name="tutorial" type="Node2D" parent="."]
+
+[node name="movement" type="Area2D" parent="tutorial"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/movement"]
+position = Vector2(309.422, 244.061)
+shape = SubResource("RectangleShape2D_ugshl")
+
+[node name="switch" type="Area2D" parent="tutorial"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/switch"]
+position = Vector2(527.755, 244.061)
+shape = SubResource("RectangleShape2D_rbb86")
+
+[node name="attack" type="Area2D" parent="tutorial"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/attack"]
+position = Vector2(697.068, 245.451)
+shape = SubResource("RectangleShape2D_aeaso")
+
+[node name="ult" type="Area2D" parent="tutorial"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/ult"]
+position = Vector2(1020.05, 245.451)
+shape = SubResource("RectangleShape2D_aeaso")
+
+[node name="ult2" type="Area2D" parent="tutorial"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/ult2"]
+position = Vector2(1433.07, 251.709)
+shape = SubResource("RectangleShape2D_03wnq")
+
+[node name="slimeattack" type="Area2D" parent="tutorial"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/slimeattack"]
+position = Vector2(1968.48, 253.1)
+shape = SubResource("RectangleShape2D_hqqhl")
