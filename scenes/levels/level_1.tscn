@@ -320,6 +320,7 @@ next_scene = ExtResource("19_a8c0x")
 stream = ExtResource("20_17ytd")
 volume_db = -11.0
 autoplay = true
+max_distance = 10000.0
 
 [connection signal="body_entered" from="tutorial/movement" to="." method="_on_movement_body_entered"]
 [connection signal="body_exited" from="tutorial/movement" to="." method="_on_movement_body_exited"]

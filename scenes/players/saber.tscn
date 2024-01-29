@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://8ck7qe1n3awd"]
+[gd_scene load_steps=79 format=3 uid="uid://8ck7qe1n3awd"]
 
 [ext_resource type="Texture2D" uid="uid://wbpamvcyejk2" path="res://assets/Skins/Player skins/Saber/Attack_1.png" id="1_5ebev"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_bvcqm"]
@@ -10,6 +10,20 @@
 [ext_resource type="Texture2D" uid="uid://b7pxqkfnjyxik" path="res://assets/Skins/Player skins/Saber/Walk.png" id="7_7o21s"]
 [ext_resource type="Texture2D" uid="uid://d0p5t5drcmlmu" path="res://assets/Skins/other/nothing.png" id="9_k0c5y"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="10_slc1a"]
+[ext_resource type="AudioStream" uid="uid://xxdro1w2ko3" path="res://assets/Sounds/saber/grunting_3_meghan.wav" id="11_o3eyb"]
+[ext_resource type="AudioStream" uid="uid://cha2w6lohap3p" path="res://assets/Sounds/saber/grunting_4_meghan.wav" id="12_0h64s"]
+[ext_resource type="AudioStream" uid="uid://dp7fabrvh2jla" path="res://assets/Sounds/saber/damage_7_meghan.wav" id="13_sterh"]
+[ext_resource type="AudioStream" uid="uid://bc3oue6pc1afv" path="res://assets/Sounds/saber/death_9_meghan.wav" id="14_bf4cf"]
+[ext_resource type="AudioStream" uid="uid://bsac54lt5fbq" path="res://assets/Sounds/saber/attacks/1.wav" id="15_j047w"]
+[ext_resource type="AudioStream" uid="uid://bnrhn0u8ccglv" path="res://assets/Sounds/saber/attacks/12.wav" id="16_7c12w"]
+[ext_resource type="AudioStream" uid="uid://c4tlekkv0pgbf" path="res://assets/Sounds/saber/attacks/attack1.wav" id="17_6q7mt"]
+[ext_resource type="AudioStream" uid="uid://cio2ll0lhe6pk" path="res://assets/Sounds/saber/attacks/attack2.wav" id="18_ej0f8"]
+[ext_resource type="AudioStream" uid="uid://cfcxp7cewpjvt" path="res://assets/Sounds/saber/attacks/attack3.wav" id="19_0vcn3"]
+[ext_resource type="AudioStream" uid="uid://bexnv4ld381h2" path="res://assets/Sounds/saber/attacks/attack13.wav" id="20_wkovb"]
+[ext_resource type="AudioStream" uid="uid://deekerwm8fga3" path="res://assets/Sounds/saber/attacks/transition-futuristic-ufo-121421.mp3" id="21_r0fyt"]
+[ext_resource type="AudioStream" uid="uid://co220eixxssqe" path="res://assets/Sounds/saber/attacks/sword-from-sheath-6910.mp3" id="22_26hwy"]
+[ext_resource type="AudioStream" uid="uid://bwhhsk73dd3nq" path="res://assets/Sounds/saber/attacks/Voicy_Sword Slash .mp3" id="23_qgg7j"]
+[ext_resource type="AudioStream" uid="uid://blyi1qhcleh7s" path="res://assets/Sounds/saber/attacks/saber ult.mp3" id="24_l27dv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwsmf"]
 atlas = ExtResource("2_pwgys")
@@ -391,6 +405,43 @@ height = 72.0
 radius = 5.98442
 height = 23.9675
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_b7kf0"]
+random_volume_offset_db = 1.08
+streams_count = 3
+stream_0/stream = ExtResource("11_o3eyb")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("12_0h64s")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("13_sterh")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ohiyp"]
+streams_count = 7
+stream_0/stream = ExtResource("15_j047w")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("16_7c12w")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("17_6q7mt")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("18_ej0f8")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("19_0vcn3")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("20_wkovb")
+stream_5/weight = 1.0
+stream_6/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gml07"]
+streams_count = 4
+stream_0/stream = ExtResource("21_r0fyt")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("22_26hwy")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("23_qgg7j")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("24_l27dv")
+stream_3/weight = 1.0
+
 [node name="saber" type="CharacterBody2D"]
 collision_mask = 44
 script = ExtResource("1_bvcqm")
@@ -451,3 +502,17 @@ shape = SubResource("CapsuleShape2D_pwerg")
 [node name="cooldown" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="audio_player" type="Node2D" parent="."]
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_b7kf0")
+
+[node name="dead" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = ExtResource("14_bf4cf")
+
+[node name="attack" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_ohiyp")
+
+[node name="ult" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_gml07")

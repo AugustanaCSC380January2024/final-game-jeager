@@ -208,6 +208,7 @@ offset_bottom = 291.0
 stream = ExtResource("19_h1tu7")
 volume_db = -5.0
 autoplay = true
+max_distance = 10000.0
 
 [connection signal="body_entered" from="map_props/moonTowerTutorial" to="." method="_on_moon_tower_tutorial_body_entered"]
 [connection signal="body_exited" from="map_props/moonTowerTutorial" to="." method="_on_moon_tower_tutorial_body_exited"]

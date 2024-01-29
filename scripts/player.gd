@@ -23,6 +23,7 @@ signal shoot_arrow
 @onready var ultimate_sprite = $ultimate
 @onready var cooldown = $cooldown
 
+
 var bodies_in_damage_box = []
 var is_right = true
 var alive = true
@@ -88,14 +89,19 @@ func update_moving_animation(animation):
 		animated_sprite.play("run")
 	elif animation == 2:
 		animated_sprite.play("attack 1")
+		$audio_player/attack.play()
+
 		stop_movement = true
 	elif animation == 3:
 		animated_sprite.play("hurt")
+		$audio_player/hurt.play()
 	elif animation == 4:
 		animated_sprite.play("dead")
+		$audio_player/dead.play()
 	elif animation == 5:
 		animated_sprite.play("attack 2")
 		stop_movement = true
+		$audio_player/ult.play()
 
 func _on_animated_sprite_2d_animation_finished():
 	if stop_movement:

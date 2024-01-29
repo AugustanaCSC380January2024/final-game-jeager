@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://btpuw4f8qb17n"]
+[gd_scene load_steps=125 format=3 uid="uid://btpuw4f8qb17n"]
 
 [ext_resource type="Texture2D" uid="uid://kjb60r3e144w" path="res://assets/Skins/Player skins/Miko/Attack_1.png" id="1_4p357"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v7m3s"]
@@ -13,6 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://bvauc8w48fiti" path="res://assets/Skins/Player skins/Miko/Run.png" id="10_3lolv"]
 [ext_resource type="Texture2D" uid="uid://brlbcw4enhxbf" path="res://assets/Skins/Player skins/Miko/Walk.png" id="11_belgi"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="13_yyu5r"]
+[ext_resource type="AudioStream" uid="uid://j3a7v6gwhnsg" path="res://assets/Sounds/miko/grunting_1_karen.wav" id="14_l6ft4"]
+[ext_resource type="AudioStream" uid="uid://bhkv0ccaalh6f" path="res://assets/Sounds/miko/grunting_2_karen.wav" id="15_qna6v"]
+[ext_resource type="AudioStream" uid="uid://bn7fcob28xa68" path="res://assets/Sounds/miko/grunting_3_karen.wav" id="16_eyj3o"]
+[ext_resource type="AudioStream" uid="uid://xxwcnyq6gdec" path="res://assets/Sounds/miko/death_5_karen.wav" id="17_5q286"]
+[ext_resource type="AudioStream" uid="uid://kvuwbsakwure" path="res://assets/Sounds/miko/normal atk.wav" id="18_ribuw"]
+[ext_resource type="AudioStream" uid="uid://bmrntodmm20yr" path="res://assets/Sounds/miko/hellstorm.wav" id="19_iaq04"]
+[ext_resource type="AudioStream" uid="uid://d3sywawdprm33" path="res://assets/Sounds/miko/blizzard.wav" id="20_frqp7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tf6su"]
 atlas = ExtResource("1_4p357")
@@ -765,6 +772,23 @@ height = 50.2222
 radius = 5.98442
 height = 34.0261
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6vhvs"]
+random_volume_offset_db = 1.08
+streams_count = 3
+stream_0/stream = ExtResource("14_l6ft4")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("15_qna6v")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("16_eyj3o")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3u3r7"]
+streams_count = 2
+stream_0/stream = ExtResource("19_iaq04")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("20_frqp7")
+stream_1/weight = 1.0
+
 [node name="miko" type="CharacterBody2D"]
 y_sort_enabled = true
 texture_filter = 1
@@ -828,3 +852,17 @@ shape = SubResource("CapsuleShape2D_3n8wd")
 [node name="cooldown" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="audio_player" type="Node2D" parent="."]
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_6vhvs")
+
+[node name="dead" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = ExtResource("17_5q286")
+
+[node name="attack" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = ExtResource("18_ribuw")
+
+[node name="ult" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_3u3r7")

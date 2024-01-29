@@ -43,6 +43,7 @@ layer_2/tile_data = PackedInt32Array(1572882, 589824, 4, 1507346, 589824, 4, 150
 stream = ExtResource("3_tsd7m")
 volume_db = -11.0
 autoplay = true
+max_distance = 10000.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
