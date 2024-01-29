@@ -27,7 +27,7 @@ func _physics_process(delta):
 		animated_sprite.flip_h = true
 		
 	#if (abs(distance.x)> 70 and abs(distance.y) > 70):
-	if distance > 700:
+	if distance > 500:
 		velocity = dir * speed
 		global_position = player.get_companion_maker_position()
 		animated_sprite.play("teleport")

@@ -12,6 +12,8 @@ class_name Level
 @onready var enemies = $enemies.get_children()
 @onready var absorb_particles = preload("res://scenes/absorb_particles.tscn")
 @onready var coin = preload("res://scenes/other/coin.tscn")
+@onready var exp_bar = $CanvasLayer/exp_bar
+@onready var cooldown = $CanvasLayer/cooldown
 
 var curr_player: CharacterBody2D
 
@@ -35,6 +37,12 @@ func _ready():
 	for enemy in enemies:
 		enemy.connect("enemy_death", _enemy_killed)
 
+func _process(delta):
+	if Input.is_action_just_pressed("ultimate"):
+		if (cooldown.over()):
+			cooldown.start_timer()
+			curr_player.
+	
 func _enemy_killed(pos):
 	var new_particle = absorb_particles.instantiate()
 	add_child(new_particle)
@@ -89,3 +97,4 @@ func spawn_coin():
 	var new_coin = coin.instantiate()
 	add_child(new_coin)
 	new_coin.position = companion.global_position
+	new_coin.coin_collected.connect(exp_bar.update_exp_bar)
