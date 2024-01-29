@@ -41,7 +41,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ultimate"):
 		if (cooldown.over()):
 			cooldown.start_timer()
-			curr_player.
+			#curr_player.
 	
 func _enemy_killed(pos):
 	var new_particle = absorb_particles.instantiate()
