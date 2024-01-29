@@ -1,13 +1,14 @@
-[gd_scene load_steps=28 format=3 uid="uid://wae2wvwtw2jd"]
+[gd_scene load_steps=25 format=3 uid="uid://wae2wvwtw2jd"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_5bloe"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
 [ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="3_q1siq"]
 [ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="4_jpfrt"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="5_8o2p0"]
-[ext_resource type="PackedScene" uid="uid://bhy48tqiojmqd" path="res://scenes/other/portal.tscn" id="6_k71fd"]
+[ext_resource type="PackedScene" uid="uid://b4wa74x5q2a75" path="res://scenes/other/portal.tscn" id="6_k71fd"]
 [ext_resource type="PackedScene" uid="uid://cvjtbx5vno36k" path="res://scenes/enemy/normal enemy/slime.tscn" id="6_y3iqg"]
 [ext_resource type="Texture2D" uid="uid://dnrfemhit7nga" path="res://assets/Skins/Player skins/character icon/saber_icon.png" id="7_3vlem"]
+[ext_resource type="PackedScene" uid="uid://ogo63q6fdc44" path="res://scenes/levels/level_2.tscn" id="7_ekxtv"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="8_ptpph"]
 [ext_resource type="Texture2D" uid="uid://brocy360o801q" path="res://assets/Skins/Player skins/character icon/miko_icon.png" id="8_wggrs"]
 [ext_resource type="Texture2D" uid="uid://cxcbeao47io3c" path="res://assets/Skins/Player skins/character icon/hayate_icon.png" id="9_hais5"]
@@ -16,36 +17,25 @@
 [ext_resource type="PackedScene" uid="uid://bf33gkctekuso" path="res://scenes/ui/exp_bar.tscn" id="15_o6tcl"]
 [ext_resource type="PackedScene" uid="uid://dtqrqk0yreyfx" path="res://scenes/other/columns.tscn" id="15_yf8tj"]
 [ext_resource type="PackedScene" uid="uid://gjxslxk6tv02" path="res://scenes/levels/final level_1.tscn" id="17_8057i"]
-[ext_resource type="PackedScene" uid="uid://cmt7stfwubunv" path="res://scenes/levels/yassop_boss_room.tscn" id="19_a8c0x"]
 [ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="19_p08qv"]
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="19_rlk5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugshl"]
-size = Vector2(206.512, 237.588)
+size = Vector2(280.913, 237.588)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rbb86"]
-size = Vector2(75.79, 237.588)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xm1vr"]
-size = Vector2(100.126, 237.588)
+size = Vector2(143.238, 237.588)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeaso"]
-size = Vector2(112.291, 237.588)
+size = Vector2(178.7, 237.588)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03wnq"]
-size = Vector2(139.414, 237.588)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uks0"]
-size = Vector2(139.414, 237.588)
+size = Vector2(369.22, 237.588)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqqhl"]
 size = Vector2(332.367, 237.588)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nhjg"]
-size = Vector2(198.864, 132.7)
-
 [node name="Level 1" type="Node2D"]
-y_sort_enabled = true
 position = Vector2(-235, -178)
 scale = Vector2(1.43817, 1.43817)
 script = ExtResource("1_5bloe")
@@ -54,12 +44,50 @@ script = ExtResource("1_5bloe")
 position = Vector2(2157.61, 362.962)
 scale = Vector2(1.20714, 1.20714)
 
+[node name="map_props" type="Node" parent="."]
+
+[node name="checkpoint" parent="map_props" instance=ExtResource("14_lfr2r")]
+position = Vector2(2045, 816)
+
+[node name="column1" parent="map_props" instance=ExtResource("15_yf8tj")]
+z_index = 11
+position = Vector2(1924, 144)
+
+[node name="column2" parent="map_props" instance=ExtResource("15_yf8tj")]
+position = Vector2(4658, 1197)
+
+[node name="column3" parent="map_props" instance=ExtResource("15_yf8tj")]
+position = Vector2(3762, -28)
+
+[node name="column4" parent="map_props" instance=ExtResource("15_yf8tj")]
+position = Vector2(5848, 979)
+
+[node name="portal" parent="map_props" instance=ExtResource("6_k71fd")]
+position = Vector2(5394, 1202)
+next_scene = ExtResource("7_ekxtv")
+
+[node name="saber" parent="." instance=ExtResource("4_jpfrt")]
+z_index = 12
+y_sort_enabled = true
+position = Vector2(919, -1632)
+
+[node name="hayate" parent="." instance=ExtResource("5_8o2p0")]
+z_index = 12
+y_sort_enabled = true
+position = Vector2(236.412, 257.272)
+
+[node name="miko" parent="." instance=ExtResource("3_q1siq")]
+z_index = 12
+position = Vector2(561, -1651)
+
 [node name="companionTutorial" parent="." instance=ExtResource("12_44knw")]
 position = Vector2(2051.22, 256.577)
 scale = Vector2(2.41427, 2.41427)
 
-[node name="enemies" type="Node2D" parent="."]
-y_sort_enabled = true
+[node name="enemies" type="Node" parent="."]
+
+[node name="skeleton" parent="enemies" instance=ExtResource("2_7wrks")]
+position = Vector2(4941, 1205)
 
 [node name="slime6" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
 position = Vector2(1391, 240)
@@ -70,107 +98,58 @@ position = Vector2(824, 203)
 player = NodePath("../../companionTutorial")
 
 [node name="slime" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
-position = Vector2(1406.65, 308.726)
+position = Vector2(1392, 168)
 player = NodePath("../../companionTutorial")
 
-[node name="tutorial slimes" type="Node2D" parent="enemies"]
-position = Vector2(-661.257, 69.5328)
+[node name="tutorial slimes" type="Node" parent="enemies"]
 
 [node name="slime4" parent="enemies/tutorial slimes" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
 position = Vector2(2760, 230)
-scale = Vector2(1.31836, 1.31836)
 player = NodePath("../../../companionTutorial")
 
 [node name="slime3" parent="enemies/tutorial slimes" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
 position = Vector2(2694, 231)
-scale = Vector2(1.4353, 1.4353)
 player = NodePath("../../../companionTutorial")
 
 [node name="slime2" parent="enemies/tutorial slimes" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
 position = Vector2(2665, 161)
-scale = Vector2(1.35057, 1.35057)
 player = NodePath("../../../companionTutorial")
 
 [node name="slime5" parent="enemies/tutorial slimes" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
-position = Vector2(2765, 150)
+position = Vector2(2767, 133)
 player = NodePath("../../../companionTutorial")
 
 [node name="tutorial" type="Node2D" parent="."]
 
 [node name="movement" type="Area2D" parent="tutorial"]
-collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/movement"]
-position = Vector2(272.221, 244.061)
+position = Vector2(309.422, 244.061)
 shape = SubResource("RectangleShape2D_ugshl")
-
-[node name="Label" type="Label" parent="tutorial/movement"]
-offset_left = 211.0
-offset_top = 138.0
-offset_right = 374.0
-offset_bottom = 205.0
 
 [node name="switch" type="Area2D" parent="tutorial"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/switch"]
-position = Vector2(494.031, 244.061)
+position = Vector2(527.755, 244.061)
 shape = SubResource("RectangleShape2D_rbb86")
-
-[node name="Label" type="Label" parent="tutorial/switch"]
-offset_left = 437.361
-offset_top = 139.066
-offset_right = 555.361
-offset_bottom = 204.066
 
 [node name="attack" type="Area2D" parent="tutorial"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/attack"]
-position = Vector2(657.781, 245.451)
-shape = SubResource("RectangleShape2D_xm1vr")
-
-[node name="Label" type="Label" parent="tutorial/attack"]
-offset_left = 611.889
-offset_top = 135.589
-offset_right = 761.889
-offset_bottom = 213.589
-
-[node name="areasplash" type="Area2D" parent="tutorial"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/areasplash"]
-position = Vector2(981.979, 245.451)
+position = Vector2(697.068, 245.451)
 shape = SubResource("RectangleShape2D_aeaso")
-
-[node name="Label" type="Label" parent="tutorial/areasplash"]
-offset_left = 919.919
-offset_top = 114.034
-offset_right = 1047.92
-offset_bottom = 185.034
 
 [node name="ult" type="Area2D" parent="tutorial"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/ult"]
-position = Vector2(1288.96, 255.881)
+position = Vector2(1020.05, 245.451)
+shape = SubResource("RectangleShape2D_aeaso")
+
+[node name="ult2" type="Area2D" parent="tutorial"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/ult2"]
+position = Vector2(1433.07, 251.709)
 shape = SubResource("RectangleShape2D_03wnq")
-
-[node name="Label" type="Label" parent="tutorial/ult"]
-z_index = 10
-offset_left = 1219.0
-offset_top = 136.0
-offset_right = 1412.0
-offset_bottom = 211.0
-
-[node name="rune" type="Area2D" parent="tutorial"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/rune"]
-position = Vector2(1502.6, 225.982)
-shape = SubResource("RectangleShape2D_8uks0")
-
-[node name="Label" type="Label" parent="tutorial/rune"]
-z_index = 10
-offset_left = 1409.43
-offset_top = 280.913
-offset_right = 1603.43
-offset_bottom = 355.913
 
 [node name="slimeattack" type="Area2D" parent="tutorial"]
 
@@ -178,30 +157,12 @@ offset_bottom = 355.913
 position = Vector2(1968.48, 253.1)
 shape = SubResource("RectangleShape2D_hqqhl")
 
-[node name="Label" type="Label" parent="tutorial/slimeattack"]
-offset_left = 1905.89
-offset_top = 143.238
-offset_right = 2076.89
-offset_bottom = 208.238
-
-[node name="hint1" type="Area2D" parent="tutorial"]
-position = Vector2(2588.01, 267.701)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/hint1"]
-position = Vector2(1166.07, 12.5159)
-shape = SubResource("RectangleShape2D_2nhjg")
-
-[node name="Label" type="Label" parent="tutorial/hint1"]
-offset_left = 1075.67
-offset_top = -143.238
-offset_right = 1324.67
-offset_bottom = -42.2376
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="health_bar" parent="CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("8_ptpph")]
 offset_top = 644.0
-offset_bottom = -49.0
+offset_right = -984.0
+offset_bottom = -53.0
 character = NodePath("../../hayate")
 
 [node name="exp_bar" parent="CanvasLayer" instance=ExtResource("15_o6tcl")]
@@ -265,74 +226,13 @@ position = Vector2(942, 26)
 scale = Vector2(0.600808, 0.618664)
 texture = ExtResource("9_hais5")
 
-[node name="cooldown" parent="CanvasLayer" node_paths=PackedStringArray("timer") instance=ExtResource("19_rlk5a")]
-position = Vector2(1197, 642)
-timer = NodePath("../../hayate/cooldown")
+[node name="cooldown" parent="CanvasLayer" instance=ExtResource("19_rlk5a")]
+position = Vector2(1197, 652)
 
 [node name="companion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_p08qv")]
 position = Vector2(722.446, -410.939)
 player = NodePath("../hayate")
 
-[node name="saber" parent="." instance=ExtResource("4_jpfrt")]
-position = Vector2(880.285, -465.87)
-speed = 300
-attack = 600
-
-[node name="hayate" parent="." instance=ExtResource("5_8o2p0")]
-position = Vector2(232.24, 271.873)
-
-[node name="miko" parent="." instance=ExtResource("3_q1siq")]
-position = Vector2(2045.66, -1036.73)
-
-[node name="map_props" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="skeleton" parent="map_props" instance=ExtResource("2_7wrks")]
-position = Vector2(3656.73, 951.904)
-
-[node name="checkpoint" parent="map_props" instance=ExtResource("14_lfr2r")]
-position = Vector2(1585.35, 691.156)
-scale = Vector2(0.695328, 0.695328)
-
-[node name="column1" parent="map_props" instance=ExtResource("15_yf8tj")]
-position = Vector2(1501.21, 223.896)
-scale = Vector2(2.08598, 2.08598)
-
-[node name="column2" parent="map_props" instance=ExtResource("15_yf8tj")]
-position = Vector2(3720.7, 949.123)
-scale = Vector2(2.08598, 2.08598)
-
-[node name="column3" parent="map_props" instance=ExtResource("15_yf8tj")]
-position = Vector2(2780.62, 69.5328)
-scale = Vector2(2.08598, 2.08598)
-
-[node name="column4" parent="map_props" instance=ExtResource("15_yf8tj")]
-position = Vector2(4247.06, 804.495)
-scale = Vector2(2.08598, 2.08598)
-
-[node name="portal" parent="map_props" instance=ExtResource("6_k71fd")]
-position = Vector2(3396.68, 962.334)
-scale = Vector2(1.39066, 1.39066)
-next_scene = ExtResource("19_a8c0x")
-
-[connection signal="body_entered" from="tutorial/movement" to="." method="_on_movement_body_entered"]
-[connection signal="body_exited" from="tutorial/movement" to="." method="_on_movement_body_exited"]
-[connection signal="body_entered" from="tutorial/switch" to="." method="_on_switch_body_entered"]
-[connection signal="body_exited" from="tutorial/switch" to="." method="_on_switch_body_exited"]
-[connection signal="body_entered" from="tutorial/attack" to="." method="_on_attack_body_entered"]
-[connection signal="body_exited" from="tutorial/attack" to="." method="_on_attack_body_exited"]
-[connection signal="body_entered" from="tutorial/areasplash" to="." method="_on_areasplash_body_entered"]
-[connection signal="body_exited" from="tutorial/areasplash" to="." method="_on_areasplash_body_exited"]
-[connection signal="body_entered" from="tutorial/ult" to="." method="_on_ult_body_entered"]
-[connection signal="body_exited" from="tutorial/ult" to="." method="_on_ult_body_exited"]
-[connection signal="body_entered" from="tutorial/rune" to="." method="_on_rune_body_entered"]
-[connection signal="body_exited" from="tutorial/rune" to="." method="_on_rune_body_exited"]
-[connection signal="body_entered" from="tutorial/slimeattack" to="." method="_on_slimeattack_body_entered"]
-[connection signal="body_exited" from="tutorial/slimeattack" to="." method="_on_slimeattack_body_exited"]
-[connection signal="body_entered" from="tutorial/hint1" to="." method="_on_areasplash_2_body_entered"]
-[connection signal="body_exited" from="tutorial/hint1" to="." method="_on_areasplash_2_body_exited"]
-
 [editable path="CanvasLayer/party_health_bars/saber_mini_health_bar"]
 [editable path="CanvasLayer/party_health_bars/miko_mini_health_bar"]
 [editable path="CanvasLayer/party_health_bars/hayate_mini_health_bar"]
-[editable path="hayate"]

@@ -13,6 +13,7 @@ class_name Level
 @onready var absorb_particles = preload("res://scenes/absorb_particles.tscn")
 @onready var coin = preload("res://scenes/other/coin.tscn")
 @onready var exp_bar = $CanvasLayer/exp_bar
+@onready var canvas_layer = $CanvasLayer
 @onready var cooldown = $CanvasLayer/cooldown
 
 var curr_player: CharacterBody2D
@@ -34,14 +35,15 @@ func _ready():
 	$map_props/column2.Strucked.connect(_on_pillar_strucked)
 	$map_props/column3.Strucked.connect(_on_pillar_strucked)
 	$map_props/column4.Strucked.connect(_on_pillar_strucked)
+	
 	for enemy in enemies:
 		enemy.connect("enemy_death", _enemy_killed)
 
-func _process(delta):
-	if Input.is_action_just_pressed("ultimate"):
-		if (cooldown.over()):
-			cooldown.start_timer()
-			curr_player.ultimate_attack()
+#func _process(delta):
+	#if Input.is_action_just_pressed("ultimate"):
+		#if (cooldown.over()):
+			#cooldown.start_timer()
+			#curr_player.ultimate_attack()
 
 func _enemy_killed(pos):
 	var new_particle = absorb_particles.instantiate()
@@ -74,6 +76,9 @@ func change_curr_player(new_player):
 		health_bar.change_player(curr_player)
 		curr_player.visible = true
 		curr_player.set_stop_movement(false)
+		cooldown.timer = curr_player.get_cooldown_timer()
+		cooldown.reset_label()
+		cooldown.update_texture_bar()
 
 func get_curr_player():
 	return curr_player

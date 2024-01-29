@@ -21,6 +21,7 @@ signal shoot_arrow
 @onready var health_bar = $health_bar
 @onready var companion_marker = $companion_marker
 @onready var ultimate_sprite = $ultimate
+@onready var cooldown = $cooldown
 
 var bodies_in_damage_box = []
 var is_right = true
@@ -49,6 +50,10 @@ func _physics_process(delta):
 		animation = 0
 		if Input.is_action_just_pressed("normal attack"):
 			animation = 2
+		if Input.is_action_just_pressed("ultimate"):
+			if cooldown.is_stopped():
+				cooldown.start()
+				animation = 5
 	if left_right_direction != 0:
 		animation = 0
 		if left_right_direction == 1:
@@ -88,10 +93,9 @@ func update_moving_animation(animation):
 		animated_sprite.play("hurt")
 	elif animation == 4:
 		animated_sprite.play("dead")
-
-func ultimate_attack():
-	animated_sprite.play("attack 2")
-	stop_movement = true
+	elif animation == 5:
+		animated_sprite.play("attack 2")
+		stop_movement = true
 
 func _on_animated_sprite_2d_animation_finished():
 	if stop_movement:
@@ -147,6 +151,7 @@ func take_damage(damage):
 func get_health_bar():
 	return health_bar
 
+
 func spawn_effect(EFFECT: PackedScene, effect_position):
 	if EFFECT:
 		var effect = EFFECT.instantiate()
@@ -163,6 +168,9 @@ func heal_health(heal):
 	if alive:
 		health_points += heal
 		health_changed.emit()
+		
+func get_cooldown_timer():
+	return cooldown
 
 func get_switch_position():
 	return switch_position.global_position
