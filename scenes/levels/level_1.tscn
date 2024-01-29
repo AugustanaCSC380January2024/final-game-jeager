@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://wae2wvwtw2jd"]
+[gd_scene load_steps=28 format=3 uid="uid://wae2wvwtw2jd"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_5bloe"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
@@ -21,21 +21,31 @@
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="19_rlk5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugshl"]
-size = Vector2(280.913, 237.588)
+size = Vector2(206.512, 237.588)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rbb86"]
-size = Vector2(143.238, 237.588)
+size = Vector2(75.79, 237.588)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xm1vr"]
+size = Vector2(100.126, 237.588)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeaso"]
-size = Vector2(178.7, 237.588)
+size = Vector2(112.291, 237.588)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03wnq"]
-size = Vector2(369.22, 237.588)
+size = Vector2(139.414, 237.588)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uks0"]
+size = Vector2(139.414, 237.588)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqqhl"]
 size = Vector2(332.367, 237.588)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nhjg"]
+size = Vector2(198.864, 132.7)
+
 [node name="Level 1" type="Node2D"]
+y_sort_enabled = true
 position = Vector2(-235, -178)
 scale = Vector2(1.43817, 1.43817)
 script = ExtResource("1_5bloe")
@@ -67,17 +77,14 @@ position = Vector2(5394, 1202)
 next_scene = ExtResource("7_ekxtv")
 
 [node name="saber" parent="." instance=ExtResource("4_jpfrt")]
-z_index = 12
-y_sort_enabled = true
-position = Vector2(919, -1632)
+position = Vector2(880.285, -465.87)
+speed = 300
 
 [node name="hayate" parent="." instance=ExtResource("5_8o2p0")]
-z_index = 12
 y_sort_enabled = true
 position = Vector2(236.412, 257.272)
 
 [node name="miko" parent="." instance=ExtResource("3_q1siq")]
-z_index = 12
 position = Vector2(561, -1651)
 
 [node name="companionTutorial" parent="." instance=ExtResource("12_44knw")]
@@ -116,46 +123,110 @@ position = Vector2(2665, 161)
 player = NodePath("../../../companionTutorial")
 
 [node name="slime5" parent="enemies/tutorial slimes" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
-position = Vector2(2767, 133)
+position = Vector2(2765, 150)
 player = NodePath("../../../companionTutorial")
 
 [node name="tutorial" type="Node2D" parent="."]
 
 [node name="movement" type="Area2D" parent="tutorial"]
+collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/movement"]
-position = Vector2(309.422, 244.061)
+position = Vector2(272.221, 244.061)
 shape = SubResource("RectangleShape2D_ugshl")
+
+[node name="Label" type="Label" parent="tutorial/movement"]
+offset_left = 211.0
+offset_top = 138.0
+offset_right = 374.0
+offset_bottom = 205.0
 
 [node name="switch" type="Area2D" parent="tutorial"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/switch"]
-position = Vector2(527.755, 244.061)
+position = Vector2(494.031, 244.061)
 shape = SubResource("RectangleShape2D_rbb86")
+
+[node name="Label" type="Label" parent="tutorial/switch"]
+offset_left = 437.361
+offset_top = 139.066
+offset_right = 555.361
+offset_bottom = 204.066
 
 [node name="attack" type="Area2D" parent="tutorial"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/attack"]
-position = Vector2(697.068, 245.451)
+position = Vector2(657.781, 245.451)
+shape = SubResource("RectangleShape2D_xm1vr")
+
+[node name="Label" type="Label" parent="tutorial/attack"]
+offset_left = 611.889
+offset_top = 135.589
+offset_right = 761.889
+offset_bottom = 213.589
+
+[node name="areasplash" type="Area2D" parent="tutorial"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/areasplash"]
+position = Vector2(981.979, 245.451)
 shape = SubResource("RectangleShape2D_aeaso")
+
+[node name="Label" type="Label" parent="tutorial/areasplash"]
+offset_left = 919.919
+offset_top = 114.034
+offset_right = 1047.92
+offset_bottom = 185.034
 
 [node name="ult" type="Area2D" parent="tutorial"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/ult"]
-position = Vector2(1020.05, 245.451)
-shape = SubResource("RectangleShape2D_aeaso")
-
-[node name="ult2" type="Area2D" parent="tutorial"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/ult2"]
-position = Vector2(1433.07, 251.709)
+position = Vector2(1288.96, 255.881)
 shape = SubResource("RectangleShape2D_03wnq")
+
+[node name="Label" type="Label" parent="tutorial/ult"]
+z_index = 10
+offset_left = 1219.0
+offset_top = 136.0
+offset_right = 1412.0
+offset_bottom = 211.0
+
+[node name="rune" type="Area2D" parent="tutorial"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/rune"]
+position = Vector2(1502.6, 225.982)
+shape = SubResource("RectangleShape2D_8uks0")
+
+[node name="Label" type="Label" parent="tutorial/rune"]
+z_index = 10
+offset_left = 1409.43
+offset_top = 280.913
+offset_right = 1603.43
+offset_bottom = 355.913
 
 [node name="slimeattack" type="Area2D" parent="tutorial"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/slimeattack"]
 position = Vector2(1968.48, 253.1)
 shape = SubResource("RectangleShape2D_hqqhl")
+
+[node name="Label" type="Label" parent="tutorial/slimeattack"]
+offset_left = 1905.89
+offset_top = 143.238
+offset_right = 2076.89
+offset_bottom = 208.238
+
+[node name="hint1" type="Area2D" parent="tutorial"]
+position = Vector2(2588.01, 267.701)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/hint1"]
+position = Vector2(1166.07, 12.5159)
+shape = SubResource("RectangleShape2D_2nhjg")
+
+[node name="Label" type="Label" parent="tutorial/hint1"]
+offset_left = 1075.67
+offset_top = -143.238
+offset_right = 1324.67
+offset_bottom = -42.2376
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -232,6 +303,23 @@ position = Vector2(1197, 652)
 [node name="companion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_p08qv")]
 position = Vector2(722.446, -410.939)
 player = NodePath("../hayate")
+
+[connection signal="body_entered" from="tutorial/movement" to="." method="_on_movement_body_entered"]
+[connection signal="body_exited" from="tutorial/movement" to="." method="_on_movement_body_exited"]
+[connection signal="body_entered" from="tutorial/switch" to="." method="_on_switch_body_entered"]
+[connection signal="body_exited" from="tutorial/switch" to="." method="_on_switch_body_exited"]
+[connection signal="body_entered" from="tutorial/attack" to="." method="_on_attack_body_entered"]
+[connection signal="body_exited" from="tutorial/attack" to="." method="_on_attack_body_exited"]
+[connection signal="body_entered" from="tutorial/areasplash" to="." method="_on_areasplash_body_entered"]
+[connection signal="body_exited" from="tutorial/areasplash" to="." method="_on_areasplash_body_exited"]
+[connection signal="body_entered" from="tutorial/ult" to="." method="_on_ult_body_entered"]
+[connection signal="body_exited" from="tutorial/ult" to="." method="_on_ult_body_exited"]
+[connection signal="body_entered" from="tutorial/rune" to="." method="_on_rune_body_entered"]
+[connection signal="body_exited" from="tutorial/rune" to="." method="_on_rune_body_exited"]
+[connection signal="body_entered" from="tutorial/slimeattack" to="." method="_on_slimeattack_body_entered"]
+[connection signal="body_exited" from="tutorial/slimeattack" to="." method="_on_slimeattack_body_exited"]
+[connection signal="body_entered" from="tutorial/hint1" to="." method="_on_areasplash_2_body_entered"]
+[connection signal="body_exited" from="tutorial/hint1" to="." method="_on_areasplash_2_body_exited"]
 
 [editable path="CanvasLayer/party_health_bars/saber_mini_health_bar"]
 [editable path="CanvasLayer/party_health_bars/miko_mini_health_bar"]
