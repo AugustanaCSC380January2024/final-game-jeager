@@ -773,7 +773,7 @@ attack = 30
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -33)
 sprite_frames = SubResource("SpriteFrames_lpynq")
-animation = &"hurt"
+animation = &"ultimate effect"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -6,6 +6,7 @@ class_name Player
 @export var health_points = max_health_points
 @export var defence = 30
 @export var attack = 50
+var ultimate_damage
 
 signal health_changed
 signal shoot_arrow
@@ -19,6 +20,7 @@ signal shoot_arrow
 @onready var switch_position = $player_switch_position
 @onready var health_bar = $health_bar
 @onready var companion_marker = $companion_marker
+@onready var ultimate_sprite = $ultimate
 
 var bodies_in_damage_box = []
 var is_right = true
@@ -32,6 +34,8 @@ func _ready():
 	ultimate.animation_finished.connect(_on_ultimate_animation_finished)
 	damage_hitbox.body_entered.connect(_on_damage_hit_box_body_entered)
 	damage_hitbox.body_exited.connect(_on_damage_hit_box_body_exited)
+	ultimate_damage = attack * 2
+	print(ultimate_damage)
 
 func _physics_process(delta):
 	var left_right_direction = 0
@@ -85,9 +89,10 @@ func update_moving_animation(animation):
 	elif animation == 4:
 		animated_sprite.play("dead")
 
-func ult():
-	pass
-	
+func ultimate_attack():
+	animated_sprite.play("attack 2")
+	stop_movement = true
+
 func _on_animated_sprite_2d_animation_finished():
 	if stop_movement:
 		stop_movement = false
@@ -95,10 +100,10 @@ func _on_animated_sprite_2d_animation_finished():
 			stop_movement = true
 			ultimate.visible = true
 			ultimate.play("default")
-		if (animated_sprite.animation == "hurt" or animated_sprite.animation == "dead"):
+		elif (animated_sprite.animation == "hurt" or animated_sprite.animation == "dead"):
 			damage_taken.visible = false
-		if "attack" in animated_sprite.animation:
-			if get_name() == "hayate" and animated_sprite.animation == "attack 1":
+		elif animated_sprite.animation == "attack 1":
+			if get_name() == "hayate":
 				shoot_arrow.emit(arrow_direction)
 			else:
 				for body in bodies_in_damage_box:
@@ -109,6 +114,11 @@ func _on_animated_sprite_2d_animation_finished():
 func _on_ultimate_animation_finished():
 	ultimate.visible = false
 	stop_movement = false
+	for body in bodies_in_damage_box:
+		body.take_damage(ultimate_damage)
+		if get_name() != "miko":
+			break
+	
 
 func flip_sprites(flag : bool):
 	damage_hitbox_collision_box.position.x = damage_hitbox_collision_box.position.x * -1
@@ -136,6 +146,7 @@ func take_damage(damage):
 
 func get_health_bar():
 	return health_bar
+
 func spawn_effect(EFFECT: PackedScene, effect_position):
 	if EFFECT:
 		var effect = EFFECT.instantiate()
