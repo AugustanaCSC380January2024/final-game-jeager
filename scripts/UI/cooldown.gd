@@ -14,17 +14,12 @@ func _process(delta):
 		label.set_text(str(timer.get_time_left()).pad_decimals(2))
 		var time_ratio = (timer.get_wait_time() -timer.get_time_left())/timer.get_wait_time()
 		$TextureProgressBar.value = time_ratio * 100
-	elif timer.is_stopped():
-		if Input.is_action_just_pressed("move down"):
-			start_timer()
-	
+
 func _on_timer_timeout():
 	label.set_text(str(cooldown_time).pad_decimals(2))
 	
 func start_timer():
 	timer.start()
-# checking to see if timer works
-	#await get_tree().create_timer(5).timeout
-	#timer.start()
-	
-	
+
+func over():
+	return timer.is_stopped()

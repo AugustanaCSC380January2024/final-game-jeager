@@ -45,8 +45,6 @@ func _physics_process(delta):
 		animation = 0
 		if Input.is_action_just_pressed("normal attack"):
 			animation = 2
-		elif Input.is_action_just_pressed("ultimate"):
-			animation = 3
 	if left_right_direction != 0:
 		animation = 0
 		if left_right_direction == 1:
@@ -83,13 +81,13 @@ func update_moving_animation(animation):
 		animated_sprite.play("attack 1")
 		stop_movement = true
 	elif animation == 3:
-		animated_sprite.play("attack 2")
-		stop_movement = true
-	elif animation == 4:
 		animated_sprite.play("hurt")
-	elif animation == 5:
+	elif animation == 4:
 		animated_sprite.play("dead")
 
+func ult():
+	pass
+	
 func _on_animated_sprite_2d_animation_finished():
 	if stop_movement:
 		stop_movement = false
@@ -130,11 +128,11 @@ func take_damage(damage):
 		spawn_dmgIndicator(d)
 		health_points -= d
 		stop_movement = true
-		update_moving_animation(4)
+		update_moving_animation(3)
 		health_changed.emit()
 		if health_points <= 0:
 			alive = false
-			update_moving_animation(5)
+			update_moving_animation(4)
 
 func get_health_bar():
 	return health_bar
