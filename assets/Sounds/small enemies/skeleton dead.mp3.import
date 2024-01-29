@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ci3oohg7qylxq"
+path="res://.godot/imported/skeleton dead.mp3-f05472d8dc2267bdbaa7dead458f9e5a.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/small enemies/skeleton dead.mp3"
+dest_files=["res://.godot/imported/skeleton dead.mp3-f05472d8dc2267bdbaa7dead458f9e5a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

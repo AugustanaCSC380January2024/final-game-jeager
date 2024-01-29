@@ -75,6 +75,7 @@ func take_damage(damage):
 	if (health_points <= 0):
 		animation_playing = true
 		animated_sprite.play("death") 
+		$audio_player/dead.play()
 	else:
 		animation_playing = true
 		animated_sprite.play("hurt")
@@ -96,6 +97,7 @@ func _on_animated_sprite_2d_animation_finished():
 		enemy_death.emit(global_position)
 		queue_free()
 	elif "attack" in animated_sprite.animation:
+		$audio_player/attack.play()
 		if player_in_damage_hit_box != null:
 			player_in_damage_hit_box.take_damage(damage)
 	animation_playing = false

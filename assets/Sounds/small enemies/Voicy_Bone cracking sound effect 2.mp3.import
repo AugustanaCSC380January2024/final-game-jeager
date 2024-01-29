@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cd2utw8bllt50"
+path="res://.godot/imported/Voicy_Bone cracking sound effect 2.mp3-b0d36dd7aa088c8bac756225c59f36c5.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/small enemies/Voicy_Bone cracking sound effect 2.mp3"
+dest_files=["res://.godot/imported/Voicy_Bone cracking sound effect 2.mp3-b0d36dd7aa088c8bac756225c59f36c5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

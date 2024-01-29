@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cvjtbx5vno36k"]
+[gd_scene load_steps=68 format=3 uid="uid://cvjtbx5vno36k"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_jo24x"]
 [ext_resource type="Texture2D" uid="uid://cbiegq3wtrpjk" path="res://assets/Skins/Small enemies/Blue_Slime/Attack_1.png" id="1_wbghp"]
@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://bjj3naocfgve0" path="res://assets/Skins/Small enemies/Blue_Slime/Hurt.png" id="8_64lvo"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="11_bn6cn"]
 [ext_resource type="PackedScene" uid="uid://7vc7f2i1a2k0" path="res://scenes/enemy/player_detection_area.tscn" id="11_jwrf6"]
+[ext_resource type="AudioStream" uid="uid://dgnavpxla46j6" path="res://assets/Sounds/small enemies/slime death.mp3" id="12_cweg4"]
+[ext_resource type="AudioStream" uid="uid://hfakhsyk02wd" path="res://assets/Sounds/small enemies/slime attack.mp3" id="12_v1181"]
+[ext_resource type="AudioStream" uid="uid://sexjjtaprnj2" path="res://assets/Sounds/small enemies/silme attack 2.mp3" id="13_b5cjk"]
+[ext_resource type="AudioStream" uid="uid://c4wx7mds3tdsg" path="res://assets/Sounds/small enemies/slimejump-6913.mp3" id="13_vuppl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11yxa"]
 atlas = ExtResource("2_gg8cn")
@@ -391,6 +395,20 @@ height = 11.3333
 [sub_resource type="CircleShape2D" id="CircleShape2D_1h8ny"]
 radius = 16.6373
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2tf6o"]
+streams_count = 2
+stream_0/stream = ExtResource("12_cweg4")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("13_vuppl")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_l02ug"]
+streams_count = 2
+stream_0/stream = ExtResource("12_v1181")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("13_b5cjk")
+stream_1/weight = 1.0
+
 [node name="slime" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
@@ -440,5 +458,13 @@ character = NodePath("..")
 
 [node name="Label" parent="health_bar" index="0"]
 visible = false
+
+[node name="audio_player" type="Node2D" parent="."]
+
+[node name="dead" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_2tf6o")
+
+[node name="attack" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_l02ug")
 
 [editable path="health_bar"]

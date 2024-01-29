@@ -108,5 +108,5 @@ shape = SubResource("CapsuleShape2D_bg5vx")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-1, 19)
 color = Color(0.937255, 0.494118, 0.294118, 1)
-energy = 1.5
+energy = 3.0
 texture = SubResource("GradientTexture2D_urxof")

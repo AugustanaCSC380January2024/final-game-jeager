@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://cbbnm3cctu4sp"]
+[gd_scene load_steps=88 format=3 uid="uid://cbbnm3cctu4sp"]
 
 [ext_resource type="Texture2D" uid="uid://jdyv0ds16fda" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_fn3bg"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xdgel"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dl8ncruquavvs" path="res://assets/Skins/Small enemies/Skeleton/Sprite Sheets/Skeleton Walk.png" id="6_brtyd"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="8_lw8y2"]
 [ext_resource type="PackedScene" uid="uid://7vc7f2i1a2k0" path="res://scenes/enemy/player_detection_area.tscn" id="9_nstoc"]
+[ext_resource type="AudioStream" uid="uid://ci3oohg7qylxq" path="res://assets/Sounds/small enemies/skeleton dead.mp3" id="9_s2b8g"]
+[ext_resource type="AudioStream" uid="uid://pdjiei30qicy" path="res://assets/Sounds/small enemies/falling-bones-87568.mp3" id="10_3tyam"]
+[ext_resource type="AudioStream" uid="uid://c44n65u6ujjcj" path="res://assets/Sounds/small enemies/skeleton attack.mp3" id="11_mshq2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xl22o"]
 atlas = ExtResource("1_fn3bg")
@@ -551,6 +554,18 @@ height = 16.6667
 [sub_resource type="CircleShape2D" id="CircleShape2D_aybog"]
 radius = 32.0156
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jp445"]
+streams_count = 2
+stream_0/stream = ExtResource("9_s2b8g")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("10_3tyam")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gxwqk"]
+streams_count = 1
+stream_0/stream = ExtResource("11_mshq2")
+stream_0/weight = 1.0
+
 [node name="skeleton" type="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(19, -9)
@@ -601,5 +616,13 @@ character = NodePath("..")
 
 [node name="Label" parent="health_bar" index="0"]
 visible = false
+
+[node name="audio_player" type="Node2D" parent="."]
+
+[node name="dead" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_jp445")
+
+[node name="attack" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_gxwqk")
 
 [editable path="health_bar"]
