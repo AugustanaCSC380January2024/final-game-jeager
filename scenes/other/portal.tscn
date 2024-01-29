@@ -74,6 +74,6 @@ text = "Strike Pillars To Enter"
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(12.5, -1)
 scale = Vector2(1.51172, 1.51172)
-color = Color(0, 1, 0.983333, 1)
+color = Color(0, 1, 0.984314, 1)
 energy = 1.59
 texture = SubResource("GradientTexture2D_emooh")
