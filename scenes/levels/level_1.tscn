@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://wae2wvwtw2jd"]
+[gd_scene load_steps=31 format=3 uid="uid://wae2wvwtw2jd"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_5bloe"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
@@ -19,9 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://cmt7stfwubunv" path="res://scenes/levels/yassop_boss_room.tscn" id="19_a8c0x"]
 [ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="19_p08qv"]
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="19_rlk5a"]
-[ext_resource type="PackedScene" path="res://scenes/enemy/normal enemy/harbinger.tscn" id="20_iejjj"]
 [ext_resource type="AudioStream" uid="uid://bie07dnio1w81" path="res://assets/Sounds/game sfx/Aspiration Woods (Area Theme).mp3" id="21_lvari"]
-[ext_resource type="PackedScene" path="res://scenes/ui/pausemenu.tscn" id="23_dkrj3"]
+[ext_resource type="PackedScene" uid="uid://bj33gbt44b1mr" path="res://scenes/ui/pausemenu.tscn" id="23_dkrj3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugshl"]
 size = Vector2(206.512, 237.588)
@@ -68,20 +67,68 @@ scale = Vector2(2.41427, 2.41427)
 y_sort_enabled = true
 
 [node name="slime6" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
-position = Vector2(1391, 240)
+position = Vector2(1397.61, 266.311)
+player = NodePath("../../companionTutorial")
+
+[node name="slime11" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(2679.1, 365.743)
+player = NodePath("../../companionTutorial")
+
+[node name="slime20" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(2705.52, 90.3926)
+player = NodePath("../../companionTutorial")
+
+[node name="slime12" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(2515.7, 660.562)
+player = NodePath("../../companionTutorial")
+
+[node name="slime13" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(3312.54, 778.767)
+player = NodePath("../../companionTutorial")
+
+[node name="slime14" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(3798.58, 346.969)
+player = NodePath("../../companionTutorial")
+
+[node name="slime16" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(3300.72, 308.726)
+player = NodePath("../../companionTutorial")
+
+[node name="slime17" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(3274.3, 392.86)
+player = NodePath("../../companionTutorial")
+
+[node name="slime18" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(1560.32, 891.411)
+player = NodePath("../../companionTutorial")
+
+[node name="slime19" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(4156.67, 816.315)
+player = NodePath("../../companionTutorial")
+
+[node name="slime15" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(3735.3, 304.554)
 player = NodePath("../../companionTutorial")
 
 [node name="slime7" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
-position = Vector2(824, 203)
+position = Vector2(1069.41, 237.107)
+player = NodePath("../../companionTutorial")
+
+[node name="slime9" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(1056.2, 289.952)
+player = NodePath("../../companionTutorial")
+
+[node name="slime8" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(728.009, 271.873)
+player = NodePath("../../companionTutorial")
+
+[node name="slime10" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
+position = Vector2(1686.87, 819.792)
 player = NodePath("../../companionTutorial")
 
 [node name="slime" parent="enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
-position = Vector2(1406.65, 308.726)
+position = Vector2(1122.95, 273.264)
 player = NodePath("../../companionTutorial")
-
-[node name="harbinger" parent="enemies" instance=ExtResource("20_iejjj")]
-position = Vector2(1655.58, 942.17)
-player_detection_range = 4
 
 [node name="tutorial slimes" type="Node2D" parent="enemies"]
 position = Vector2(-661.257, 69.5328)
@@ -328,9 +375,14 @@ y_sort_enabled = true
 [node name="skeleton" parent="map_props" instance=ExtResource("2_7wrks")]
 position = Vector2(3656.73, 951.904)
 
+[node name="skeleton3" parent="map_props" instance=ExtResource("2_7wrks")]
+position = Vector2(4325.64, 807.276)
+
+[node name="skeleton4" parent="map_props" instance=ExtResource("2_7wrks")]
+position = Vector2(3743.65, 904.622)
+
 [node name="skeleton2" parent="map_props" instance=ExtResource("2_7wrks")]
-position = Vector2(544.442, 262.834)
-metadata/_edit_lock_ = true
+position = Vector2(3738.08, 979.717)
 
 [node name="checkpoint" parent="map_props" instance=ExtResource("14_lfr2r")]
 position = Vector2(3911.22, 203.036)
