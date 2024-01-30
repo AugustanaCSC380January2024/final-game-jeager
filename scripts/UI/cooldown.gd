@@ -18,7 +18,7 @@ func _process(delta):
 func _on_timer_timeout():
 	update_texture_bar()
 	label.set_text("5.00")
-	
+
 func start_timer():
 	timer.start()
 
