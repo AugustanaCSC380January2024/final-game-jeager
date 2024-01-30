@@ -1,9 +1,23 @@
-[gd_scene load_steps=98 format=3 uid="uid://dy6pk518wgdmh"]
+[gd_scene load_steps=114 format=3 uid="uid://dy6pk518wgdmh"]
 
 [ext_resource type="Texture2D" uid="uid://whl1upbe1yrd" path="res://assets/Skins/Boss skins/Final Boss/spritesheets/demon_slime_v1.0-SpriteSheet_288x160.png" id="1_chcvd"]
 [ext_resource type="Script" path="res://scripts/player and enemy common scenes/final boss.gd" id="1_p8178"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="3_e51nk"]
 [ext_resource type="PackedScene" uid="uid://7vc7f2i1a2k0" path="res://scenes/enemy/player_detection_area.tscn" id="4_78tt1"]
+[ext_resource type="AudioStream" uid="uid://sqc3d62kmft7" path="res://assets/Sounds/final boss attack/Monster_Grunt1.mp3" id="5_rv4d6"]
+[ext_resource type="AudioStream" uid="uid://obgr34mwgpjc" path="res://assets/Sounds/final boss attack/Monster_Grunt2.mp3" id="6_6t4tr"]
+[ext_resource type="AudioStream" uid="uid://gw4esb4dixvt" path="res://assets/Sounds/final boss attack/Monster_Grunt3.mp3" id="7_i5oja"]
+[ext_resource type="AudioStream" uid="uid://o21meq2jf8qb" path="res://assets/Sounds/final boss attack/Monster_Grunt4.mp3" id="8_kbup8"]
+[ext_resource type="AudioStream" uid="uid://b4tvil1eioq2w" path="res://assets/Sounds/final boss attack/Monster_Grunt5.mp3" id="9_alns5"]
+[ext_resource type="AudioStream" uid="uid://c2cogqo3ajtwe" path="res://assets/Sounds/final boss attack/Monster_Grunt6.mp3" id="10_pejaj"]
+[ext_resource type="AudioStream" uid="uid://btswmqcdpdfgl" path="res://assets/Sounds/final boss attack/Monster_Grunt7.mp3" id="11_j4qtl"]
+[ext_resource type="AudioStream" uid="uid://btnaoy56s31rn" path="res://assets/Sounds/final boss attack/Monster_Grunt8.mp3" id="12_jmy74"]
+[ext_resource type="AudioStream" uid="uid://cf0hmtgqqfw87" path="res://assets/Sounds/final boss attack/Monster_Thud.mp3" id="13_1s76u"]
+[ext_resource type="AudioStream" uid="uid://dpdhldwmpdujk" path="res://assets/Sounds/final boss attack/Monster_Roar22.mp3" id="14_e6b5d"]
+[ext_resource type="AudioStream" uid="uid://dh4rgy6wb2a3i" path="res://assets/Sounds/final boss attack/Dragon_FireBreath2.mp3" id="15_hhk6v"]
+[ext_resource type="AudioStream" uid="uid://bv5mpavw3vckk" path="res://assets/Sounds/final boss attack/die_boss.wav" id="16_1ugi1"]
+[ext_resource type="AudioStream" uid="uid://ckursf4emm3hb" path="res://assets/Sounds/final boss attack/final boss appear.mp3" id="17_y7wxj"]
+[ext_resource type="AudioStream" uid="uid://dma2bedh8ghkq" path="res://assets/Sounds/final boss attack/final boss transformation.mp3" id="18_eyp2k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0r0n5"]
 atlas = ExtResource("1_chcvd")
@@ -685,6 +699,33 @@ size = Vector2(20, 77.5)
 radius = 39.0
 height = 123.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c1q2y"]
+streams_count = 8
+stream_0/stream = ExtResource("5_rv4d6")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_6t4tr")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_i5oja")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("8_kbup8")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("9_alns5")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("10_pejaj")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("11_j4qtl")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("12_jmy74")
+stream_7/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_thb1u"]
+random_pitch = 2.0
+streams_count = 2
+stream_0/stream = ExtResource("14_e6b5d")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("15_hhk6v")
+stream_1/weight = 1.0
+
 [node name="final boss" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 collision_layer = 2
@@ -696,8 +737,10 @@ player_detection_range = 4
 texture_filter = 1
 position = Vector2(-5, -70)
 sprite_frames = SubResource("SpriteFrames_4o3dm")
-animation = &"attack 2"
+animation = &"attack 1"
 autoplay = "idle"
+frame = 13
+frame_progress = 1.0
 
 [node name="collision_box" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -35.25)
@@ -728,3 +771,28 @@ offset_top = -121.0
 offset_right = 84.0
 offset_bottom = -105.0
 character = NodePath("..")
+
+[node name="audio_player" type="Node2D" parent="."]
+
+[node name="attack" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_c1q2y")
+volume_db = 10.0
+pitch_scale = 2.0
+
+[node name="attack1" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = ExtResource("13_1s76u")
+volume_db = 10.0
+
+[node name="attack2" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_thb1u")
+
+[node name="death" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = ExtResource("16_1ugi1")
+volume_db = 24.0
+pitch_scale = 0.5
+
+[node name="appear2" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = ExtResource("17_y7wxj")
+
+[node name="appear1" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = ExtResource("18_eyp2k")
