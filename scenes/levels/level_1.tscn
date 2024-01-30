@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="19_p08qv"]
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="19_rlk5a"]
 [ext_resource type="AudioStream" uid="uid://dvn5idd8eqon4" path="res://assets/Sounds/game sfx/Aspiration Woods (Area Theme).wav" id="20_17ytd"]
-[ext_resource type="PackedScene" uid="uid://c3s1takx64jk2" path="res://scenes/enemy/normal enemy/harbinger.tscn" id="20_iejjj"]
+[ext_resource type="PackedScene" path="res://scenes/enemy/normal enemy/harbinger.tscn" id="20_iejjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugshl"]
 size = Vector2(206.512, 237.588)

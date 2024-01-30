@@ -534,15 +534,16 @@ height = 112.0
 
 [node name="Death" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 13
+collision_mask = 15
 script = ExtResource("1_hg44v")
+player_detection_range = 6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(3, 1)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_s3aub")
-animation = &"appear"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="collision_box" type="CollisionShape2D" parent="."]
@@ -551,6 +552,7 @@ scale = Vector2(2.5, 2.5)
 shape = SubResource("CapsuleShape2D_udkp3")
 
 [node name="damage_hit_box" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="damage_area" type="CollisionShape2D" parent="damage_hit_box"]
 position = Vector2(66, -10)
@@ -560,7 +562,6 @@ shape = SubResource("CapsuleShape2D_tkoty")
 [node name="player_detection_area" parent="." instance=ExtResource("7_ayfwq")]
 
 [node name="attack_cooldown_timer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -572,3 +573,11 @@ offset_top = -86.0
 offset_right = 44.0
 offset_bottom = -82.0
 character = NodePath("..")
+
+[node name="summon_markers" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="summon_markers"]
+position = Vector2(86, 2)
+
+[node name="Marker2D2" type="Marker2D" parent="summon_markers"]
+position = Vector2(-81, 0)

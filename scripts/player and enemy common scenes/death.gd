@@ -11,7 +11,7 @@ class_name death
 @onready var DEFAULT_PLAYER = CharacterBody2D.new()
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var attack_cooldown_timer = $attack_cooldown_timer
-
+@onready var summon_markers = $summon_markers
 
 @export var level_tolerance = 1
 @export var player: CharacterBody2D 
@@ -21,6 +21,7 @@ class_name death
 @export var attack_range = 10
 @export var player_detection_range = 1
 @export var move_speed := 40.0
+@export var enemies_node : Node2D
 
 var animation_playing = false
 var player_in_damage_hit_box: CharacterBody2D
@@ -28,6 +29,7 @@ var attacks = ["attack", "attack 1", "attack 2"]
 
 signal enemy_death
 signal health_changed
+signal summon_skeleton
 
 func _ready():
 	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
@@ -61,7 +63,7 @@ func _physics_process(delta):
 				animated_sprite.flip_h = true
 				collision_box.position.x = abs(collision_box.position.x)
 				damage_hit_box_collision_box.position.x = -abs(damage_hit_box_collision_box.position.x)
-			animated_sprite.play("walk")
+			animated_sprite.play("idle")
 			move_and_slide()
 		else:
 			animated_sprite.play("idle")
@@ -98,9 +100,14 @@ func _on_animated_sprite_2d_animation_finished():
 		enemy_death.emit(global_position)
 		queue_free()
 	elif "attack" in animated_sprite.animation:
-		#$audio_player/attack.play()
-		if player_in_damage_hit_box != null:
-			player_in_damage_hit_box.take_damage(damage)
+		if animated_sprite.animation == "attack 2":
+			for marker in summon_markers.get_children():
+				print(marker.global_position)
+				summon_skeleton.emit(marker.global_position)
+		else:
+			#$audio_player/attack.play()
+			if player_in_damage_hit_box != null:
+				player_in_damage_hit_box.take_damage(damage)
 	animation_playing = false
 
 func _on_player_detection_area_body_entered(body):

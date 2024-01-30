@@ -6580,11 +6580,16 @@ player = NodePath("../hayate")
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="Death" parent="enemies" instance=ExtResource("22_x628r")]
+[node name="Death" parent="enemies" node_paths=PackedStringArray("enemies_node") instance=ExtResource("22_x628r")]
 position = Vector2(111, -887)
+enemies_node = NodePath("..")
 
-[node name="Death2" parent="enemies" instance=ExtResource("22_x628r")]
+[node name="Death2" parent="enemies" node_paths=PackedStringArray("enemies_node") instance=ExtResource("22_x628r")]
 position = Vector2(505, -884)
+enemies_node = NodePath("..")
+
+[connection signal="summon_skeleton" from="enemies/Death" to="." method="_on_death_summon_skeleton"]
+[connection signal="summon_skeleton" from="enemies/Death2" to="." method="_on_death_summon_skeleton"]
 
 [editable path="ParallaxBackground"]
 [editable path="CanvasLayer/party_health_bars/saber_mini_health_bar"]
