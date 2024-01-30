@@ -302,7 +302,7 @@ position = Vector2(544.442, 262.834)
 metadata/_edit_lock_ = true
 
 [node name="checkpoint" parent="map_props" instance=ExtResource("14_lfr2r")]
-position = Vector2(1585.35, 691.156)
+position = Vector2(3911.22, 203.036)
 scale = Vector2(0.695328, 0.695328)
 
 [node name="column1" parent="map_props" instance=ExtResource("15_yf8tj")]
@@ -310,7 +310,7 @@ position = Vector2(1501.21, 223.896)
 scale = Vector2(2.08598, 2.08598)
 
 [node name="column2" parent="map_props" instance=ExtResource("15_yf8tj")]
-position = Vector2(3720.7, 949.123)
+position = Vector2(1586.74, 801.018)
 scale = Vector2(2.08598, 2.08598)
 
 [node name="column3" parent="map_props" instance=ExtResource("15_yf8tj")]

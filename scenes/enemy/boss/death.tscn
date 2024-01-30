@@ -581,3 +581,13 @@ position = Vector2(86, 2)
 
 [node name="Marker2D2" type="Marker2D" parent="summon_markers"]
 position = Vector2(-81, 0)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node2D"]
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Node2D"]
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="Node2D"]
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="Node2D"]
