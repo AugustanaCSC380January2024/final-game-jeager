@@ -35,9 +35,9 @@ func _ready():
 	camera.set_zoom(Vector2(1.2,1.2))
 	curr_player.add_child(camera)
 	load_level()
-	miko.update_stats()
-	saber.update_stats()
-	hayate.update_stats()
+	miko.level = exp_bar.get_level()
+	saber.level = exp_bar.get_level()
+	hayate.level = exp_bar.get_level()
 	alive_players = [miko, saber, hayate]
 	
 	hayate.shoot_arrow.connect(_on_shoot_arrow)
@@ -47,9 +47,15 @@ func _ready():
 	$map_props/column2.Strucked.connect(_on_pillar_strucked)
 	$map_props/column3.Strucked.connect(_on_pillar_strucked)
 	$map_props/column4.Strucked.connect(_on_pillar_strucked)
+	exp_bar.level_up.connect(update_stats)
 	
 	for enemy in enemies.get_children():
 		enemy.connect("enemy_death", _enemy_killed)
+
+func update_stats():
+	miko.update_stats()
+	saber.update_stats()
+	hayate.update_stats()
 
 func _enemy_killed(pos):
 	var new_particle = absorb_particles.instantiate()

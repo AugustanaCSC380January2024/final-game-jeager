@@ -84,7 +84,7 @@ func _on_areasplash_2_body_exited(body):
 
 
 func _on_rune_body_entered(body):
-	show_label(rune_label,"Htting the runes activate it. Activate 4 runes 
+	show_label(rune_label,"Hitting the runes activate it. Activate 4 runes 
 	to unlock the portal to the next level")
 
 
@@ -93,9 +93,10 @@ func _on_rune_body_exited(body):
 
 
 func _on_slime_message_body_entered(body):
-	show_label(slime_message_label ,"The slime is greatful and want's to join 
-	you as a companion. In exchange the slime will absorb the enemies
-	you defeat and provide you with gems that the aid in leveling up.")
+	show_label(slime_message_label ,"
+The slime is grateful and wants to join you as a companion. 
+In exchange, the slime will absorb the enemies you defeat 
+and provide you with gems that aid in leveling up.")
 
 func _on_slime_message_body_exited(body):
 	hide_label(slime_message_label)

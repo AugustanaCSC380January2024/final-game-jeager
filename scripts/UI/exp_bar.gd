@@ -3,12 +3,15 @@ var level = 1
 
 @onready var label = $Label
 
+signal level_up
+
 func update_exp_bar():
 	value += 10
 	if value >= 100:
 		level += 1
 		value = value - 100
 		label.text = "LVL " + str(level) 
+		level_up.emit()
 
 func get_level():
 	return level + (value / 100.0)

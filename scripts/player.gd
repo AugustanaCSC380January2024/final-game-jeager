@@ -3,7 +3,7 @@ class_name Player
 
 @export var level = 1
 @export var speed = 150
-@export var max_health_points = 150
+@export var max_health_points = 100
 @export var defence = 30
 @export var attack = 30
 @export var health_points = max_health_points
@@ -39,7 +39,6 @@ func _ready():
 	ultimate.animation_finished.connect(_on_ultimate_animation_finished)
 	damage_hitbox.body_entered.connect(_on_damage_hit_box_body_entered)
 	damage_hitbox.body_exited.connect(_on_damage_hit_box_body_exited)
-	update_stats()
 
 func _physics_process(delta):
 	var left_right_direction = 0
@@ -197,9 +196,9 @@ func is_alive():
 	return alive
 
 func update_stats():
-	attack += level * 10
-	defence += level * 10
-	max_health_points += level * 20
+	attack += int(level) * 10
+	defence += int(level) * 10
+	max_health_points += int(level) * 20
 	health_points = max_health_points
 	ultimate_damage = attack * 2
 	health_bar.update_health_bar()

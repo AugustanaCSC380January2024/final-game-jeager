@@ -33,7 +33,6 @@ func throne_reached():
 	add_child(final_boss_instance)
 	final_boss_instance.play_appear_sound()
 	audio_stream_player_2d.stop()
-	#await get_tree().create_timer(3).timeout
 	audio_stream_player_2d.stream = final_boss_music
 	audio_stream_player_2d.play()
 	final_boss_instance.global_position = pos

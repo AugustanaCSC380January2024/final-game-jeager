@@ -6600,10 +6600,43 @@ position = Vector2(942, 26)
 scale = Vector2(0.600808, 0.618664)
 texture = ExtResource("16_xkiwe")
 
+[node name="slime_transformation1" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 195.0
+offset_top = 211.0
+offset_right = 455.0
+offset_bottom = 260.0
+text = "Did we win?"
+
+[node name="slime_transformation2" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 195.0
+offset_top = 211.0
+offset_right = 455.0
+offset_bottom = 260.0
+text = "Wait...Slime where are you going?"
+
+[node name="slime_transformation3" type="Label" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 0, 0.32549, 1)
+offset_left = 195.0
+offset_top = 211.0
+offset_right = 455.0
+offset_bottom = 260.0
+text = "AT LAST, I HAVE ABSORBED ENOUGH LIFE FORMS 
+TO RETURN TO MY TRUE FORM"
+
+[node name="slime_transformation4" type="Label" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 0, 0.32549, 1)
+offset_left = 195.0
+offset_top = 211.0
+offset_right = 455.0
+offset_bottom = 260.0
+text = "YOU'RE DEAD! :)"
+
 [node name="saber" parent="." instance=ExtResource("17_4yj0i")]
 position = Vector2(1406, -798)
-speed = 300
-attack = 300
 
 [node name="hayate" parent="." instance=ExtResource("6_swj16")]
 position = Vector2(86, 162)

@@ -446,9 +446,9 @@ stream_3/weight = 1.0
 collision_mask = 44
 script = ExtResource("1_bvcqm")
 speed = 350
-max_health_points = 100
 defence = 50
 attack = 50
+health_points = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
