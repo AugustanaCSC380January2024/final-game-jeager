@@ -199,6 +199,9 @@ func update_stats():
 	attack += int(level) * 10
 	defence += int(level) * 10
 	max_health_points += int(level) * 20
-	health_points = max_health_points
+	reset_health()
 	ultimate_damage = attack * 2
-	health_bar.update_health_bar()
+
+func reset_health():
+	health_points = max_health_points
+	health_changed.emit()
