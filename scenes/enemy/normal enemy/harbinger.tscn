@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3s1takx64jk2"]
+[gd_scene load_steps=11 format=3 uid="uid://c3s1takx64jk2"]
 
 [ext_resource type="Script" path="res://scripts/player and enemy common scenes/harbinger.gd" id="1_856l2"]
 [ext_resource type="SpriteFrames" uid="uid://cqfmqbiqahwcw" path="res://scenes/enemy/normal enemy/harbinger.tres" id="2_ett12"]
 [ext_resource type="PackedScene" uid="uid://7vc7f2i1a2k0" path="res://scenes/enemy/player_detection_area.tscn" id="2_q0scg"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="3_uggka"]
-[ext_resource type="AudioStream" uid="uid://ci3oohg7qylxq" path="res://assets/Sounds/small enemies/skeleton dead.mp3" id="5_nqvmv"]
-[ext_resource type="AudioStream" uid="uid://pdjiei30qicy" path="res://assets/Sounds/small enemies/falling-bones-87568.mp3" id="6_ct2ba"]
-[ext_resource type="AudioStream" uid="uid://c44n65u6ujjcj" path="res://assets/Sounds/small enemies/skeleton attack.mp3" id="7_mpik8"]
+[ext_resource type="AudioStream" uid="uid://gw4esb4dixvt" path="res://assets/Sounds/final boss attack/Monster_Grunt3.mp3" id="5_laf8i"]
+[ext_resource type="AudioStream" uid="uid://chrpyjy06wwmy" path="res://assets/Sounds/death boss/death attack 3.mp3" id="7_aifdh"]
+[ext_resource type="AudioStream" uid="uid://8xhtdf10lpt" path="res://assets/Sounds/death boss/death attack 2.mp3" id="8_bw2i3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xumx"]
 size = Vector2(25, 77)
@@ -15,17 +15,12 @@ size = Vector2(25, 77)
 radius = 52.0
 height = 170.329
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kj466"]
-streams_count = 2
-stream_0/stream = ExtResource("5_nqvmv")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("6_ct2ba")
-stream_1/weight = 1.0
-
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m5bpo"]
-streams_count = 1
-stream_0/stream = ExtResource("7_mpik8")
+streams_count = 2
+stream_0/stream = ExtResource("7_aifdh")
 stream_0/weight = 1.0
+stream_1/stream = ExtResource("8_bw2i3")
+stream_1/weight = 1.0
 
 [node name="harbinger" type="CharacterBody2D"]
 collision_layer = 2
@@ -37,7 +32,7 @@ texture_filter = 1
 position = Vector2(-37, -51)
 scale = Vector2(1.47849, 1.47849)
 sprite_frames = ExtResource("2_ett12")
-animation = &"attack 1"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="collision_box" type="CollisionShape2D" parent="."]
@@ -75,7 +70,7 @@ visible = false
 [node name="audio_player" type="Node2D" parent="."]
 
 [node name="dead" type="AudioStreamPlayer2D" parent="audio_player"]
-stream = SubResource("AudioStreamRandomizer_kj466")
+stream = ExtResource("5_laf8i")
 
 [node name="attack" type="AudioStreamPlayer2D" parent="audio_player"]
 stream = SubResource("AudioStreamRandomizer_m5bpo")

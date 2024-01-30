@@ -76,6 +76,10 @@ player = NodePath("../../companionTutorial")
 position = Vector2(1406.65, 308.726)
 player = NodePath("../../companionTutorial")
 
+[node name="harbinger" parent="enemies" instance=ExtResource("20_iejjj")]
+position = Vector2(1655.58, 942.17)
+player_detection_range = 4
+
 [node name="tutorial slimes" type="Node2D" parent="enemies"]
 position = Vector2(-661.257, 69.5328)
 
@@ -97,10 +101,6 @@ player = NodePath("../../../companionTutorial")
 [node name="slime5" parent="enemies/tutorial slimes" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
 position = Vector2(2765, 150)
 player = NodePath("../../../companionTutorial")
-
-[node name="harbinger" parent="enemies" instance=ExtResource("20_iejjj")]
-position = Vector2(1655.58, 942.17)
-player_detection_range = 4
 
 [node name="tutorial" type="Node2D" parent="."]
 
