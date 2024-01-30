@@ -12,11 +12,11 @@ extends CharacterBody2D
 @onready var attack_cooldown_timer = $attack_cooldown_timer
 
 @export var player: CharacterBody2D
-@export var max_health_points = 100
+@export var max_health_points = 500
 @export var health_points = max_health_points
-@export var damage = 20
+@export var damage = 50
 @export var attack_range = 10
-@export var player_detection_range = 1
+@export var player_detection_range = 6
 @export var move_speed := 40.0
 
 var animation_playing = false
@@ -50,9 +50,10 @@ func _physics_process(delta):
 			make_path()
 			var distance = player.global_position - position
 			print(distance)
-			if distance.x > 1:
+			if abs(distance.x) > 1:
 				velocity = dir * move_speed
 				animated_sprite.play("walk")
+				move_and_slide()
 			else:
 				animated_sprite.play("idle")
 			if dir.x > 0:
@@ -63,7 +64,7 @@ func _physics_process(delta):
 				animated_sprite.flip_h = false
 				collision_box.position.x = abs(collision_box.position.x)
 				damage_hit_box.position.x = -abs(damage_hit_box.position.x)
-			move_and_slide()
+			
 		else:
 			animated_sprite.play("idle")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://58jcgsnr8n1"]
+[gd_scene load_steps=38 format=3 uid="uid://58jcgsnr8n1"]
 
 [ext_resource type="Script" path="res://scripts/levels/final_boss_room.gd" id="1_dvqg0"]
 [ext_resource type="Texture2D" uid="uid://3tsuuh3gwcv4" path="res://assets/Map tileset/RF_Catacombs_v1.0/decorative.png" id="1_r5q6w"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cwblw7bbfkr4v" path="res://assets/Map tileset/Texture/TX Struct.png" id="4_7b3md"]
 [ext_resource type="PackedScene" uid="uid://cuwmo8ls6djsf" path="res://scenes/fog.tscn" id="5_vsi5o"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="6_swj16"]
+[ext_resource type="Script" path="res://scripts/map_props/throne.gd" id="8_rfmix"]
 [ext_resource type="PackedScene" uid="uid://dtqrqk0yreyfx" path="res://scenes/other/columns.tscn" id="9_croms"]
 [ext_resource type="AudioStream" uid="uid://dmqi2uow2utfk" path="res://assets/Sounds/boss sfx/Piano Pack - Track 05.mp3" id="11_134hf"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="11_dcxe6"]
@@ -6431,6 +6432,9 @@ sources/1 = SubResource("TileSetAtlasSource_sfthq")
 sources/2 = SubResource("TileSetAtlasSource_ukoaf")
 sources/3 = SubResource("TileSetAtlasSource_lwh60")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2q35"]
+size = Vector2(361.427, 400.765)
+
 [node name="Final Boss room" type="Node2D"]
 script = ExtResource("1_dvqg0")
 
@@ -6457,15 +6461,29 @@ position = Vector2(-3, 95)
 [node name="MoonTower" parent="map_props" instance=ExtResource("3_6rlng")]
 position = Vector2(575, 24)
 
-[node name="Sprite2D" type="Sprite2D" parent="map_props"]
+[node name="throne" type="Area2D" parent="map_props"]
+position = Vector2(340, -963)
+scale = Vector2(0.246246, 0.261519)
+script = ExtResource("8_rfmix")
+
+[node name="Sprite2D" type="Sprite2D" parent="map_props/throne"]
 modulate = Color(0.317647, 0.211765, 0.247059, 1)
 self_modulate = Color(2.949, 0.03, 0.637, 1)
 light_mask = 5
-z_index = 1
 texture_filter = 5
-position = Vector2(340, -963)
-scale = Vector2(0.246246, 0.261519)
+position = Vector2(-8.12196, -103.243)
+scale = Vector2(2, 2)
 texture = ExtResource("4_4rx3y")
+
+[node name="Marker2D" type="Marker2D" parent="map_props/throne"]
+z_index = 5
+position = Vector2(-4.06097, 439.739)
+scale = Vector2(4.06098, 3.82381)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map_props/throne"]
+position = Vector2(-4.06104, -229.429)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_m2q35")
 
 [node name="fire column3" parent="map_props" instance=ExtResource("2_w52ip")]
 z_index = 1
@@ -6584,27 +6602,27 @@ scale = Vector2(0.600808, 0.618664)
 texture = ExtResource("16_xkiwe")
 
 [node name="saber" parent="." instance=ExtResource("17_4yj0i")]
-position = Vector2(880.285, -465.87)
-speed = 300
-attack = 600
+position = Vector2(1406, -798)
 
 [node name="hayate" parent="." instance=ExtResource("6_swj16")]
-position = Vector2(98, 254)
+position = Vector2(86, 162)
 
 [node name="miko" parent="." instance=ExtResource("19_q8xxu")]
 position = Vector2(2045.66, -1036.73)
 
 [node name="companion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_qe5tc")]
+z_index = 1
+position = Vector2(45, -8)
 player = NodePath("../hayate")
 
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="Death" parent="enemies" node_paths=PackedStringArray("enemies_node") instance=ExtResource("22_x628r")]
-position = Vector2(111, -887)
+position = Vector2(58, -840)
 enemies_node = NodePath("..")
 
 [node name="Death2" parent="enemies" node_paths=PackedStringArray("enemies_node") instance=ExtResource("22_x628r")]
-position = Vector2(505, -884)
+position = Vector2(575, -838)
 enemies_node = NodePath("..")
 
 [connection signal="summon_skeleton" from="enemies/Death" to="." method="_on_death_summon_skeleton"]

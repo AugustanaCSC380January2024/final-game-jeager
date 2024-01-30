@@ -696,7 +696,7 @@ player_detection_range = 4
 texture_filter = 1
 position = Vector2(-5, -70)
 sprite_frames = SubResource("SpriteFrames_4o3dm")
-animation = &"attack 2"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="collision_box" type="CollisionShape2D" parent="."]

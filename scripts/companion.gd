@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var player: Player
+@export var player: Node
 @export var speed = 90
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -9,8 +9,7 @@ extends CharacterBody2D
 @onready var coin = preload("res://scenes/other/coin.tscn")
 
 var movement = true
-var stop_movement = false
-var teleport_in_progress = false
+var animation_in_progress = false
 
 func _ready():
 	animated_sprite.animation_finished.connect(animation_finished)
@@ -20,20 +19,19 @@ func _physics_process(delta):
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
 		nav_agent.target_position = player.get_companion_maker_position()
 		#var distance = position - nav_agent.target_position
-		var distance = sqrt(pow(global_position.x - player.global_position.x, 2) + pow(global_position.y - player.global_position.y, 2))
+		var distance = sqrt(pow(global_position.x - player.get_companion_maker_position().x, 2) + pow(global_position.y - player.get_companion_maker_position().y, 2))
 		
 		if dir.x < 0:
 			animated_sprite.flip_h = false
 		elif dir.x > 0:
 			animated_sprite.flip_h = true
-			
-		#if (abs(distance.x)> 70 and abs(distance.y) > 70):
+
 		if distance > 500:
 			velocity = dir * speed
 			global_position = player.get_companion_maker_position()
 			animated_sprite.play("teleport")
-			teleport_in_progress = true
-		elif !teleport_in_progress:
+			animation_in_progress = true
+		elif !animation_in_progress:
 			if (distance > 100):
 				velocity = dir * speed
 				animated_sprite.play("walk")
@@ -49,10 +47,11 @@ func tutorial_mode(flag: bool):
 	visible = !flag
 
 func animation_finished():
-	if animated_sprite.animation == "teleport":
-		teleport_in_progress = false
+	if animated_sprite.animation == "teleport" or animated_sprite.animation == "transformation":
+		animation_in_progress = false
 
-func set_stop_movement(flag):
-	stop_movement = flag
-	
+func get_nav_agent():
+	return nav_agent
 
+func get_animated_sprite():
+	return animated_sprite

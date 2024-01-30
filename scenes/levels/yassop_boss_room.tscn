@@ -123,8 +123,6 @@ texture = ExtResource("8_6gwpg")
 
 [node name="saber" parent="." instance=ExtResource("10_x4gim")]
 position = Vector2(880.285, -465.87)
-speed = 300
-attack = 600
 
 [node name="hayate" parent="." instance=ExtResource("11_3vaoq")]
 position = Vector2(98, 254)

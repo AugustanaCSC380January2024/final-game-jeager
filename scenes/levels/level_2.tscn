@@ -152,8 +152,6 @@ y_sort_enabled = true
 position = Vector2(-124, -215)
 scale = Vector2(1.17248, 1.17248)
 collision_mask = 15
-speed = 600
-attack = 150
 
 [node name="companion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_ufn4g")]
 position = Vector2(719, 162)

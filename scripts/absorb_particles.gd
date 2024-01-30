@@ -25,5 +25,4 @@ func set_target(tar):
 func _on_target_reached():
 	absorbed_by_slime.emit()
 	queue_free()
-	target.set_stop_movement(false)
 
