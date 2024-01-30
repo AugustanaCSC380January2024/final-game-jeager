@@ -100,8 +100,9 @@ position = Vector2(942, 26)
 scale = Vector2(0.600808, 0.618664)
 texture = ExtResource("8_1tv4t")
 
-[node name="cooldown" parent="CanvasLayer" instance=ExtResource("12_qe0jd")]
+[node name="cooldown" parent="CanvasLayer" node_paths=PackedStringArray("timer") instance=ExtResource("12_qe0jd")]
 position = Vector2(1197, 652)
+timer = NodePath("../../hayate/cooldown")
 
 [node name="enemies" type="Node2D" parent="."]
 y_sort_enabled = true

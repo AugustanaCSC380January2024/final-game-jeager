@@ -101,5 +101,5 @@ func _on_pillar_strucked():
 func spawn_coin():
 	var new_coin = coin.instantiate()
 	add_child(new_coin)
-	new_coin.position = companion.global_position
+	new_coin.global_position = companion.global_position
 	new_coin.coin_collected.connect(exp_bar.update_exp_bar)

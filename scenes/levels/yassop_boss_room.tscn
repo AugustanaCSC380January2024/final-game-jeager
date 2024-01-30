@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cmt7stfwubunv"]
+[gd_scene load_steps=20 format=3 uid="uid://cmt7stfwubunv"]
 
 [ext_resource type="Script" path="res://scripts/levels/yassop_boss_room.gd" id="1_0885j"]
 [ext_resource type="TileSet" uid="uid://bt7q0pxm2e225" path="res://scenes/levels/catacomb.tres" id="1_o82pj"]
@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://dsyrshve25ask" path="res://scenes/enemy/boss/yassop.tscn" id="13_tl1wm"]
 [ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="14_f4470"]
 [ext_resource type="PackedScene" uid="uid://dtqrqk0yreyfx" path="res://scenes/other/columns.tscn" id="16_f6sxt"]
+[ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="16_w6uqe"]
 [ext_resource type="PackedScene" uid="uid://bhy48tqiojmqd" path="res://scenes/other/portal.tscn" id="17_oxnhs"]
+[ext_resource type="PackedScene" uid="uid://ogo63q6fdc44" path="res://scenes/levels/level_2.tscn" id="18_rx8vc"]
 
 [node name="yassop_boss_room" type="Node2D"]
 y_sort_enabled = true
@@ -141,11 +143,23 @@ y_sort_enabled = true
 y_sort_enabled = true
 position = Vector2(564, 123)
 
+[node name="skeleton" parent="enemies" instance=ExtResource("16_w6uqe")]
+position = Vector2(699, 329)
+
+[node name="skeleton2" parent="enemies" instance=ExtResource("16_w6uqe")]
+position = Vector2(723, 446)
+
+[node name="skeleton3" parent="enemies" instance=ExtResource("16_w6uqe")]
+position = Vector2(650, 413)
+
+[node name="skeleton4" parent="enemies" instance=ExtResource("16_w6uqe")]
+position = Vector2(615, 488)
+
 [node name="map_props" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="column1" parent="map_props" instance=ExtResource("16_f6sxt")]
-position = Vector2(829, 58)
+position = Vector2(1535, -63)
 
 [node name="AnimatedSprite2D" parent="map_props/column1" index="0"]
 modulate = Color(0.411765, 0.411765, 0.411765, 1)
@@ -154,7 +168,7 @@ modulate = Color(0.411765, 0.411765, 0.411765, 1)
 energy = 3.0
 
 [node name="column2" parent="map_props" instance=ExtResource("16_f6sxt")]
-position = Vector2(827, 569)
+position = Vector2(1676, 549)
 
 [node name="AnimatedSprite2D" parent="map_props/column2" index="0"]
 modulate = Color(0.529412, 0.529412, 0.529412, 1)
@@ -163,7 +177,7 @@ modulate = Color(0.529412, 0.529412, 0.529412, 1)
 energy = 3.0
 
 [node name="column3" parent="map_props" instance=ExtResource("16_f6sxt")]
-position = Vector2(0, 577)
+position = Vector2(-688, 620)
 
 [node name="AnimatedSprite2D" parent="map_props/column3" index="0"]
 modulate = Color(0.490196, 0.490196, 0.490196, 1)
@@ -172,7 +186,7 @@ modulate = Color(0.490196, 0.490196, 0.490196, 1)
 energy = 3.0
 
 [node name="column4" parent="map_props" instance=ExtResource("16_f6sxt")]
-position = Vector2(3, 25)
+position = Vector2(-730, -15)
 
 [node name="AnimatedSprite2D" parent="map_props/column4" index="0"]
 modulate = Color(0.439216, 0.439216, 0.439216, 1)
@@ -181,9 +195,10 @@ modulate = Color(0.439216, 0.439216, 0.439216, 1)
 energy = 3.0
 
 [node name="portal" parent="map_props" instance=ExtResource("17_oxnhs")]
-visible = false
 position = Vector2(385, 303)
+next_scene = ExtResource("18_rx8vc")
 
+[connection signal="enemy_death" from="enemies/Yassop" to="." method="_on_yassop_enemy_death"]
 [connection signal="shoot_dart" from="enemies/Yassop" to="." method="_on_yassop_shoot_dart"]
 
 [editable path="CanvasLayer/party_health_bars/saber_mini_health_bar"]

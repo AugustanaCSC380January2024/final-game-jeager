@@ -15,10 +15,13 @@ func _ready():
 func column_hit():
 	sprite.frame += 1
 	if sprite.frame == 4:
-		portal_unlocked = true
-		point_light_2d.visible = true
-		sprite.frame += 1
+		unlock_portal()
 
+func unlock_portal():
+	portal_unlocked = true
+	point_light_2d.visible = true
+	sprite.frame = 5
+	
 func _on_body_entered(body):
 	if portal_unlocked:
 		get_tree().change_scene_to_packed(next_scene)

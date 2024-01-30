@@ -6,6 +6,7 @@ class_name Player
 @export var health_points = max_health_points
 @export var defence = 30
 @export var attack = 50
+@export var level = 1
 var ultimate_damage
 
 signal health_changed
@@ -90,7 +91,6 @@ func update_moving_animation(animation):
 	elif animation == 2:
 		animated_sprite.play("attack 1")
 		$audio_player/attack.play()
-
 		stop_movement = true
 	elif animation == 3:
 		animated_sprite.play("hurt")
@@ -128,7 +128,6 @@ func _on_ultimate_animation_finished():
 		body.take_damage(ultimate_damage)
 		if get_name() != "miko":
 			break
-	
 
 func flip_sprites(flag : bool):
 	damage_hitbox_collision_box.position.x = damage_hitbox_collision_box.position.x * -1

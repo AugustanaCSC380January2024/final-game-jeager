@@ -1,16 +1,6 @@
 extends Level
 
-#@onready var companion = preload("res://scenes/players/companion.tscn")
 var tutorial = true
-
-
-#@onready var movement_collision_shape_2d = $tutorial/movement/CollisionShape2D
-#@onready var switch_collision_shape_2d = $tutorial/switch/CollisionShape2D
-#@onready var attack_collision_shape_2d = $tutorial/attack/CollisionShape2D
-#@onready var ult_collision_shape_2d = $tutorial/ult/CollisionShape2D
-#@onready var areasplash_collision_shape_2d = $tutorial/areasplash/CollisionShape2D
-#@onready var slime_attack_collision_shape_2d = $tutorial/slimeattack/CollisionShape2D
-
 
 @onready var movement_label: Label = $tutorial/movement/Label
 @onready var switch_label : Label = $tutorial/switch/Label

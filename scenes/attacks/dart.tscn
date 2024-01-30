@@ -1,10 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdbq3w5h6qr3m"]
+[gd_scene load_steps=9 format=3 uid="uid://cdbq3w5h6qr3m"]
 
 [ext_resource type="Script" path="res://scripts/attacks/projectiles.gd" id="1_ypogq"]
 [ext_resource type="Texture2D" uid="uid://71sr2rkpeqrn" path="res://assets/Skins/Boss skins/Yassop/Dart.png" id="2_lbx3l"]
+[ext_resource type="AudioStream" uid="uid://dxlwqd3k4rq5n" path="res://assets/Sounds/hayate/atk/arrow-impact-87260.mp3" id="3_q30yc"]
+[ext_resource type="AudioStream" uid="uid://dbmg82k2f6n65" path="res://assets/Sounds/hayate/atk/fast-whoosh-118248.mp3" id="4_48o6k"]
+[ext_resource type="AudioStream" uid="uid://codbhjp4vedcn" path="res://assets/Sounds/hayate/atk/weapon-arrow-shot-01-153370.mp3" id="5_1eydt"]
+[ext_resource type="AudioStream" uid="uid://ctemxqcj86rmr" path="res://assets/Sounds/hayate/atk/whoosh-transitions-sfx-01-118227.mp3" id="6_doix3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwem3"]
 size = Vector2(26, 12)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_p3hoy"]
+streams_count = 4
+stream_0/stream = ExtResource("3_q30yc")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_48o6k")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_1eydt")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_doix3")
+stream_3/weight = 1.0
 
 [node name="dart" type="Area2D"]
 collision_layer = 2
@@ -22,3 +37,8 @@ scale = Vector2(4.33333, 4.33333)
 texture = ExtResource("2_lbx3l")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="audio_player" type="Node2D" parent="."]
+
+[node name="launch" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_p3hoy")

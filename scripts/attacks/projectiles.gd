@@ -10,6 +10,7 @@ func _ready():
 	projectile_timer.timeout.connect(_on_timer_timeout)
 	body_entered.connect(_on_body_entered)
 	projectile_timer.start()
+	$audio_player/launch.play()
 	
 func _physics_process(delta):
 	position.x += delta * projectile_speed
