@@ -415,7 +415,7 @@ collision_mask = 5
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_jo24x")
-player_detection_range = 3
+player_detection_range = 6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(8.36471, 0.921569, 0.85098, 1)

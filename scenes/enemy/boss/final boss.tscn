@@ -731,7 +731,7 @@ scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_p8178")
-player_detection_range = 4
+player_detection_range = 8
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

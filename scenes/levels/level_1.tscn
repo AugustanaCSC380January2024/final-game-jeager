@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 [gd_scene load_steps=31 format=3 uid="uid://wae2wvwtw2jd"]
+=======
+[gd_scene load_steps=30 format=3 uid="uid://wae2wvwtw2jd"]
+>>>>>>> a5f8962335a094342f4e3de00781eaf4c0efd14a
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_5bloe"]
-[ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
 [ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="3_q1siq"]
 [ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="4_jpfrt"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="5_8o2p0"]
@@ -262,10 +265,10 @@ position = Vector2(111.252, 13.9066)
 shape = SubResource("RectangleShape2D_wweu5")
 
 [node name="Label" type="Label" parent="tutorial/slime_message"]
-offset_left = -68.1422
-offset_top = 25.7272
-offset_right = 102.858
-offset_bottom = 90.7272
+offset_left = -69.5328
+offset_top = 12.5159
+offset_right = 101.467
+offset_bottom = 77.5159
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
