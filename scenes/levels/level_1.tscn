@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://wae2wvwtw2jd"]
+[gd_scene load_steps=32 format=3 uid="uid://wae2wvwtw2jd"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_5bloe"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="19_rlk5a"]
 [ext_resource type="PackedScene" path="res://scenes/enemy/normal enemy/harbinger.tscn" id="20_iejjj"]
 [ext_resource type="AudioStream" uid="uid://bie07dnio1w81" path="res://assets/Sounds/game sfx/Aspiration Woods (Area Theme).mp3" id="21_lvari"]
+[ext_resource type="PackedScene" uid="uid://dy6pk518wgdmh" path="res://scenes/enemy/boss/final boss.tscn" id="22_26eue"]
+[ext_resource type="PackedScene" uid="uid://bj33gbt44b1mr" path="res://scenes/ui/pausemenu.tscn" id="23_dkrj3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugshl"]
 size = Vector2(206.512, 237.588)
@@ -75,6 +77,10 @@ player = NodePath("../../companionTutorial")
 position = Vector2(1406.65, 308.726)
 player = NodePath("../../companionTutorial")
 
+[node name="harbinger" parent="enemies" instance=ExtResource("20_iejjj")]
+position = Vector2(1655.58, 942.17)
+player_detection_range = 4
+
 [node name="tutorial slimes" type="Node2D" parent="enemies"]
 position = Vector2(-661.257, 69.5328)
 
@@ -96,10 +102,6 @@ player = NodePath("../../../companionTutorial")
 [node name="slime5" parent="enemies/tutorial slimes" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
 position = Vector2(2765, 150)
 player = NodePath("../../../companionTutorial")
-
-[node name="harbinger" parent="enemies" instance=ExtResource("20_iejjj")]
-position = Vector2(1655.58, 942.17)
-player_detection_range = 4
 
 [node name="tutorial" type="Node2D" parent="."]
 
@@ -275,6 +277,12 @@ texture = ExtResource("9_hais5")
 position = Vector2(1197, 642)
 timer = NodePath("../../hayate/cooldown")
 
+[node name="pausemenu" parent="CanvasLayer" instance=ExtResource("23_dkrj3")]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 6.0
+offset_bottom = 6.0
+
 [node name="companion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_p08qv")]
 position = Vector2(722.446, -410.939)
 player = NodePath("../hayate")
@@ -299,7 +307,7 @@ position = Vector2(544.442, 262.834)
 metadata/_edit_lock_ = true
 
 [node name="checkpoint" parent="map_props" instance=ExtResource("14_lfr2r")]
-position = Vector2(1585.35, 691.156)
+position = Vector2(3911.22, 203.036)
 scale = Vector2(0.695328, 0.695328)
 
 [node name="column1" parent="map_props" instance=ExtResource("15_yf8tj")]
@@ -307,7 +315,7 @@ position = Vector2(1501.21, 223.896)
 scale = Vector2(2.08598, 2.08598)
 
 [node name="column2" parent="map_props" instance=ExtResource("15_yf8tj")]
-position = Vector2(3720.7, 949.123)
+position = Vector2(1586.74, 801.018)
 scale = Vector2(2.08598, 2.08598)
 
 [node name="column3" parent="map_props" instance=ExtResource("15_yf8tj")]
@@ -328,6 +336,9 @@ stream = ExtResource("21_lvari")
 volume_db = -4.0
 autoplay = true
 max_distance = 10000.0
+
+[node name="final boss" parent="." instance=ExtResource("22_26eue")]
+position = Vector2(1595.78, 1357.98)
 
 [connection signal="body_entered" from="tutorial/movement" to="." method="_on_movement_body_entered"]
 [connection signal="body_exited" from="tutorial/movement" to="." method="_on_movement_body_exited"]

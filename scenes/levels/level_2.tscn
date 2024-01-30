@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ogo63q6fdc44"]
+[gd_scene load_steps=23 format=3 uid="uid://ogo63q6fdc44"]
 
 [ext_resource type="PackedScene" uid="uid://cqlyq21dufm6" path="res://scenes/levels/catacomb.tscn" id="1_5w3yu"]
 [ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="1_cqx5v"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://brocy360o801q" path="res://assets/Skins/Player skins/character icon/miko_icon.png" id="7_13v0c"]
 [ext_resource type="Texture2D" uid="uid://cxcbeao47io3c" path="res://assets/Skins/Player skins/character icon/hayate_icon.png" id="8_1tv4t"]
 [ext_resource type="PackedScene" uid="uid://bf33gkctekuso" path="res://scenes/ui/exp_bar.tscn" id="8_ydnfj"]
+[ext_resource type="PackedScene" uid="uid://bj33gbt44b1mr" path="res://scenes/ui/pausemenu.tscn" id="9_c62ln"]
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="12_qe0jd"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="14_4imw8"]
 [ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="14_ufn4g"]
@@ -104,6 +105,8 @@ texture = ExtResource("8_1tv4t")
 [node name="cooldown" parent="CanvasLayer" node_paths=PackedStringArray("timer") instance=ExtResource("12_qe0jd")]
 position = Vector2(1197, 652)
 timer = NodePath("../../hayate/cooldown")
+
+[node name="pausemenu" parent="CanvasLayer" instance=ExtResource("9_c62ln")]
 
 [node name="enemies" type="Node2D" parent="."]
 y_sort_enabled = true

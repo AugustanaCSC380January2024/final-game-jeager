@@ -46,7 +46,14 @@ func _physics_process(delta):
 	if !animation_playing:
 		if player_in_damage_hit_box != null and player != DEFAULT_PLAYER:
 			if (attack_cooldown_timer.is_stopped()):
-				animated_sprite.play(attacks[randi_range(0, 2)])
+				var atk = randi_range(0, 2)
+				animated_sprite.play(attacks[atk])
+				if atk == 0:
+					$audio_player/attack.play()
+				elif atk == 1:
+					$"audio_player/attack 1".play()
+				elif atk == 2:
+					$audio_player/summon.play()
 				attack_cooldown_timer.start()
 				animation_playing = true
 			else:
@@ -78,6 +85,8 @@ func take_damage(damage):
 	if (health_points <= 0):
 		animation_playing = true
 		animated_sprite.play("death") 
+		$audio_player/death.play()
+		
 		#$audio_player/dead.play()
 	else:
 		animation_playing = true

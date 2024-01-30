@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://cudwrnvj1siuv"]
+[gd_scene load_steps=87 format=3 uid="uid://cudwrnvj1siuv"]
 
 [ext_resource type="Script" path="res://scripts/player and enemy common scenes/death.gd" id="1_hg44v"]
 [ext_resource type="Texture2D" uid="uid://8p5tf6fxjysr" path="res://assets/Skins/Boss skins/Death/png/death.png" id="1_okyw6"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://bv4jtd3evbv8n" path="res://assets/Skins/Boss skins/Death/png/summon.png" id="5_nnhl7"]
 [ext_resource type="PackedScene" uid="uid://7vc7f2i1a2k0" path="res://scenes/enemy/player_detection_area.tscn" id="7_ayfwq"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="8_pencf"]
+[ext_resource type="AudioStream" uid="uid://darbe4m1fg1ep" path="res://assets/Sounds/death boss/death attack.mp3" id="9_kht20"]
+[ext_resource type="AudioStream" uid="uid://8xhtdf10lpt" path="res://assets/Sounds/death boss/death attack 2.mp3" id="10_hy5dj"]
+[ext_resource type="AudioStream" uid="uid://chrpyjy06wwmy" path="res://assets/Sounds/death boss/death attack 3.mp3" id="11_d2tun"]
+[ext_resource type="AudioStream" uid="uid://wrguqkn2spst" path="res://assets/Sounds/death boss/death summon.mp3" id="12_10v6w"]
+[ext_resource type="AudioStream" uid="uid://jle0pnoxv6aq" path="res://assets/Sounds/death boss/death_dead.mp3" id="13_urpf8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ydmjy"]
 atlas = ExtResource("1_okyw6")
@@ -476,7 +481,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u0yd3")
 }, {
-"duration": 1.0,
+"duration": 20.0,
 "texture": SubResource("AtlasTexture_b6611")
 }],
 "loop": false,
@@ -532,6 +537,13 @@ height = 52.0
 radius = 22.0
 height = 112.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nygh2"]
+streams_count = 2
+stream_0/stream = ExtResource("10_hy5dj")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("11_d2tun")
+stream_1/weight = 1.0
+
 [node name="Death" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 15
@@ -543,7 +555,7 @@ texture_filter = 1
 position = Vector2(3, 1)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_s3aub")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
 
 [node name="collision_box" type="CollisionShape2D" parent="."]
@@ -581,3 +593,18 @@ position = Vector2(86, 2)
 
 [node name="Marker2D2" type="Marker2D" parent="summon_markers"]
 position = Vector2(-81, 0)
+
+[node name="audio_player" type="Node2D" parent="."]
+
+[node name="attack" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = ExtResource("9_kht20")
+
+[node name="attack 1" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_nygh2")
+
+[node name="summon" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = ExtResource("12_10v6w")
+
+[node name="death" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = ExtResource("13_urpf8")
+pitch_scale = 0.83

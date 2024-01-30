@@ -10,6 +10,10 @@ your party by staying
 close to the blood moon tower"
 	label.visible = true
 
+func _process(delta):
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
+
 
 func _on_moon_tower_tutorial_body_exited(body):
 	label.visible = false

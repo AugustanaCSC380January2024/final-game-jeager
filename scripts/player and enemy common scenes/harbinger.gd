@@ -23,7 +23,7 @@ extends CharacterBody2D
 
 var animation_playing = false
 var player_in_damage_hit_box: CharacterBody2D
-var attacks = ["attack", "attack 1", "attack 2"]
+
 
 signal enemy_death
 signal health_changed
@@ -43,7 +43,8 @@ func _physics_process(delta):
 	if !animation_playing:
 		if player_in_damage_hit_box != null and player != DEFAULT_PLAYER:
 			if (attack_cooldown_timer.is_stopped()):
-				animated_sprite.play(attacks[randi_range(0, 2)])
+				animated_sprite.play("attack")
+				$audio_player/attack.play()
 				attack_cooldown_timer.start()
 				animation_playing = true
 			else:
@@ -97,7 +98,7 @@ func _on_animated_sprite_2d_animation_finished():
 		enemy_death.emit(global_position)
 		queue_free()
 	elif "attack" in animated_sprite.animation:
-		$audio_player/attack.play()
+		#$audio_player/attack.play()
 		if player_in_damage_hit_box != null:
 			player_in_damage_hit_box.take_damage(damage)
 	animation_playing = false

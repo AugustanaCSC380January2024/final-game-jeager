@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="6_swj16"]
 [ext_resource type="Script" path="res://scripts/map_props/throne.gd" id="8_rfmix"]
 [ext_resource type="PackedScene" uid="uid://dtqrqk0yreyfx" path="res://scenes/other/columns.tscn" id="9_croms"]
-[ext_resource type="AudioStream" uid="uid://dmqi2uow2utfk" path="res://assets/Sounds/boss sfx/Piano Pack - Track 05.mp3" id="11_134hf"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="11_dcxe6"]
+[ext_resource type="AudioStream" uid="uid://cmk3glx7vwftv" path="res://assets/Sounds/boss sfx/Breezy's Resident Horror - Mansion.mp3" id="11_wbei5"]
 [ext_resource type="PackedScene" uid="uid://bf33gkctekuso" path="res://scenes/ui/exp_bar.tscn" id="12_k32jy"]
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="13_wk4px"]
 [ext_resource type="Texture2D" uid="uid://dnrfemhit7nga" path="res://assets/Skins/Player skins/character icon/saber_icon.png" id="14_p12ko"]
@@ -6524,7 +6524,7 @@ offset_bottom = 270.909
 color = Color(0.862745, 0, 0, 1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_134hf")
+stream = ExtResource("11_wbei5")
 volume_db = -11.0
 autoplay = true
 max_distance = 10000.0

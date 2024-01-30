@@ -12,6 +12,9 @@ var tutorial = true
 @onready var rune_label: Label = $tutorial/rune/Label
 
 func _process(delta):
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
+		
 	if tutorial == true:
 		companion.tutorial_mode(true)
 		if ($"enemies/tutorial slimes".get_child_count() == 0) :

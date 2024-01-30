@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=57 format=3 uid="uid://cqfmqbiqahwcw"]
+[gd_resource type="SpriteFrames" load_steps=40 format=3 uid="uid://cqfmqbiqahwcw"]
 
 [ext_resource type="Texture2D" uid="uid://dvf6ljwxdvxmh" path="res://assets/Skins/Small enemies/harbinger/Bringer-of-Death-SpritSheet.png" id="1_32ros"]
 
@@ -31,74 +31,6 @@ atlas = ExtResource("1_32ros")
 region = Rect2(840, 186, 140, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q21ww"]
-atlas = ExtResource("1_32ros")
-region = Rect2(980, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m8ren"]
-atlas = ExtResource("1_32ros")
-region = Rect2(0, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nf3n3"]
-atlas = ExtResource("1_32ros")
-region = Rect2(140, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_48yqq"]
-atlas = ExtResource("1_32ros")
-region = Rect2(280, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fx1hm"]
-atlas = ExtResource("1_32ros")
-region = Rect2(420, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7171j"]
-atlas = ExtResource("1_32ros")
-region = Rect2(560, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8r0ym"]
-atlas = ExtResource("1_32ros")
-region = Rect2(700, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u2swh"]
-atlas = ExtResource("1_32ros")
-region = Rect2(840, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5xw6"]
-atlas = ExtResource("1_32ros")
-region = Rect2(980, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kj03r"]
-atlas = ExtResource("1_32ros")
-region = Rect2(0, 279, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8fr6n"]
-atlas = ExtResource("1_32ros")
-region = Rect2(0, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7y6a1"]
-atlas = ExtResource("1_32ros")
-region = Rect2(140, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oo3ki"]
-atlas = ExtResource("1_32ros")
-region = Rect2(280, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_blfrn"]
-atlas = ExtResource("1_32ros")
-region = Rect2(420, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wklae"]
-atlas = ExtResource("1_32ros")
-region = Rect2(560, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lb6tf"]
-atlas = ExtResource("1_32ros")
-region = Rect2(700, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fke4g"]
-atlas = ExtResource("1_32ros")
-region = Rect2(840, 186, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rttem"]
 atlas = ExtResource("1_32ros")
 region = Rect2(980, 186, 140, 93)
 
@@ -251,67 +183,6 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m8ren")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nf3n3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_48yqq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fx1hm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7171j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8r0ym")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u2swh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e5xw6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kj03r")
-}],
-"loop": false,
-"name": &"attack 1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8fr6n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7y6a1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oo3ki")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_blfrn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wklae")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lb6tf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fke4g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rttem")
-}],
-"loop": false,
-"name": &"attack 2 ",
 "speed": 5.0
 }, {
 "frames": [{
