@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ogo63q6fdc44"]
+[gd_scene load_steps=24 format=3 uid="uid://ogo63q6fdc44"]
 
 [ext_resource type="PackedScene" uid="uid://cqlyq21dufm6" path="res://scenes/levels/catacomb.tscn" id="1_5w3yu"]
 [ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="1_cqx5v"]
@@ -14,8 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://brocy360o801q" path="res://assets/Skins/Player skins/character icon/miko_icon.png" id="7_13v0c"]
 [ext_resource type="Texture2D" uid="uid://cxcbeao47io3c" path="res://assets/Skins/Player skins/character icon/hayate_icon.png" id="8_1tv4t"]
 [ext_resource type="PackedScene" uid="uid://bf33gkctekuso" path="res://scenes/ui/exp_bar.tscn" id="8_ydnfj"]
-[ext_resource type="PackedScene" path="res://scenes/ui/pausemenu.tscn" id="9_c62ln"]
+[ext_resource type="PackedScene" uid="uid://bj33gbt44b1mr" path="res://scenes/ui/pausemenu.tscn" id="9_c62ln"]
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="12_qe0jd"]
+[ext_resource type="PackedScene" uid="uid://c6rhlhhkepc61" path="res://scenes/enemy/normal enemy/harbinger.tscn" id="12_rufxf"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="14_4imw8"]
 [ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="14_ufn4g"]
 [ext_resource type="PackedScene" uid="uid://cvjtbx5vno36k" path="res://scenes/enemy/normal enemy/slime.tscn" id="15_kodex"]
@@ -117,6 +118,45 @@ y_sort_enabled = true
 [node name="skeleton" parent="enemies" instance=ExtResource("14_4imw8")]
 position = Vector2(877, 708)
 
+[node name="skeleton6" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(974, 726)
+
+[node name="skeleton12" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(2414, 1039)
+
+[node name="skeleton13" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(2484, 978)
+
+[node name="skeleton14" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(2373, 935)
+
+[node name="skeleton15" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(2389, 845)
+
+[node name="skeleton16" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(2438, 763)
+
+[node name="skeleton17" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(3594, 625)
+
+[node name="skeleton7" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(901, 780)
+
+[node name="skeleton8" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(484, 1062)
+
+[node name="skeleton9" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(505, 988)
+
+[node name="skeleton10" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(410, 986)
+
+[node name="skeleton11" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(469, 1234)
+
+[node name="skeleton18" parent="enemies" instance=ExtResource("14_4imw8")]
+position = Vector2(1043, 688)
+
 [node name="skeleton2" parent="enemies" instance=ExtResource("14_4imw8")]
 position = Vector2(994, 639)
 
@@ -129,23 +169,53 @@ position = Vector2(1513, 851)
 [node name="slime3" parent="enemies" instance=ExtResource("15_kodex")]
 position = Vector2(1471, 915)
 
+[node name="slime6" parent="enemies" instance=ExtResource("15_kodex")]
+position = Vector2(2324, -350)
+
+[node name="slime7" parent="enemies" instance=ExtResource("15_kodex")]
+position = Vector2(2222, -388)
+
+[node name="slime8" parent="enemies" instance=ExtResource("15_kodex")]
+position = Vector2(2396, -411)
+
 [node name="slime4" parent="enemies" instance=ExtResource("15_kodex")]
 position = Vector2(1416, 852)
 
 [node name="skeleton3" parent="enemies" instance=ExtResource("14_4imw8")]
-position = Vector2(131, 196)
+position = Vector2(400, 147)
 
 [node name="skeleton4" parent="enemies" instance=ExtResource("14_4imw8")]
 position = Vector2(-171, 154)
 
 [node name="skeleton5" parent="enemies" instance=ExtResource("14_4imw8")]
-position = Vector2(-359, 164)
+position = Vector2(-223, 214)
 
 [node name="slime5" parent="enemies" instance=ExtResource("15_kodex")]
 position = Vector2(449, 206)
 
+[node name="harbinger" parent="enemies" instance=ExtResource("12_rufxf")]
+position = Vector2(2869, -665)
+
+[node name="harbinger4" parent="enemies" instance=ExtResource("12_rufxf")]
+position = Vector2(2777, -560)
+
+[node name="harbinger5" parent="enemies" instance=ExtResource("12_rufxf")]
+position = Vector2(3000, -533)
+
+[node name="harbinger6" parent="enemies" instance=ExtResource("12_rufxf")]
+position = Vector2(2852, -477)
+
+[node name="harbinger7" parent="enemies" instance=ExtResource("12_rufxf")]
+position = Vector2(2359, -460)
+
+[node name="harbinger2" parent="enemies" instance=ExtResource("12_rufxf")]
+position = Vector2(3780, 640)
+
+[node name="harbinger3" parent="enemies" instance=ExtResource("12_rufxf")]
+position = Vector2(3685, 543)
+
 [node name="hayate" parent="." instance=ExtResource("3_a7lok")]
-position = Vector2(842, 208)
+position = Vector2(-625, 146)
 scale = Vector2(1.15845, 1.15845)
 
 [node name="miko" parent="." instance=ExtResource("4_tvhkt")]

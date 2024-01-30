@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://scripts/map_props/throne.gd" id="8_rfmix"]
 [ext_resource type="PackedScene" uid="uid://dtqrqk0yreyfx" path="res://scenes/other/columns.tscn" id="9_croms"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="11_dcxe6"]
-[ext_resource type="AudioStream" uid="uid://jwme6hpt6t14" path="res://assets/Sounds/boss sfx/Breezy's Resident Horror - Mansion.mp3" id="11_wbei5"]
+[ext_resource type="AudioStream" uid="uid://cmk3glx7vwftv" path="res://assets/Sounds/boss sfx/Breezy's Resident Horror - Mansion.mp3" id="11_wbei5"]
 [ext_resource type="PackedScene" uid="uid://bf33gkctekuso" path="res://scenes/ui/exp_bar.tscn" id="12_k32jy"]
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="13_wk4px"]
 [ext_resource type="Texture2D" uid="uid://dnrfemhit7nga" path="res://assets/Skins/Player skins/character icon/saber_icon.png" id="14_p12ko"]
@@ -6600,9 +6600,7 @@ position = Vector2(942, 26)
 scale = Vector2(0.600808, 0.618664)
 texture = ExtResource("16_xkiwe")
 
-[node name="slime_transformation_labels" type="Node" parent="CanvasLayer"]
-
-[node name="slime_transformation1" type="Label" parent="CanvasLayer/slime_transformation_labels"]
+[node name="slime_transformation1" type="Label" parent="CanvasLayer"]
 visible = false
 offset_left = 195.0
 offset_top = 211.0
@@ -6610,7 +6608,7 @@ offset_right = 455.0
 offset_bottom = 260.0
 text = "Did we win?"
 
-[node name="slime_transformation2" type="Label" parent="CanvasLayer/slime_transformation_labels"]
+[node name="slime_transformation2" type="Label" parent="CanvasLayer"]
 visible = false
 offset_left = 195.0
 offset_top = 211.0
@@ -6618,17 +6616,17 @@ offset_right = 455.0
 offset_bottom = 260.0
 text = "Wait...Slime where are you going?"
 
-[node name="slime_transformation3" type="Label" parent="CanvasLayer/slime_transformation_labels"]
+[node name="slime_transformation3" type="Label" parent="CanvasLayer"]
 visible = false
 modulate = Color(1, 0, 0.32549, 1)
 offset_left = 195.0
 offset_top = 211.0
-offset_right = 572.0
+offset_right = 455.0
 offset_bottom = 260.0
 text = "AT LAST, I HAVE ABSORBED ENOUGH LIFE FORMS 
 TO RETURN TO MY TRUE FORM"
 
-[node name="slime_transformation4" type="Label" parent="CanvasLayer/slime_transformation_labels"]
+[node name="slime_transformation4" type="Label" parent="CanvasLayer"]
 visible = false
 modulate = Color(1, 0, 0.32549, 1)
 offset_left = 195.0

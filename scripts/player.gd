@@ -197,7 +197,7 @@ func is_alive():
 
 func update_stats():
 	attack += int(level) * 10
-	defence += int(level) * 10
+	#defence += int(level) * 10
 	max_health_points += int(level) * 20
 	reset_health()
 	ultimate_damage = attack * 2

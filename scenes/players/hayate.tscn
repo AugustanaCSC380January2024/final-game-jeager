@@ -566,8 +566,10 @@ texture_filter = 1
 position = Vector2(0, -1)
 collision_mask = 44
 script = ExtResource("1_vt4qa")
-max_health_points = 150
-health_points = 150
+speed = 200
+max_health_points = 300
+attack = 20
+health_points = 300
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
