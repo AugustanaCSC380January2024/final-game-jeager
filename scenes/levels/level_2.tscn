@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ogo63q6fdc44"]
+[gd_scene load_steps=22 format=3 uid="uid://ogo63q6fdc44"]
 
 [ext_resource type="PackedScene" uid="uid://cqlyq21dufm6" path="res://scenes/levels/catacomb.tscn" id="1_5w3yu"]
 [ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="1_cqx5v"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="14_4imw8"]
 [ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="14_ufn4g"]
 [ext_resource type="PackedScene" uid="uid://cvjtbx5vno36k" path="res://scenes/enemy/normal enemy/slime.tscn" id="15_kodex"]
+[ext_resource type="PackedScene" uid="uid://58jcgsnr8n1" path="res://scenes/levels/final_boss_room.tscn" id="19_g8ekj"]
 [ext_resource type="AudioStream" uid="uid://btjk8l7lw374k" path="res://assets/Sounds/game sfx/Lost Kingdom (Piano Menu).wav" id="19_h1tu7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlqwq"]
@@ -192,6 +193,7 @@ position = Vector2(2862, -615)
 [node name="portal" parent="map_props" instance=ExtResource("6_iqb0h")]
 modulate = Color(0.396078, 0.396078, 0.396078, 1)
 position = Vector2(2191, -530)
+next_scene = ExtResource("19_g8ekj")
 
 [node name="moonTowerTutorial" type="Area2D" parent="map_props"]
 
