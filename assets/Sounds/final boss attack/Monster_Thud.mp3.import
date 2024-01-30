@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cf0hmtgqqfw87"
+path="res://.godot/imported/Monster_Thud.mp3-3e33d688ca1c443b5d01d5bc42a7d215.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/final boss attack/Monster_Thud.mp3"
+dest_files=["res://.godot/imported/Monster_Thud.mp3-3e33d688ca1c443b5d01d5bc42a7d215.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

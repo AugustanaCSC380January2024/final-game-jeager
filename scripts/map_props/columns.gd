@@ -13,4 +13,5 @@ func take_damage(damage):
 		strucked = true
 		$PointLight2D.visible = true
 		$AnimatedSprite2D.play("pillar_strucked")
+		$audio_player.play()
 		Strucked.emit()

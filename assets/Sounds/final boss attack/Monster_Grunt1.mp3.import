@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sqc3d62kmft7"
+path="res://.godot/imported/Monster_Grunt1.mp3-a6876d583c02368809d04ac89bc5f931.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/final boss attack/Monster_Grunt1.mp3"
+dest_files=["res://.godot/imported/Monster_Grunt1.mp3-a6876d583c02368809d04ac89bc5f931.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
