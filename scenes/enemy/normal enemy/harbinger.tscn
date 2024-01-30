@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3s1takx64jk2"]
+[gd_scene load_steps=11 format=3 uid="uid://c6rhlhhkepc61"]
 
 [ext_resource type="Script" path="res://scripts/player and enemy common scenes/harbinger.gd" id="1_856l2"]
 [ext_resource type="SpriteFrames" uid="uid://cqfmqbiqahwcw" path="res://scenes/enemy/normal enemy/harbinger.tres" id="2_ett12"]
@@ -26,6 +26,7 @@ stream_1/weight = 1.0
 collision_layer = 2
 collision_mask = 14
 script = ExtResource("1_856l2")
+player_detection_range = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

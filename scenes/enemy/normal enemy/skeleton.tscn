@@ -574,7 +574,7 @@ collision_mask = 15
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_xdgel")
-player_detection_range = 3
+player_detection_range = 6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
