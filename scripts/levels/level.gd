@@ -67,6 +67,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("character 3 selected"):
 		change_curr_player(saber)
 	save_level()
+	if !(hayate.is_alive() or miko.is_alive() or saber.is_alive()):
+		get_tree().reload_current_scene()
 
 func change_curr_player(new_player):
 	if (curr_player != new_player) and !curr_player.is_attacking():
