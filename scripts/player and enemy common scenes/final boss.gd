@@ -37,6 +37,7 @@ func _ready():
 	player_detection_area.apply_scale(Vector2(player_detection_range, player_detection_range))
 	player = DEFAULT_PLAYER
 
+
 func _physics_process(delta):
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
 	if !animation_playing:
@@ -127,3 +128,6 @@ func _on_damage_hit_box_body_entered(body):
 
 func _on_damage_hit_box_body_exited(body):
 	player_in_damage_hit_box = null
+
+func play_appear_sound():
+	$audio_player/appear2.play()
