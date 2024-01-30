@@ -8,7 +8,7 @@ class_name Player
 @export var attack = 30
 @export var health_points = max_health_points
 
-var ultimate_damage
+var ultimate_damage = attack * 2
 
 signal health_changed
 signal shoot_arrow

@@ -574,7 +574,6 @@ collision_mask = 15
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_xdgel")
-max_health_points = 150
 player_detection_range = 6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
