@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://c3s1takx64jk2"]
 
 [ext_resource type="Script" path="res://scripts/player and enemy common scenes/harbinger.gd" id="1_856l2"]
-[ext_resource type="SpriteFrames" uid="uid://jhomxl6ego5t" path="res://scenes/enemy/normal enemy/harbinger.tres" id="2_ett12"]
+[ext_resource type="SpriteFrames" uid="uid://cqfmqbiqahwcw" path="res://scenes/enemy/normal enemy/harbinger.tres" id="2_ett12"]
 [ext_resource type="PackedScene" uid="uid://7vc7f2i1a2k0" path="res://scenes/enemy/player_detection_area.tscn" id="2_q0scg"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="3_uggka"]
 [ext_resource type="AudioStream" uid="uid://ci3oohg7qylxq" path="res://assets/Sounds/small enemies/skeleton dead.mp3" id="5_nqvmv"]

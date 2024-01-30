@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://58jcgsnr8n1"]
+[gd_scene load_steps=35 format=3 uid="uid://58jcgsnr8n1"]
 
 [ext_resource type="Script" path="res://scripts/levels/final_boss_room.gd" id="1_dvqg0"]
 [ext_resource type="Texture2D" uid="uid://3tsuuh3gwcv4" path="res://assets/Map tileset/RF_Catacombs_v1.0/decorative.png" id="1_r5q6w"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://8ck7qe1n3awd" path="res://scenes/players/saber.tscn" id="17_4yj0i"]
 [ext_resource type="PackedScene" uid="uid://btpuw4f8qb17n" path="res://scenes/players/miko.tscn" id="19_q8xxu"]
 [ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="20_qe5tc"]
+[ext_resource type="PackedScene" uid="uid://cudwrnvj1siuv" path="res://scenes/enemy/boss/death.tscn" id="22_x628r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1u1i0"]
 texture = ExtResource("1_r5q6w")
@@ -6578,6 +6579,17 @@ position = Vector2(2045.66, -1036.73)
 player = NodePath("../hayate")
 
 [node name="enemies" type="Node2D" parent="."]
+
+[node name="Death" parent="enemies" node_paths=PackedStringArray("enemies_node") instance=ExtResource("22_x628r")]
+position = Vector2(111, -887)
+enemies_node = NodePath("..")
+
+[node name="Death2" parent="enemies" node_paths=PackedStringArray("enemies_node") instance=ExtResource("22_x628r")]
+position = Vector2(505, -884)
+enemies_node = NodePath("..")
+
+[connection signal="summon_skeleton" from="enemies/Death" to="." method="_on_death_summon_skeleton"]
+[connection signal="summon_skeleton" from="enemies/Death2" to="." method="_on_death_summon_skeleton"]
 
 [editable path="ParallaxBackground"]
 [editable path="CanvasLayer/party_health_bars/saber_mini_health_bar"]

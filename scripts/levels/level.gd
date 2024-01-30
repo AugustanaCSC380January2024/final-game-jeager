@@ -9,7 +9,7 @@ class_name Level
 @onready var arrow = preload("res://scenes/attacks/arrow.tscn")
 @onready var arrow_spawn_location = $hayate/arrow_spawn_position
 @onready var companion = $companion
-@onready var enemies = $enemies.get_children()
+@onready var enemies = $enemies
 @onready var absorb_particles = preload("res://scenes/absorb_particles.tscn")
 @onready var coin = preload("res://scenes/other/coin.tscn")
 @onready var exp_bar = $CanvasLayer/exp_bar
@@ -36,7 +36,7 @@ func _ready():
 	$map_props/column3.Strucked.connect(_on_pillar_strucked)
 	$map_props/column4.Strucked.connect(_on_pillar_strucked)
 	
-	for enemy in enemies:
+	for enemy in enemies.get_children():
 		enemy.connect("enemy_death", _enemy_killed)
 
 #func _process(delta):
