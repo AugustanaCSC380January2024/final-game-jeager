@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://wae2wvwtw2jd"]
+[gd_scene load_steps=30 format=3 uid="uid://wae2wvwtw2jd"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_5bloe"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="19_p08qv"]
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="19_rlk5a"]
 [ext_resource type="AudioStream" uid="uid://dvn5idd8eqon4" path="res://assets/Sounds/game sfx/Aspiration Woods (Area Theme).wav" id="20_17ytd"]
+[ext_resource type="PackedScene" uid="uid://c3s1takx64jk2" path="res://scenes/enemy/normal enemy/harbinger.tscn" id="20_iejjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugshl"]
 size = Vector2(206.512, 237.588)
@@ -95,6 +96,10 @@ player = NodePath("../../../companionTutorial")
 [node name="slime5" parent="enemies/tutorial slimes" node_paths=PackedStringArray("player") instance=ExtResource("6_y3iqg")]
 position = Vector2(2765, 150)
 player = NodePath("../../../companionTutorial")
+
+[node name="harbinger" parent="enemies" instance=ExtResource("20_iejjj")]
+position = Vector2(1655.58, 942.17)
+player_detection_range = 4
 
 [node name="tutorial" type="Node2D" parent="."]
 
@@ -280,7 +285,7 @@ speed = 300
 attack = 600
 
 [node name="hayate" parent="." instance=ExtResource("5_8o2p0")]
-position = Vector2(232.24, 271.873)
+position = Vector2(1374.66, 907.403)
 
 [node name="miko" parent="." instance=ExtResource("3_q1siq")]
 position = Vector2(2045.66, -1036.73)

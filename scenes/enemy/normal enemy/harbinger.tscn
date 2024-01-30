@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3s1takx64jk2"]
+
+[ext_resource type="Script" path="res://scripts/player and enemy common scenes/harbinger.gd" id="1_856l2"]
+[ext_resource type="SpriteFrames" uid="uid://jhomxl6ego5t" path="res://scenes/enemy/normal enemy/harbinger.tres" id="2_ett12"]
+[ext_resource type="PackedScene" uid="uid://7vc7f2i1a2k0" path="res://scenes/enemy/player_detection_area.tscn" id="2_q0scg"]
+[ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="3_uggka"]
+[ext_resource type="AudioStream" uid="uid://ci3oohg7qylxq" path="res://assets/Sounds/small enemies/skeleton dead.mp3" id="5_nqvmv"]
+[ext_resource type="AudioStream" uid="uid://pdjiei30qicy" path="res://assets/Sounds/small enemies/falling-bones-87568.mp3" id="6_ct2ba"]
+[ext_resource type="AudioStream" uid="uid://c44n65u6ujjcj" path="res://assets/Sounds/small enemies/skeleton attack.mp3" id="7_mpik8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xumx"]
+size = Vector2(25, 77)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rboqr"]
+radius = 52.0
+height = 170.329
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kj466"]
+streams_count = 2
+stream_0/stream = ExtResource("5_nqvmv")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_ct2ba")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m5bpo"]
+streams_count = 1
+stream_0/stream = ExtResource("7_mpik8")
+stream_0/weight = 1.0
+
+[node name="harbinger" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 14
+script = ExtResource("1_856l2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-37, -51)
+scale = Vector2(1.47849, 1.47849)
+sprite_frames = ExtResource("2_ett12")
+animation = &"attack 1"
+autoplay = "idle"
+
+[node name="collision_box" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -28.5)
+shape = SubResource("RectangleShape2D_2xumx")
+
+[node name="damage_hit_box" type="Area2D" parent="."]
+
+[node name="damage_area" type="CollisionShape2D" parent="damage_hit_box"]
+position = Vector2(-54, -29)
+rotation = -1.5506
+shape = SubResource("CapsuleShape2D_rboqr")
+
+[node name="player_detection_area" parent="." instance=ExtResource("2_q0scg")]
+position = Vector2(0, -24)
+
+[node name="attack_cooldown_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="health_bar" parent="." node_paths=PackedStringArray("character") instance=ExtResource("3_uggka")]
+modulate = Color(1, 0.184314, 0, 1)
+self_modulate = Color(0.854902, 0.886275, 0.858824, 1)
+offset_left = -65.0
+offset_top = -83.0
+offset_right = 61.0
+offset_bottom = -77.0
+character = NodePath("..")
+
+[node name="Label" parent="health_bar" index="0"]
+visible = false
+
+[node name="audio_player" type="Node2D" parent="."]
+
+[node name="dead" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_kj466")
+
+[node name="attack" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_m5bpo")
+
+[editable path="health_bar"]

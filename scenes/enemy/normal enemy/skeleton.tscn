@@ -577,6 +577,7 @@ script = ExtResource("1_xdgel")
 player_detection_range = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 texture_filter = 1
 position = Vector2(-6, -5.68434e-14)
 scale = Vector2(2.5, 2.5)
