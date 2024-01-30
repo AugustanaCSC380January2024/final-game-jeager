@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6st4hl5qx4w3"
+path="res://.godot/imported/Lost Kingdom (Piano Menu).mp3-9c8bc0ee699731b8723592dfb9b71989.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/game sfx/Lost Kingdom (Piano Menu).mp3"
+dest_files=["res://.godot/imported/Lost Kingdom (Piano Menu).mp3-9c8bc0ee699731b8723592dfb9b71989.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

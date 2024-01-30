@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/levels/yassop_boss_room.gd" id="1_0885j"]
 [ext_resource type="TileSet" uid="uid://bt7q0pxm2e225" path="res://scenes/levels/catacomb.tres" id="1_o82pj"]
 [ext_resource type="PackedScene" uid="uid://cuwmo8ls6djsf" path="res://scenes/fog.tscn" id="2_al7w7"]
-[ext_resource type="AudioStream" uid="uid://cin3kfho05fog" path="res://assets/Sounds/boss sfx/02.Fight_Till_Death.wav" id="3_tsd7m"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="4_3bsmc"]
+[ext_resource type="AudioStream" uid="uid://b6sjcmc658xv2" path="res://assets/Sounds/boss sfx/02.Fight_Till_Death.mp3" id="4_vptbc"]
 [ext_resource type="PackedScene" uid="uid://bf33gkctekuso" path="res://scenes/ui/exp_bar.tscn" id="5_8ejau"]
 [ext_resource type="Texture2D" uid="uid://dnrfemhit7nga" path="res://assets/Skins/Player skins/character icon/saber_icon.png" id="6_35feh"]
 [ext_resource type="Texture2D" uid="uid://brocy360o801q" path="res://assets/Skins/Player skins/character icon/miko_icon.png" id="7_uiuqa"]
@@ -44,7 +44,7 @@ layer_2/tile_data = PackedInt32Array(1572882, 589824, 4, 1507346, 589824, 4, 150
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_al7w7")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_tsd7m")
+stream = ExtResource("4_vptbc")
 volume_db = -11.0
 autoplay = true
 max_distance = 10000.0

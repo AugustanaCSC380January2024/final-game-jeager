@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cuwmo8ls6djsf" path="res://scenes/fog.tscn" id="5_vsi5o"]
 [ext_resource type="PackedScene" uid="uid://n20hkt6h5ost" path="res://scenes/players/hayate.tscn" id="6_swj16"]
 [ext_resource type="PackedScene" uid="uid://dtqrqk0yreyfx" path="res://scenes/other/columns.tscn" id="9_croms"]
-[ext_resource type="AudioStream" uid="uid://dfcg00v0jtqm6" path="res://assets/Sounds/boss sfx/Piano Pack - Track 05.wav" id="10_am8fl"]
+[ext_resource type="AudioStream" uid="uid://dmqi2uow2utfk" path="res://assets/Sounds/boss sfx/Piano Pack - Track 05.mp3" id="11_134hf"]
 [ext_resource type="PackedScene" uid="uid://uwslpr5x07yc" path="res://scenes/ui/health_bar.tscn" id="11_dcxe6"]
 [ext_resource type="PackedScene" uid="uid://bf33gkctekuso" path="res://scenes/ui/exp_bar.tscn" id="12_k32jy"]
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="13_wk4px"]
@@ -6486,7 +6486,7 @@ offset_bottom = 270.909
 color = Color(0.862745, 0, 0, 1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_am8fl")
+stream = ExtResource("11_134hf")
 volume_db = -11.0
 autoplay = true
 max_distance = 10000.0

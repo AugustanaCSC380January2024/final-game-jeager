@@ -19,8 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://cmt7stfwubunv" path="res://scenes/levels/yassop_boss_room.tscn" id="19_a8c0x"]
 [ext_resource type="PackedScene" uid="uid://cmrdhph8qippw" path="res://scenes/players/companion.tscn" id="19_p08qv"]
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="19_rlk5a"]
-[ext_resource type="AudioStream" uid="uid://dvn5idd8eqon4" path="res://assets/Sounds/game sfx/Aspiration Woods (Area Theme).wav" id="20_17ytd"]
 [ext_resource type="PackedScene" uid="uid://c3s1takx64jk2" path="res://scenes/enemy/normal enemy/harbinger.tscn" id="20_iejjj"]
+[ext_resource type="AudioStream" uid="uid://bie07dnio1w81" path="res://assets/Sounds/game sfx/Aspiration Woods (Area Theme).mp3" id="21_lvari"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugshl"]
 size = Vector2(206.512, 237.588)
@@ -326,7 +326,7 @@ scale = Vector2(1.39066, 1.39066)
 next_scene = ExtResource("19_a8c0x")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("20_17ytd")
+stream = ExtResource("21_lvari")
 volume_db = -4.0
 autoplay = true
 max_distance = 10000.0
