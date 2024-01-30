@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8xhtdf10lpt"
+path="res://.godot/imported/death attack 2.mp3-933b73ef7ce0a935aa1b66e3e418d26f.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/death boss/death attack 2.mp3"
+dest_files=["res://.godot/imported/death attack 2.mp3-933b73ef7ce0a935aa1b66e3e418d26f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
