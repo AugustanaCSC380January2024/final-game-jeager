@@ -1,16 +1,18 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed = 150
-@export var max_health_points = 100
-@export var health_points = max_health_points
-@export var defence = 30
-@export var attack = 50
 @export var level = 1
+@export var speed = 150
+@export var max_health_points = 150
+@export var defence = 30
+@export var attack = 30
+@export var health_points = max_health_points
+
 var ultimate_damage
 
 signal health_changed
 signal shoot_arrow
+signal player_death
 
 @onready var DAMAGE_INDICATOR = preload("res://scenes/ui/damage_indicator.tscn")
 @onready var animated_sprite = $AnimatedSprite2D
@@ -37,8 +39,7 @@ func _ready():
 	ultimate.animation_finished.connect(_on_ultimate_animation_finished)
 	damage_hitbox.body_entered.connect(_on_damage_hit_box_body_entered)
 	damage_hitbox.body_exited.connect(_on_damage_hit_box_body_exited)
-	ultimate_damage = attack * 2
-	print(ultimate_damage)
+	update_stats()
 
 func _physics_process(delta):
 	var left_right_direction = 0
@@ -194,3 +195,11 @@ func _on_damage_hit_box_body_exited(body):
 
 func is_alive():
 	return alive
+
+func update_stats():
+	attack += level * 10
+	defence += level * 10
+	max_health_points += level * 20
+	health_points = max_health_points
+	ultimate_damage = attack * 2
+	health_bar.update_health_bar()

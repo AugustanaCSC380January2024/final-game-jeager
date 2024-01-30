@@ -13,9 +13,12 @@ func _process(delta):
 
 func update_health_bar():
 	if character:
+		#var health_ratio = 1
+		#print(character.health_points)
 		var health_ratio : float = float(character.health_points) / float(character.max_health_points)
 		# Set the progress bar value based on the ratio
 		value = health_ratio*100
+		
 		$Label.text = str(character.health_points) + "/" + str(character.max_health_points)
 
 func change_player(new_player):

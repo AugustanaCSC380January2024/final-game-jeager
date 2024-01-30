@@ -445,8 +445,10 @@ stream_3/weight = 1.0
 [node name="saber" type="CharacterBody2D"]
 collision_mask = 44
 script = ExtResource("1_bvcqm")
+speed = 350
+max_health_points = 100
 defence = 50
-attack = 70
+attack = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true

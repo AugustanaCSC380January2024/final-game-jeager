@@ -15,17 +15,14 @@ class_name Level
 @onready var exp_bar = $CanvasLayer/exp_bar
 @onready var canvas_layer = $CanvasLayer
 @onready var cooldown = $CanvasLayer/cooldown
-
 @onready var pause = false
-
-
-#@onready var pausemenu = preload("res://scenes/ui/pausemenu.tscn")
 @onready var pausemenu = $CanvasLayer/pausemenu
-
-
-
+@onready var portal = $map_props/portal
 
 var curr_player: CharacterBody2D
+var curr_level_file_path = "res://curr_level.txt"
+var character_switch
+var alive_players = []
 
 func _ready():
 	miko.visible = false
@@ -37,8 +34,11 @@ func _ready():
 	curr_player = hayate
 	camera.set_zoom(Vector2(1.2,1.2))
 	curr_player.add_child(camera)
-	
-	#camera.add_child(pausemenu)
+	load_level()
+	miko.update_stats()
+	saber.update_stats()
+	hayate.update_stats()
+	alive_players = [miko, saber, hayate]
 	
 	hayate.shoot_arrow.connect(_on_shoot_arrow)
 	$hayate/RayCast2D.enemy_detected.connect(_on_ray_cast_2d_enemy_detected)
@@ -50,12 +50,6 @@ func _ready():
 	
 	for enemy in enemies.get_children():
 		enemy.connect("enemy_death", _enemy_killed)
-
-#func _process(delta):
-	#if Input.is_action_just_pressed("ultimate"):
-		#if (cooldown.over()):
-			#cooldown.start_timer()
-			#curr_player.ultimate_attack()
 
 func _enemy_killed(pos):
 	var new_particle = absorb_particles.instantiate()
@@ -72,17 +66,16 @@ func _physics_process(delta):
 		change_curr_player(miko)
 	if Input.is_action_just_pressed("character 3 selected"):
 		change_curr_player(saber)
+	save_level()
 
 func change_curr_player(new_player):
 	if (curr_player != new_player) and !curr_player.is_attacking():
+		CharacerSwitchSound.play()
 		new_player.global_position = curr_player.global_position
 		curr_player.visible = false
 		curr_player.set_stop_movement(true)
 		curr_player.remove_child(camera)
 		new_player.add_child(camera)
-		
-		#new_player.add_child(pausemenu)
-		
 		
 		curr_player.global_position = Vector2(-10000, -10000)
 		curr_player = new_player
@@ -127,5 +120,18 @@ func pauseMenu():
 	else:
 		pausemenu.show()
 		Engine.time_scale = 0
-	
 	pause = !pause
+
+func save_level():
+	var file = FileAccess.open(curr_level_file_path, FileAccess.WRITE)
+	file.store_line(str(exp_bar.get_level()))
+	file = null
+
+func load_level():
+	var file = FileAccess.open(curr_level_file_path, FileAccess.READ)
+	if file:
+		var level = file.get_line()
+		file = null
+		exp_bar.set_level(float(level))
+	else:
+		exp_bar.set_level(1.0)

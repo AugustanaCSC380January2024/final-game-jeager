@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1ok1eg30cgox"]
+
+[ext_resource type="AudioStream" uid="uid://c3huoh2n0pya" path="res://assets/Sounds/other/character switch.wav" id="1_p4fi4"]
+
+[node name="characer_switch_sound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_p4fi4")

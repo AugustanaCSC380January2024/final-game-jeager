@@ -10,6 +10,7 @@ var tutorial = true
 @onready var slimeattack_label : Label = $tutorial/slimeattack/Label
 @onready var hint1_label: Label = $tutorial/hint1/Label
 @onready var rune_label: Label = $tutorial/rune/Label
+@onready var slime_message_label = $tutorial/slime_message/Label
 
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
@@ -89,3 +90,12 @@ func _on_rune_body_entered(body):
 
 func _on_rune_body_exited(body):
 	hide_label(rune_label)
+
+
+func _on_slime_message_body_entered(body):
+	show_label(slime_message_label ,"The slime is greatful and want's to join 
+	you as a companion. In exchange the slime will absorb the enemies
+	you defeat and provide you with gems that the aid in leveling up.")
+
+func _on_slime_message_body_exited(body):
+	hide_label(slime_message_label)

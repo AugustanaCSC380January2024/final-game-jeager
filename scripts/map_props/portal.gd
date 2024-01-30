@@ -7,6 +7,8 @@ extends Area2D
 
 var portal_unlocked = false
 
+signal entered
+
 func _ready():
 	body_entered.connect(_on_body_entered)
 	label.visible = false
@@ -24,6 +26,7 @@ func unlock_portal():
 	
 func _on_body_entered(body):
 	if portal_unlocked:
+		entered.emit()
 		get_tree().change_scene_to_packed(next_scene)
 	else:
 		label.visible = true

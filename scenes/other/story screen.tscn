@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0t1gjuksb4um"]
+
+[ext_resource type="Script" path="res://scripts/UI/story screen.gd" id="1_bsrio"]
+[ext_resource type="Texture2D" uid="uid://c4agttxq2gttj" path="res://assets/story/1.png" id="1_yb0pm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bsrio")
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(641, 2737)
+scale = Vector2(0.81758, 0.81758)
+texture = ExtResource("1_yb0pm")

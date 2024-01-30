@@ -21,8 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://d2wdum7bclufv" path="res://scenes/ui/cooldown.tscn" id="19_rlk5a"]
 [ext_resource type="PackedScene" path="res://scenes/enemy/normal enemy/harbinger.tscn" id="20_iejjj"]
 [ext_resource type="AudioStream" uid="uid://bie07dnio1w81" path="res://assets/Sounds/game sfx/Aspiration Woods (Area Theme).mp3" id="21_lvari"]
-[ext_resource type="PackedScene" uid="uid://dy6pk518wgdmh" path="res://scenes/enemy/boss/final boss.tscn" id="22_26eue"]
-[ext_resource type="PackedScene" uid="uid://bj33gbt44b1mr" path="res://scenes/ui/pausemenu.tscn" id="23_dkrj3"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pausemenu.tscn" id="23_dkrj3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugshl"]
 size = Vector2(206.512, 237.588)
@@ -47,6 +46,9 @@ size = Vector2(332.367, 237.588)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nhjg"]
 size = Vector2(198.864, 132.7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wweu5"]
+size = Vector2(236.892, 177.094)
 
 [node name="Level 1" type="Node2D"]
 y_sort_enabled = true
@@ -205,22 +207,46 @@ offset_top = -143.238
 offset_right = 1324.67
 offset_bottom = -42.2376
 
+[node name="slime_message" type="Area2D" parent="tutorial"]
+position = Vector2(2218.79, 271.178)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/slime_message"]
+position = Vector2(111.252, 13.9066)
+shape = SubResource("RectangleShape2D_wweu5")
+
+[node name="Label" type="Label" parent="tutorial/slime_message"]
+offset_left = -68.1422
+offset_top = 25.7272
+offset_right = 102.858
+offset_bottom = 90.7272
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="health_bar" parent="CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("8_ptpph")]
-offset_top = 644.0
-offset_bottom = -49.0
+offset_left = 416.0
+offset_top = 624.0
+offset_right = -416.0
+offset_bottom = -69.0
 character = NodePath("../../hayate")
 
 [node name="exp_bar" parent="CanvasLayer" instance=ExtResource("15_o6tcl")]
-offset_top = 680.0
-offset_bottom = 707.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -53.0
+offset_right = 224.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="press_shoot_label" type="Label" parent="CanvasLayer"]
-offset_left = 526.0
-offset_top = 693.0
-offset_right = 689.0
-offset_bottom = 716.0
+offset_left = 572.0
+offset_top = 592.0
+offset_right = 735.0
+offset_bottom = 615.0
 text = "Press Space To Shoot"
 
 [node name="party_health_bars" type="Node" parent="CanvasLayer"]
@@ -337,9 +363,6 @@ volume_db = -4.0
 autoplay = true
 max_distance = 10000.0
 
-[node name="final boss" parent="." instance=ExtResource("22_26eue")]
-position = Vector2(1595.78, 1357.98)
-
 [connection signal="body_entered" from="tutorial/movement" to="." method="_on_movement_body_entered"]
 [connection signal="body_exited" from="tutorial/movement" to="." method="_on_movement_body_exited"]
 [connection signal="body_entered" from="tutorial/switch" to="." method="_on_switch_body_entered"]
@@ -356,6 +379,8 @@ position = Vector2(1595.78, 1357.98)
 [connection signal="body_exited" from="tutorial/slimeattack" to="." method="_on_slimeattack_body_exited"]
 [connection signal="body_entered" from="tutorial/hint1" to="." method="_on_areasplash_2_body_entered"]
 [connection signal="body_exited" from="tutorial/hint1" to="." method="_on_areasplash_2_body_exited"]
+[connection signal="body_entered" from="tutorial/slime_message" to="." method="_on_slime_message_body_entered"]
+[connection signal="body_exited" from="tutorial/slime_message" to="." method="_on_slime_message_body_exited"]
 
 [editable path="CanvasLayer/party_health_bars/saber_mini_health_bar"]
 [editable path="CanvasLayer/party_health_bars/miko_mini_health_bar"]

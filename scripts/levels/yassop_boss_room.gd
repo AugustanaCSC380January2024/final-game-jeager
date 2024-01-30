@@ -2,7 +2,6 @@ extends Level
 
 @onready var dart = preload("res://scenes/attacks/dart.tscn")
 @onready var yassop = $enemies/Yassop
-@onready var portal = $map_props/portal
 
 func _on_yassop_shoot_dart(dart_direction):
 	var new_dart = dart.instantiate()
