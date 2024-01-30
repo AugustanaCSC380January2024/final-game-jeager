@@ -16,6 +16,15 @@ class_name Level
 @onready var canvas_layer = $CanvasLayer
 @onready var cooldown = $CanvasLayer/cooldown
 
+@onready var pause = false
+
+
+#@onready var pausemenu = preload("res://scenes/ui/pausemenu.tscn")
+@onready var pausemenu = $CanvasLayer/pausemenu
+
+
+
+
 var curr_player: CharacterBody2D
 
 func _ready():
@@ -28,6 +37,9 @@ func _ready():
 	curr_player = hayate
 	camera.set_zoom(Vector2(1.2,1.2))
 	curr_player.add_child(camera)
+	
+	#camera.add_child(pausemenu)
+	
 	hayate.shoot_arrow.connect(_on_shoot_arrow)
 	$hayate/RayCast2D.enemy_detected.connect(_on_ray_cast_2d_enemy_detected)
 	$hayate/RayCast2D.enemy_not_detected.connect(_on_ray_cast_2d_enemy_not_detected)
@@ -68,6 +80,10 @@ func change_curr_player(new_player):
 		curr_player.set_stop_movement(true)
 		curr_player.remove_child(camera)
 		new_player.add_child(camera)
+		
+		#new_player.add_child(pausemenu)
+		
+		
 		curr_player.global_position = Vector2(-10000, -10000)
 		curr_player = new_player
 		companion.player = curr_player
@@ -103,3 +119,13 @@ func spawn_coin():
 	add_child(new_coin)
 	new_coin.global_position = companion.global_position
 	new_coin.coin_collected.connect(exp_bar.update_exp_bar)
+	
+func pauseMenu():
+	if pause:
+		pausemenu.hide()
+		Engine.time_scale = 1
+	else:
+		pausemenu.show()
+		Engine.time_scale = 0
+	
+	pause = !pause

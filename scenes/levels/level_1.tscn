@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://wae2wvwtw2jd"]
+[gd_scene load_steps=32 format=3 uid="uid://wae2wvwtw2jd"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_5bloe"]
 [ext_resource type="PackedScene" uid="uid://cbbnm3cctu4sp" path="res://scenes/enemy/normal enemy/skeleton.tscn" id="2_7wrks"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://c3s1takx64jk2" path="res://scenes/enemy/normal enemy/harbinger.tscn" id="20_iejjj"]
 [ext_resource type="AudioStream" uid="uid://bie07dnio1w81" path="res://assets/Sounds/game sfx/Aspiration Woods (Area Theme).mp3" id="21_lvari"]
 [ext_resource type="PackedScene" uid="uid://dy6pk518wgdmh" path="res://scenes/enemy/boss/final boss.tscn" id="22_26eue"]
+[ext_resource type="PackedScene" uid="uid://bj33gbt44b1mr" path="res://scenes/ui/pausemenu.tscn" id="23_dkrj3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugshl"]
 size = Vector2(206.512, 237.588)
@@ -275,6 +276,12 @@ texture = ExtResource("9_hais5")
 [node name="cooldown" parent="CanvasLayer" node_paths=PackedStringArray("timer") instance=ExtResource("19_rlk5a")]
 position = Vector2(1197, 642)
 timer = NodePath("../../hayate/cooldown")
+
+[node name="pausemenu" parent="CanvasLayer" instance=ExtResource("23_dkrj3")]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 6.0
+offset_bottom = 6.0
 
 [node name="companion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_p08qv")]
 position = Vector2(722.446, -410.939)
