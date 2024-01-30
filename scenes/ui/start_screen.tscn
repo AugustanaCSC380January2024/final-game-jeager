@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxfu1pfguf1sm"]
+
+[ext_resource type="Script" path="res://scripts/UI/start_screen.gd" id="1_06w8p"]
+[ext_resource type="Texture2D" uid="uid://bokmlsnw7rb6q" path="res://assets/start_screen.png" id="1_j8pgy"]
+[ext_resource type="FontFile" uid="uid://dmutl4bou2pmm" path="res://assets/fonts/DigitalDisco.ttf" id="2_x6wjc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1v8m"]
+font = ExtResource("2_x6wjc")
+font_size = 100
+
+[sub_resource type="Theme" id="Theme_1e2r8"]
+default_font = ExtResource("2_x6wjc")
+default_font_size = 50
+
+[node name="start_screen" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_06w8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(939.919, 185.125)
+scale = Vector2(0.751059, 0.751059)
+texture = ExtResource("1_j8pgy")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = 83.0
+offset_right = 1043.0
+offset_bottom = 183.0
+grow_vertical = 0
+text = "Trials of the Triad"
+label_settings = SubResource("LabelSettings_q1v8m")
+
+[node name="start" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = 234.0
+offset_right = 1050.0
+offset_bottom = 344.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1e2r8")
+text = "START"
+
+[node name="quit" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = 416.0
+offset_right = 1050.0
+offset_bottom = 526.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1e2r8")
+text = "QUIT"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://diluk215sbteu"]
+[gd_scene load_steps=14 format=3 uid="uid://diluk215sbteu"]
 
 [ext_resource type="Texture2D" uid="uid://c85dore82lgso" path="res://assets/Skins/Player skins/Hayate/Arrow.png" id="1_cxbav"]
 [ext_resource type="Script" path="res://scripts/attacks/projectiles.gd" id="1_okcvq"]
+[ext_resource type="AudioStream" uid="uid://dxlwqd3k4rq5n" path="res://assets/Sounds/hayate/atk/arrow-impact-87260.mp3" id="3_0c5sm"]
+[ext_resource type="AudioStream" uid="uid://dbmg82k2f6n65" path="res://assets/Sounds/hayate/atk/fast-whoosh-118248.mp3" id="4_e66ld"]
+[ext_resource type="AudioStream" uid="uid://codbhjp4vedcn" path="res://assets/Sounds/hayate/atk/weapon-arrow-shot-01-153370.mp3" id="5_qwdqp"]
+[ext_resource type="AudioStream" uid="uid://ctemxqcj86rmr" path="res://assets/Sounds/hayate/atk/whoosh-transitions-sfx-01-118227.mp3" id="6_rcs0g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkgjv"]
 size = Vector2(24, 19.5)
@@ -30,6 +34,17 @@ gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_jeo4b")
 color_ramp = SubResource("GradientTexture1D_b4fav")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4kqb4"]
+streams_count = 4
+stream_0/stream = ExtResource("3_0c5sm")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_e66ld")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_qwdqp")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_rcs0g")
+stream_3/weight = 1.0
+
 [node name="arrow" type="Area2D"]
 collision_mask = 10
 script = ExtResource("1_okcvq")
@@ -49,3 +64,8 @@ one_shot = true
 position = Vector2(-20, 0)
 amount = 150
 process_material = SubResource("ParticleProcessMaterial_moj23")
+
+[node name="audio_player" type="Node2D" parent="."]
+
+[node name="launch" type="AudioStreamPlayer2D" parent="audio_player"]
+stream = SubResource("AudioStreamRandomizer_4kqb4")

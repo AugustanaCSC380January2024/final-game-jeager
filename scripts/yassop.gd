@@ -26,6 +26,7 @@ var animation_playing = false
 var player_in_damage_hit_box: CharacterBody2D
 var attacks = ["attack", "attack 1", "attack 2"]
 var invincible = false
+var alive = true
 
 signal enemy_death
 signal health_changed
@@ -43,7 +44,7 @@ func _ready():
 
 func _physics_process(delta):
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
-	if !animation_playing:
+	if !animation_playing and alive:
 		if player_in_damage_hit_box != null and player != DEFAULT_PLAYER:
 			if (attack_cooldown_timer.is_stopped()):
 				animated_sprite.play(attacks[randi_range(0, 2)])
@@ -86,12 +87,13 @@ func take_damage(damage):
 	if !invincible:
 		health_points -= damage
 		spawn_dmgIndicator(damage)
-		if name == "Yassop" and (float(health_points) / max_health_points < 0.5):
-			disguise()
 		health_changed.emit()
 		if (health_points <= 0):
 			animation_playing = true
+			alive = false
 			animated_sprite.play("death")
+		if (float(health_points) / max_health_points < 0.5) and alive:
+			disguise()
 
 func spawn_effect(EFFECT: PackedScene, effect_position):
 	if EFFECT:
@@ -122,10 +124,12 @@ func _on_player_detection_area_body_entered(body):
 		if !invincible:
 			if name == "Yassop" and (float(health_points) / max_health_points < 0.5):
 				disguise()
+				
 func disguise():
 	animated_sprite.play("disguise")
 	animation_playing = true
 	invincible = true
+	
 func _on_player_detection_area_body_exited(body):
 	if body is Player:
 		player = DEFAULT_PLAYER
