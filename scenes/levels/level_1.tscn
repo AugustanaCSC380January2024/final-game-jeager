@@ -97,6 +97,10 @@ player = NodePath("../../../companionTutorial")
 position = Vector2(2765, 150)
 player = NodePath("../../../companionTutorial")
 
+[node name="harbinger" parent="enemies" instance=ExtResource("20_iejjj")]
+position = Vector2(1655.58, 942.17)
+player_detection_range = 4
+
 [node name="tutorial" type="Node2D" parent="."]
 
 [node name="movement" type="Area2D" parent="tutorial"]
@@ -281,8 +285,7 @@ speed = 300
 attack = 600
 
 [node name="hayate" parent="." instance=ExtResource("5_8o2p0")]
-position = Vector2(232.24, 271.873)
-metadata/_edit_lock_ = true
+position = Vector2(1374.66, 907.403)
 
 [node name="miko" parent="." instance=ExtResource("3_q1siq")]
 position = Vector2(2045.66, -1036.73)
@@ -321,9 +324,6 @@ scale = Vector2(2.08598, 2.08598)
 position = Vector2(3396.68, 962.334)
 scale = Vector2(1.39066, 1.39066)
 next_scene = ExtResource("19_a8c0x")
-
-[node name="harbinger" parent="map_props" instance=ExtResource("20_iejjj")]
-position = Vector2(463.784, 267.701)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_17ytd")
